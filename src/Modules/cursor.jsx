@@ -7,20 +7,28 @@ function Cursor() {
   const [position, setPosition] = useState({ x: 0, y: 0});
   const [hovering, setHovering] = useState(null);
   
+  
   //Cursor Size
   const cursorSize = 30;
 
- 
+
+
+
+  
 
 
 
   useEffect(() => {
+    
+    
+
     const handleMouseMove = (e) => {
       adjustCursorPosition(e.clientX, e.clientY);
   
     };
     
     const handleMouseOver = (e) => {
+      
       if (e.target.className.includes('textC')) {
         setHovering('text');
         console.log("text");}
@@ -92,6 +100,8 @@ const renderArrow = () => {
   }
   return null;
 };
+
+
 
 
 
