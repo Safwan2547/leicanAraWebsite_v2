@@ -29,7 +29,7 @@ const ProjectPage = () => {
   }, [projectKey]);
 
   return (
-    <div className="w-screen h-full  bg-white">
+    <div className=" text-NightFall w-screen h-full  bg-white">
       {projectData ? (
         <>
         <section id='landing' className='mt-24 ' >
@@ -49,7 +49,7 @@ const ProjectPage = () => {
             
           </section>
           <section id='projectInfo1' className='relative justify-center
-           flex     mt-20'>
+           flex  mt-20'>
             
             <div id='ambition' className="w-2/3 ">
             <h4 className='text-2xl textP font-light font-Satoshi'>Ambition:</h4>
@@ -106,9 +106,14 @@ const ProjectPage = () => {
             <video alt={projectData.vidAlt2} autoPlay loop  muted className='w-1/3 p-10 aspect-[1/2] object-cover ' src={projectData.video2} ></video>
             <img className="  w-1/2" src={projectData.image2} alt="" />
             </div>
+            <div id='visualSection2 ' className='flex flex-col justify-center items-center w-[100vw]'>
+            <video alt={projectData.vidAlt2} autoPlay loop  muted className='w-2/3 p-10 aspect-video object-cover ' src={projectData.video3} ></video>
+            <img className="  w-1/2" src={projectData.image3} alt="" />
+            </div>
             
           </section>
           <section>
+            
 
 
           </section>

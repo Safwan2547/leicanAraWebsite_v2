@@ -7,8 +7,10 @@ import starFallImage2 from "../../Assets/STARFALL MOBILE WEBSITE MOCKUP v1.jpg"
 import LeicanAraPhoto from "../../Assets/Magazine.png"
 import SvavaPhoto from "../../Assets/Zen.jpg"
 import leicanAraPortrait from "../../Assets/portrait uw.png"
-import starFallvideo2 from "../../Assets/Laptop Mockup 1080 v2.mp4"
-
+import starFallVideo2 from "../../Assets/Laptop Mockup 1080 v2.mp4"
+import starFallVideo3 from "../../Assets/StarFall Colors 6.mp4" 
+import starFallImage3 from "../../Assets/StarFall Logo Showcase Mockup .jpg"
+ 
 
 
 
@@ -44,10 +46,12 @@ const projects = [
 
       image1:starFallImage1,
       image2:starFallImage2,
+      image3:starFallImage3,
 
-      video1:starFallvideo2  ,
+      video1:starFallVideo2  ,
       video1Alt:"video description",
       video2:starFallVideo,
+      video3:starFallVideo3,
 
     },
     {
