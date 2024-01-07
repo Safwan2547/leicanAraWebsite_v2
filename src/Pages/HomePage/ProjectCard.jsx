@@ -35,13 +35,14 @@ const checkIsMobile = () => {
 
   // Render the project card
   return (
-    <div className='watcher overflow-hidden w-full  h-full snap-start relative enterC  flex' >
-      {/* Use TransitionLink component with the project's link */}
-      <TransitionLink
+    <TransitionLink
         to={`/${project.key}`} 
         className="enterC"
        
       >
+    <div className='watcher overflow-hidden w-full  h-full snap-start relative enterC  flex' >
+      {/* Use TransitionLink component with the project's link */}
+      
         <div className="enterC object-cover overflow-x-visible   rounded transition-all duration-300">
           <div className={`relative enterC snap-center transition-all duration-[600ms] overflow-hidden`}>
             {/* Render image or video  based on the project type */}
@@ -91,7 +92,6 @@ const checkIsMobile = () => {
                         ${isHovered ? 'opacity-100' : 'opacity-100'}`}
           ></div>
         </div>
-      </TransitionLink>
       {/* Additional project information */}
       <div className="cursor-none enterC ml-10 mt-10 col-span-4 absolute">
         
@@ -105,6 +105,8 @@ const checkIsMobile = () => {
          project.mainHeader)}</p>
       </div>
     </div>
+    </TransitionLink>
+
   );
 };
 

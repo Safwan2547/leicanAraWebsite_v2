@@ -26,10 +26,13 @@
   },
   "scripts": {
     "start": "BROWSER=safari TAILWIND_MODE=watch vite",
-    "build": "vite build",
+    "build": "vite build && vite-plugin-compression",
     "test": "vite test",
     "eject": "vite eject",
-    "build:css": "postcss src/tailwind.css -o src/index.css"
+    "build:css": "postcss src/tailwind.css -o src/index.css",
+    "build:compress": "vite build && vite-plugin-compression"
+
+    
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +57,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
+    "brotli-webpack-plugin": "^1.1.0",
     "create-vite": "^4.4.1",
     "postcss-cli": "^10.1.0",
     "process": "^0.11.10",
@@ -63,5 +67,6 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0"
+    
   }
 }

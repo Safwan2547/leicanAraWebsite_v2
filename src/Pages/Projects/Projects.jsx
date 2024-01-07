@@ -1,19 +1,19 @@
 import React, { useRef,useState, useEffect } from 'react';
 
 
-import LeicanAraPhoto from "../../Assets/Magazine.png"
-import SvavaPhoto from "../../Assets/Zen.jpg"
-import leicanAraPortrait from "../../Assets/portrait uw.png"
+import LeicanAraPhoto from "../../Assets/Magazine.webp"
+import SvavaPhoto from "../../Assets/Zen.webp"
+import leicanAraPortrait from "../../Assets/portrait uw.webp"
 
 //Starfall Imports
 import starFallVideo from "../../Assets/StarFall insta reel blue.mp4"
-import starFallPhoto from "../../Assets/Container-Mockup.jpg"
-import starFallImage1 from "../../Assets/Ecostellar v4.jpg"
-import starFallImage2 from "../../Assets/STARFALL MOBILE WEBSITE MOCKUP v1.jpg"
+import starFallPhoto from "../../Assets/Container-Mockup.webp"
+import starFallImage1 from "../../Assets/Ecostellar v4.webp"
+import starFallImage2 from "../../Assets/STARFALL MOBILE WEBSITE MOCKUP v1.webp"
 import starFallVideo2 from "../../Assets/Laptop Mockup 1080 v2.mp4"
 import starFallVideo3 from "../../Assets/StarFall Colors 6.mp4" 
-import starFallImage3 from "../../Assets/Mockup 3.jpg"
-import starFallImage4 from "../../Assets/StarFall Thumbnail-4.png"
+import starFallImage3 from "../../Assets/Mockup 3.webp"
+import starFallImage4 from "../../Assets/StarFall Thumbnail-4.webp"
 import starFallIntroVideo from "../../Assets/StarFall Introducing website2.mp4"
 import starFallPrologue from "../../Assets/StarFall Founded Graphic v2.mp4"
  
