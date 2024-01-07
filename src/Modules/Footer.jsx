@@ -1,10 +1,15 @@
 import React from 'react';
 import logo from '../Assets/Logo.svg';
 import instagram_logo from '../Assets/Instagram_Glyph_Black.svg';
-
+import Marquee from 'react-fast-marquee';
 function Footer() {
   return (
+    <div>
+      <Marquee autoFill={true} speed={25} className={`p-5  text-NightFall opacity-90 textC hover:text-LunarTwilight duration-1000
+        transition-all font-Lora text-4xl sm:text-7xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
+    
     <footer className="relative p-10 sm:p-10 flex justify-normal items-center h-64 bg-NightFall text-nightfall py-24">
+      
       <div className="container mx-auto flex justify-center items-center">
         {/* Braided star image */}
         {/* <div className="flex space-x-2 sm:justify-evenly sm:w-1/3">
@@ -41,6 +46,7 @@ function Footer() {
         <p>Designed and Developed by LeicanAra<br />All Rights Reserved</p>
       </div>
     </footer>
+    </div>
   );
 }
 

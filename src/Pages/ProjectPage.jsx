@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import { Link, animateScroll as scroll } from "react-scroll";
 import projects from './Projects/Projects';
 import Footer from '../Modules/Footer';
+import Marquee from "react-fast-marquee";
+
 
 const ProjectPage = () => {
   const { projectKey } = useParams();
@@ -24,7 +26,6 @@ const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margi
 // Use this to separate things that should be close together, such as headers and descriptions, etc.
 const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
 
-console.log(marginExpression3); 
 
   useEffect(() => {
     // Fetch project details based on projectKey from Projects
@@ -44,7 +45,7 @@ console.log(marginExpression3);
     <div className=" text-NightFall w-screen h-full  bg-white">
       {projectData ? (
         <>
-        <section id='landing' className='mt-24 ' >
+        <section id='landing' className='mt-32 ' >
         {/* Contains main header and description for the landing */}
         <div id="headerInfo" className='flex justify-center w-full items-center  border-black  
         flex-col '>
@@ -52,7 +53,9 @@ console.log(marginExpression3);
           <p className='text-2xl textP m-6 font-Satoshi font-light '>{projectData.mainHeader}</p>
           
           </div>
-          <p className='pl-10'>{projectData.services}</p>
+          <Marquee autoFill={true} className={`p-5 opacity-90  text-NightFall font-Lora text-4xl sm:text-7xl `}>{projectData.services}</Marquee>
+         
+        
 
           <div className=' p-1 sm:p-5 ' id='thumbnail'>
             <img src={projectData.thumbnail2} ></img>
@@ -61,7 +64,8 @@ console.log(marginExpression3);
             
             
           </section>
-          <section id='prologue' className={`relative justify-center
+
+           <section id='prologue' className={`relative justify-center
            flex  ${marginExpression}`}>
             <div id='prologue' className="w-full  sm:p-0 sm:w-2/3 ">
               <div className='p-6 sm:p-0'>
@@ -82,7 +86,7 @@ console.log(marginExpression3);
             </div>
               {/* Render video or image based on file type */}
     {projectData.prologueContent && (
-      <div className={`p-1 sm:p-0 ${marginExpression2}`}>
+      <div className={`p-1  sm:p-0 ${marginExpression3}`}>
         {projectData.prologueContent.endsWith('.mp4') ? (
           <video
             alt={projectData.prologueContent}
@@ -115,7 +119,7 @@ console.log(marginExpression3);
             <div id='ambition' className="p-6 sm:w-2/3 sm:p-0 ">
             <h4 className='text-sm sm:text-2xl textP font-light  font-Satoshi'>Ambition:</h4>
             <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
-            <h1 id='ambitionHead' className={`text-3xl ${marginExpression2} textC font-light sm:text-5xl font-Lora`}> 
+            <h1 id='ambitionHead' className={`text-3xl ${marginExpression3} textC font-light sm:text-5xl font-Lora`}> 
             {projectData.ambitionHead}
           
             </h1>
@@ -219,6 +223,8 @@ console.log(marginExpression3);
           <div className='flex justify-center items-center'>
           <h1 id='finalWords' className='text-3xl font-Lora p-6 my-20 sm:p-10'>{projectData.finalWords} </h1>
           </div>
+         
+        
 
         
 

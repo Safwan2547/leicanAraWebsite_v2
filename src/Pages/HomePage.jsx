@@ -12,6 +12,7 @@ import { float } from '../Modules/floater';
 import Watcher from '../Modules/Watcher';
 import CallToAction from './HomePage/CallToAction';
 import { Parallax } from '@react-spring/parallax';
+import Marquee from 'react-fast-marquee';
 
 function HomePage() {
 
@@ -20,7 +21,8 @@ function HomePage() {
         <LandingPage  />
         <ProjectGrid projects={projects} />
         <CallToAction />
-        
+        <div className='buttonC cursor-none textC '>
+        </div>
       
     </div>
   );

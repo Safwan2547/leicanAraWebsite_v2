@@ -36,7 +36,7 @@ const projects = [
       projectLink: '/ProjectPage',
       textColor:"text-MainBeige",
   
-      services:"Branding, Vision, ",
+      services:"Branding  |  Vision  |  Art Direction  |",
 
       //Mobile Content
       mainHeaderMobile:"Beyond the Stars",
@@ -69,7 +69,7 @@ const projects = [
       video3:starFallVideo3,
 
 
-      finalWords:"The future is now."
+      finalWords:"The End."
     },
     {
       key:"leicanara",
