@@ -53,7 +53,7 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
           <p className='text-2xl textP m-6 font-Satoshi font-light '>{projectData.mainHeader}</p>
           
           </div>
-          <Marquee autoFill={true} className={`p-5 opacity-90  text-NightFall font-Lora text-4xl sm:text-7xl `}>{projectData.services}</Marquee>
+          <Marquee  autoFill={true} className={`p-5 opacity-90   text-NightFall font-Lora text-4xl sm:text-7xl `}> {projectData.services} </Marquee>
          
         
 

@@ -36,7 +36,7 @@ const projects = [
       projectLink: '/ProjectPage',
       textColor:"text-MainBeige",
   
-      services:"Branding  |  Vision  |  Art Direction  |",
+      services:"|  Branding  ||  Vision  ||  Art Direction || Web Design |",
 
       //Mobile Content
       mainHeaderMobile:"Beyond the Stars",
@@ -46,7 +46,7 @@ const projects = [
 
 
       //Project Page Content
-      thumbnail2:starFallImage4,
+      thumbnail2:starFallPhoto,
 
       prologueHead:"The year is 2051, ",
       ambitionHead:"To create a brand that inspires people to look beyond the stars and into the future.",

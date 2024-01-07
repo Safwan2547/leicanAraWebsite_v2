@@ -21,13 +21,13 @@ function LandingPage() {
   const landingAnimations=[
     // Initial state: set opacity to 0
     [".navItem", { opacity: 0 }], 
-    [".landingItem1", { opacity: 0,y:100}],
-    [".landingItem2", { opacity: 0,y:100}],
+    [".landingItem1", { opacity: 0,}],
+    [".landingItem2", { opacity: 0}],
     [".braidedStar", { opacity: 0}],  
     // Final state: set opacity to desired value
-    [".landingItem1",{ opacity: 1,y:0}, { duration: 1.5, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
-    [".landingItem2",{ opacity: 0.8,y:0}, { duration: 1, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
-    [".navItem", { opacity: 1 }, { duration: 0.3, delay: stagger(0.2) }],
+    [".landingItem1",{ opacity: 1,y:0}, { delay:0.5 ,duration: 1, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
+    [".landingItem2",{ opacity: 0.8,y:0}, { duration: 0.8, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
+    [".navItem", { opacity: 1 }, { duration: 1, delay: stagger(0.5) }],
     
     [".braidedStar",{ opacity: 1}, { duration: 0.2,easing:"ease-out"}],
   ];
