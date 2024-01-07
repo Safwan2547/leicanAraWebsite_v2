@@ -52,6 +52,8 @@ const projects = [
       ambitionHead:"To create a brand that inspires people to look beyond the stars and into the future.",
       challengeHead:"To create a revolution",
       approachHead:"The approach of brilliance",
+      identityHead:"The Triangulum ",
+      epilogueHead:"The Legacy ",
 
 
 
@@ -66,6 +68,8 @@ const projects = [
       video2:starFallVideo,
       video3:starFallVideo3,
 
+
+      finalWords:"The future is now."
     },
     {
       key:"leicanara",
