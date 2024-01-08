@@ -18,13 +18,13 @@ return(
       
 
     <div className={`pl-5 pr-5 w-full transition-opacity ease-elastic duration-1000 ${isMounted1 ? 'opacity-100' : 'opacity-0'} flex justify-center align-middle items-start flex-col sm:p-[10%]  mt-[35%] sm:mt-[0] prose sm:prose-xl mb-[10%]`}>
-        <p className=" textC sm:hover:text-LunarTwilight transition duration-200 text-left font-Satoshi text-7xl sm:text-9xl font-medium text-NightFall">
+        <h1 className=" textC  sm:hover:text-LunarTwilight transition duration-200 text-left font-Lora text-9xl sm:text-9xl font-normal text-NightFall">
           FAQs<span className='font-Lora'>:</span>
-        </p>
+        </h1>
         <div className={`transition-opacity ease-elastic duration-1000 ${isMounted2 ? 'opacity-100' : 'opacity-0'} flex flex-col flex-wrap sm:w-full w-full mt-5 sm:mt-10 justify-between items-start space-y-8 sm:space-y-12`}>
             <div className="">
-        <h3 className="faq-h3 textP">Hello! Are you a big company?</h3>
-        <p className="faq-P textP">Nope! We are a small design studio!
+        <h3 className="faq-h3 font-Lora text-5xl font-semibold textP">Hello! Are you a big company?</h3>
+        <p className="faq-P font-Satoshi font-light leading-loose text-3xl textP">Nope! We are a small design studio!
              Our size lets us create personalized, 
              innovative design solutions while fostering strong relationships with our clients. 
              They love it, and we think you will, too!</p>
@@ -63,7 +63,7 @@ return(
 
         </div>
       </div>
-      <Footer/>
+      
       
       
      

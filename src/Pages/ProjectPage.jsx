@@ -42,22 +42,22 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
   }, [projectKey]);
 
   return (
-    <div className=" text-NightFall w-screen h-full  bg-white">
+    <div className=" text-NightFall leading-relaxed w-screen h-full  bg-white">
       {projectData ? (
         <>
         <section id='landing' className='mt-32 ' >
         {/* Contains main header and description for the landing */}
         <div id="headerInfo" className='flex justify-center w-full items-center  border-black  
         flex-col '>
-          <h1 className='uppercase textC text-6xl sm:text-9xl text-NightFall tracking-wider font-normal font-Lora  '>{projectData.title}</h1>
-          <p className='text-2xl textP m-6 font-Satoshi font-light '>{projectData.mainHeader}</p>
+          <h1 className='uppercase textC text-6xl sm:text-9xl text-NightFall tracking-wider font-normal font-Satoshi  '>{projectData.title}</h1>
+          <p className={`text-3xl textP ${marginExpression3} font-Satoshi font-light `}>{projectData.mainHeader}</p>
           
           </div>
           {/* <Marquee  autoFill={true} className={`p-5 opacity-90 hidden sm:block  text-NightFall font-Lora text-4xl sm:text-7xl `}> {projectData.services} </Marquee> */}
          
         
 
-          <div className=' p-1 sm:p-5 ' id='thumbnail'>
+          <div className={ `p-1 sm:p-5 ${marginExpression2} `} id='thumbnail'>
             <img className=' w-screen object-cover sm:h-[90vh]' src={projectData.thumbnail2} ></img>
           </div>
             
@@ -69,13 +69,13 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
            flex  ${marginExpression}`}>
             <div id='prologue' className="w-full  sm:p-0 sm:w-2/3 ">
               <div className='p-6 sm:p-0'>
-            <h4 className='text-sm sm:text-2xl textP font-light  font-Satoshi'>Prologue:</h4>
+            <p className='text-sm sm:text-2xl textP font-light opacity-80  font-Satoshi'>Prologue:</p>
             <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5  bg-black'></div>
             <h1 id='prologue' className={`text-3xl ${marginExpression3} textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.prologueHead}
           
             </h1>
-            <p id='prologueDescription' className={`font-Satoshi textP ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
+            <p id='prologueDescription' className={`font-Satoshi  textP ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
             the printing and typesetting industry. Lorem Ipsum has been the industry's 
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type
              and scrambled it to make a type specimen book.</p>

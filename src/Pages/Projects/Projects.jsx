@@ -49,7 +49,7 @@ const projects = [
       thumbnail2:starFallPhoto,
 
       prologueHead:"The year is 2051, ",
-      ambitionHead:"To create a brand that inspires people to look beyond the stars and into the future.",
+      ambitionHead:"Aim for the Stars",
       challengeHead:"To create a revolution",
       approachHead:"The approach of brilliance",
       identityHead:"The Triangulum ",

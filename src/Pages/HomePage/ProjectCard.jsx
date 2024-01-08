@@ -96,11 +96,11 @@ const checkIsMobile = () => {
       <div className="cursor-none enterC ml-10 mt-10 col-span-4 absolute">
         
 
-        <h4 className={`enterC  text-4xl sm:text-3xl opacity-90 ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-1 mb-2`}>
+        <h4 className={`enterC font-Satoshi font-light  text-4xl sm:text-3xl opacity-90 ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-1 mb-2`}>
           {project.title}
         </h4>
-        <p className={`enterC ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Lora  font-normal w-2/3 text-6xl 
-         text-pretty sm:text-9xl `}>{
+        <p className={`enterC ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
+         text-pretty sm:text-9xl mt-2 sm:mt-5`}>{
          isMobile===true?(project.mainHeaderMobile):(
          project.mainHeader)}</p>
       </div>
