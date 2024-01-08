@@ -4,17 +4,14 @@ import instagram_logo from '../Assets/Instagram_Glyph_Black.svg';
 import Marquee from 'react-fast-marquee';
 function Footer() {
   return (
-    <div>
-      <Marquee autoFill={true} speed={25} className={`p-5  text-NightFall opacity-90 textC hover:text-LunarTwilight duration-1000
-        transition-all font-Lora text-4xl sm:text-7xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
+    <div className=' '>
+      <Marquee autoFill={true} speed={25} className={`p-5   text-NightFall opacity-90 textC hover:text-LunarTwilight duration-1000
+        transition-all font-Lora text-4xl sm:text-5xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
     
-    <footer className="relative p-10 sm:p-10 flex justify-normal items-center h-64 bg-NightFall text-nightfall py-24">
+    <footer className="relative p-10 overflow-hidden  flex justify-normal items-center h-64 bg-NightFall text-nightfall py-24">
       
       <div className="container mx-auto flex justify-center items-center">
-        {/* Braided star image */}
-        {/* <div className="flex space-x-2 sm:justify-evenly sm:w-1/3">
-          <img className='w-16 fill-white sm:w-16' src={logo} alt="LeicanAra logo" />
-        </div> */}
+        
         
         {/* Text section */}
         <div className='text-MainBeige  sm:text-center sm:text-sm   items-center justify-start text-left sm:flex'>
