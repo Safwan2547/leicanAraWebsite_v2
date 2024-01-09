@@ -36,11 +36,11 @@ const Navbar = () => {
 
     return (
         <nav className={`   appearance-none transition-opacity  ease-expo duration-1000 
-        flex align-middle justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
+        flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
             
             <TransitionLink to="/" className=' opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105
              hover:text-LunarTwilight hover:animate-pulse-slow
-             buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-normal cursor-none'>
+             buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none'>
               LeicanAra</TransitionLink>
             <div className="links flex justify-between items-center space-x-8">
             <Link to="" className=' navItem opacity-80 sm:hidden bg-none  text-white font-bold w-full flex justify-center align-middle items-center h-6  rounded-full relative'>
@@ -57,10 +57,10 @@ const Navbar = () => {
                 <TransitionLink 
                   to="/ContactPage" 
                   className='navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight 
-                  transform ease-in-out transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-normal cursor-none '>
+                  transform ease-in-out transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none '>
                   about
                 </TransitionLink>
-                 {<TransitionLink to="/FAQPage"  className=' ease-in-out navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-normal cursor-none '>faq</TransitionLink> }
+                 {<TransitionLink to="/FAQPage"  className=' ease-in-out navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none '>faq</TransitionLink> }
 
 
             </div>
