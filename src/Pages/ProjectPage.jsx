@@ -27,7 +27,7 @@ const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margi
 const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
 
 //This variable is used to add depth by scaling the hovered element.
-const floater= `hover:z-10 transition-all duration-1000 hover:scale-110  ease-in-out `;
+const floater= ` transition-all duration-1000   ease-in-out `;
 
 //This serves as body text modifier
 const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
@@ -49,23 +49,26 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
   }, [projectKey]);
 
   return (
-    <div className=" text-NightFall leading-relaxed w-screen h-full  bg-white">
+    <div className=" text-NightFall leading-relaxed  overflow-hidden bg-white">
       {projectData ? (
         <>
-        <section id='landing' className='mt-32 ' >
+        <section id='landing' className=' w-screen h-screen overflow-hidden ' >
+       
         {/* Contains main header and description for the landing */}
-        <div id="headerInfo" className='flex justify-center  w-full items-center  border-black  
-        flex-col '>
-          <h1 className='uppercase textC text-6xl sm:text-9xl text-NightFall tracking-wider font-normal font-Satoshi  '>{projectData.title}</h1>
-          <p className={`text-3xl textP ${marginExpression3} font-Satoshi font-light `}>{projectData.mainHeader}</p>
+        <div className={ `w-full h-full justify-center flex overflow-hidden items-center  `} id='thumbnail'>
+        <div id="headerInfo" className=' drop-shadow-lg flex  absolute  justify-evenly align-baseline bottom-16  w-full items-center  border-black  
+        flex-row '>
+          <h1 className='uppercase textC    text-6xl sm:text-7xl text-white tracking-wider font-normal font-Satoshi  '>{projectData.title}</h1>
+          <p className={`text-2xl text-white overflow-hidden textP align-baseline font-Satoshi font-light `}>{projectData.mainHeader}</p>
           
           </div>
+        
           {/* <Marquee  autoFill={true} className={`p-5 opacity-90 hidden sm:block  text-NightFall font-Lora text-4xl sm:text-7xl `}> {projectData.services} </Marquee> */}
          
         
 
-          <div className={ `p-1 sm:p-5  ${ marginExpression2} `} id='thumbnail'>
-            <img className=' w-screen object-cover sm:h-[90vh]' src={projectData.thumbnail2} ></img>
+          
+            <img className=' w-screen object-cover  sm:h-[100vh]' src={projectData.thumbnail2} ></img>
           </div>
             
             
@@ -82,10 +85,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
             {projectData.prologueHead}
           
             </h1>
-            <p id='prologueDescription' className={`font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
-            the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-             and scrambled it to make a type specimen book.</p>
+            <p id='prologueDescription' className={`font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >{projectData.prologueDescription}</p>
              </div>
              <div className={`flex justify-center drop-shadow items-center w-full ${floater}`}>
             <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" w-full  p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
@@ -130,10 +130,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
             {projectData.ambitionHead}
           
             </h1>
-            <p id='ambitionDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 ${marginExpression3} textP  font-light text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
-            the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-             and scrambled it to make a type specimen book.</p>
+            <p id='ambitionDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 ${marginExpression3} textP  font-light text-sm sm:text-2xl`} >{projectData.ambitionDescription}</p>
 
             </div>
            
@@ -152,10 +149,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
           <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
           <h1 id='challengeHead'  className={` ${marginExpression3} text-3xl textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.challengeHead}</h1>
-            <p id='challengeDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi textP ${marginExpression3}  font-light opacity-80 text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
-            the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-             and scrambled it to make a type specimen book.</p>
+            <p id='challengeDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi textP ${marginExpression3}  font-light opacity-80 text-sm sm:text-2xl`} >{projectData.challengeDescription}</p>
 
           </div>
           <img className={`w-full p-1 drop-shadow-2xl sm:p-0  ${floater} ${marginExpression2} sm:w-3/4 `} src={projectData.image1} alt="" />
@@ -170,10 +164,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
           <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
           <h1 id='approachHead'  className={`${marginExpression3}  text-3xl textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.approachHead}</h1>
-            <p id='approachDesciption' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 textP ${marginExpression3}  font-light text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
-            the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-             and scrambled it to make a type specimen book.</p>
+            <p id='approachDesciption' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 textP ${marginExpression3}  font-light text-sm sm:text-2xl`} >{projectData.approachDescription}</p>
 
           </div>
           
@@ -181,7 +172,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
             
             <div id='visualSection1 ' className={`flex  sm:w-3/4 flex-col ${marginExpression2} justify-center items-center w-[100vw]`}>
             <video alt={projectData.vidAlt2} autoPlay loop  muted className={` drop-shadow-2xl p-1 sm:p-0 aspect-video object-cover  ${floater} `} src={projectData.video3} ></video>
-            <img className={`drop-shadow-2xl p-1 sm:p-0 mt-5   ${floater}`} src={projectData.image3} alt="" />
+            <img className={`drop-shadow-2xl p-1 sm:p-0   ${floater}`} src={projectData.image3} alt="" />
             </div>
             
           </section>
@@ -219,8 +210,8 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
              and scrambled it to make a type specimen book.</p>
 
           </div>
-          <div id='visualSection3 ' className={`flex flex-col  ${floater} ${marginExpression2} sm:flex-row justify-center items-center w-[100vw]`}>
-            <img className=" sm:p-0 p-1 drop-shadow-2xl  sm:w-1/2" src={projectData.image2} alt="" />
+          <div id='visualSection3 ' className={`flex flex-col   ${marginExpression2} sm:flex-row justify-center items-center w-[100vw]`}>
+            <img className={`sm:p-0 p-1 drop-shadow-2xl  sm:w-1/2 ${floater}`} src={projectData.image2} alt="" />
             </div>
 
             

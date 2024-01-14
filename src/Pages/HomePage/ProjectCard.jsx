@@ -37,13 +37,13 @@ const checkIsMobile = () => {
   return (
     <TransitionLink
         to={`/${project.key}`} 
-        className="enterC"
+        className="group cursor-none enterC"
        
       >
-    <div className='watcher overflow-hidden w-full  h-full snap-start relative enterC  flex' >
+    <div className='watcher overflow-hidden w-full group transition-all duration-500    h-full snap-start relative enterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
-        <div className="enterC object-cover overflow-x-visible   rounded transition-all duration-300">
+        <div className="enterC object-cover overflow-x-visible   transition-all duration-300">
           <div className={`relative enterC snap-center transition-all duration-[600ms] overflow-hidden`}>
             {/* Render image or video  based on the project type */}
             {
@@ -67,7 +67,7 @@ const checkIsMobile = () => {
             
             (!isMobile && project.type === 'image') ? (
               <img loading='lazy' alt={project.alt}  src={project.thumbnail} className="
-               rounded-t object-cover overflow-hidden max-w-full aspect-[1/2] sm:aspect-[1.85/1] cursor-none " />
+               rounded-t object-cover overflow-hidden max-w-full aspect-[1/2] group-hover:scale-110 transition-all duration-1000 ease-in-out  sm:aspect-[1.85/1] cursor-none " />
             ) : 
 
             
@@ -96,11 +96,11 @@ const checkIsMobile = () => {
       <div className="cursor-none enterC ml-10 mt-10 col-span-4 absolute">
         
 
-        <h4 className={`enterC font-Satoshi font-light  text-4xl sm:text-3xl opacity-90 ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-1 mb-2`}>
+        <h4 className={`enterC font-Satoshi font-light   transition-all duration-500 text-4xl sm:text-3xl opacity-90 ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
           {project.title}
         </h4>
-        <p className={`enterC ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
-         text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow` }>{
+        <p className={`enterC  ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
+         text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.mainHeader)}</p>
       </div>

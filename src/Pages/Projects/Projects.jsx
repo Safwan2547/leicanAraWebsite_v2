@@ -49,9 +49,18 @@ const projects = [
       thumbnail2:starFallPhoto,
 
       prologueHead:"The year is 2051, ",
+      prologueDescription:"Humanity’s Rapid Progress Drives our resource Demands to unpreceedented levels. The strain on terrestrial Resources intensifies as they dwindle. In the face of this crisis, a group of visionaries created a revolution in stellar extraction. ",
+  
       ambitionHead:"Aim for the Stars",
+      ambitionDescription:"StarFall was crafted with the vision of setting a precedent in the space industry. \
+      To achieve this goal, we needed to design StarFall in a manner that not only built upon the foundations \
+      laid by current space industry leaders but also inspired future generations to continue the \
+      mission.",
+      
       challengeHead:"To create a revolution",
+      challengeDescription:"Crafting an identity for StarFall posed a unique and formidable challenge — to meticulously reflect its audacious vision and resonate with a diverse audience, spanning investors to future astronauts.",
       approachHead:"The approach of brilliance",
+      approachDescription:"Deeply understanding StarFall's ethos laid the critical groundwork. The design team, drawing inspiration from celestial phenomena and industry giants, embraced a deliberate and thoughtful minimalist approach, resulting in the birth of a unique brand identity named The Triangulum.",
       identityHead:"The Triangulum ",
       epilogueHead:"The Legacy ",
 
@@ -77,6 +86,7 @@ const projects = [
       mainHeader: 'Stories that Bind us.',
       type: 'image',
       thumbnail: LeicanAraPhoto,
+      thumbnail2: LeicanAraPhoto,
       services:"",
       
       projectLink: 'https://www.leicanAra.com',

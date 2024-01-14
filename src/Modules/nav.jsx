@@ -38,8 +38,8 @@ const Navbar = () => {
         <nav className={`   appearance-none transition-opacity  ease-expo duration-1000 
         flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
             
-            <TransitionLink to="/" className=' opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105
-             hover:text-LunarTwilight hover:animate-pulse-slow
+            <TransitionLink to="/" className='mix-blend-difference opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105
+             hover:text-LunarTwilight hover:animate-pulse-slow 
              buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none'>
               LeicanAra</TransitionLink>
             <div className="links flex justify-between items-center space-x-8">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 </Link>
                
                 <TransitionLink 
-                  to="/ContactPage" 
+                  to="/AboutPage" 
                   className='navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight 
                   transform ease-in-out transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none '>
                   about

@@ -1,10 +1,32 @@
 // Import React and the ProjectCard component
 import React,{ useState,useEffect } from 'react';
 import ProjectCard from './ProjectCard';
+import { inView,animate } from "motion"
 
 
 // Functional component to render a grid of projects
 const ProjectGrid = ({ projects }) => {
+
+
+  // useEffect(() => {
+  //   const target = document.getElementsByClassName('projectCard');
+    
+  //   const animations = {
+  //     opacity: ["0", "100"],
+  //     duration:10,
+  //   };
+
+  //   inView(target, (isVisible) => {
+  //     if (isVisible) {
+  //       const elementsToAnimate = Array.from(target).flatMap(element => element.querySelectorAll("img"));
+  //       elementsToAnimate.forEach((element) => {
+  //         animate(element, animations);
+  //       });
+  //     }
+  //   });
+
+  // }, []);
+
 
   const margin=20;
 
@@ -19,7 +41,7 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
   
   return (
     // Outer container with flex layout and centering
-    <div id='gridClassWrap' className="w-[100%] flex justify-center  overflow-x-scroll items-center flex-wrap">
+    <div id='gridClassWrap' className="w-[100%] flex justify-center  flex-col overflow-x-scroll items-center flex-wrap">
       <h1 className='text-NightFall font-Lora font-light text-3xl    sm:text-5xl'>Projects</h1>
       {/* Grid container for projects with specified columns, gap, and border */}
       <div id='projectHolder' className={`${marginExpression2} sm:flex-col flex-row  relative flex overflow-x-scroll overflow-y-hidden 
@@ -30,7 +52,7 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
         
         {/* Map through the projects and render ProjectCard for each */}
         {projects.map((project) => (
-          <div className={`  ${marginExpression3} cursor-none flex-none h-2/3  border-black snap-always snap-center `} key={project.key}>
+          <div id='projectCard' className={`projectCard  ${marginExpression3}  cursor-none flex-none h-1/3  transition-all duration-500   border-black snap-always snap-center `} key={project.key}>
             <ProjectCard project={project} />
           </div>
         ))}

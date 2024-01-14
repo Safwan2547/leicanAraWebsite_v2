@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "framer-motion": "^10.17.12",
     "gsap": "^3.11.5",
     "http-server": "^14.1.1",
     "locomotive-scroll": "^4.1.4",
@@ -31,8 +32,6 @@
     "eject": "vite eject",
     "build:css": "postcss src/tailwind.css -o src/index.css",
     "build:compress": "vite build && vite-plugin-compression"
-
-    
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +66,5 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0"
-    
   }
 }
