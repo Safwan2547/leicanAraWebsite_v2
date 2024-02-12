@@ -4,7 +4,7 @@ import { animate,spring,timeline } from "motion";
 import videoFile from '../../Assets/LeicanAra website Intro v2.mp4';
 
 
-function intro(){
+function Intro(){
     //Intro Animation
  
  
@@ -17,4 +17,4 @@ function intro(){
   </div>);
   
 }
-export default intro;
+export default Intro;

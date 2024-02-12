@@ -4,13 +4,13 @@ import LocomotiveScroll from 'locomotive-scroll';
 import landingVid from '../../Assets/Website landing 1.mp4'
 import { animate, scroll, inView,timeline,spring, } from "motion"
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import Intro from './Intro';
 //FIX LOCOMOTIVE SCROLL
 
 function LandingPage() {
   const [isMounted1, setIsMounted1] = useState(false);
   //This starts the video on the landing page
   const [showLandingVideo, setShowLandingVideo] = useState(false); // State to control when to show the landing video
-
 
   //  delay for the landing video
   setTimeout(() => {
@@ -20,17 +20,16 @@ function LandingPage() {
 //This is the animation for the landing page
   const landingAnimations=[
     // Initial state: set opacity to 0
-    [".navItem", { opacity: 0 }], 
-    [".landingItem1", { opacity: 0,}],
+    [".landingItem1", { opacity: 0,y:5}],
     [".landingItem2", { opacity: 0}],
     [".braidedStar", { opacity: 0}],  
     // Final state: set opacity to desired value
-    [".landingItem1",{ opacity: 1,y:0}, { duration: 1, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
-    [".landingItem2",{ opacity: 0.8,y:0}, { duration: 0.5, easing:"cubic-bezier(.43,1.04,.58,.96)"}],
-    [".navItem", { opacity: 1 }, { duration: 1, delay: stagger(0.5) }],
     
-    [".braidedStar",{ opacity: 1}, { duration: 0.2,easing:"ease-out"}],
+    [".landingItem1",{ opacity: 1,y:0}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}],
+    
   ];
+//animation for the nav bar
+  
 
     
   
@@ -54,9 +53,10 @@ function LandingPage() {
   // timeline(introAnimate, {duration : 0},{
   //   defaultOptions: { ease: "ease-in"}} )
 
-   timeline(landingAnimations, {duration : 3.2,delay:0},{
+   timeline(landingAnimations, {duration : 1,delay:1},{
     defaultOptions: {easing:"ease-in-out" },
   })
+  
   
    
     return () => {
@@ -72,7 +72,6 @@ function LandingPage() {
     return (
       //wrapper
       <div   className=" ">
-        
       {/* <Parallax pages={3} ref={parallax} scrolling={true} horizontal={false} > */}
         
       <div  className={` transition-opacity overflow-hidden duration-1000 
@@ -87,7 +86,6 @@ function LandingPage() {
           {showLandingVideo && (
             <video className="w-full  h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[60%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
               <source src={landingVid} type="video/mp4" />
-              {/* You can add more source elements for different video formats (WebM, Ogg) */}
             </video>
           )}
         </div>
@@ -107,7 +105,7 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
          
-          <div strength={100} className='opacity-100 landingItem mouseParallax text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
+          <div strength={100} className='opacity-100 landingItem1 mouseParallax text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
             transition-text duration-200 text-left   left-10 bottom-[10%] w-2/3 flex-col '>
           
           <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1  text-NightFall font-Satoshi font-normal sm:text-9xl  leading-none`}>
@@ -115,7 +113,7 @@ function LandingPage() {
           </h1>
           
 
-          <h1   className={`hidden opacity-0 textP landingItem2  font-[300]  font-Lora pl-2 
+          <h1   className={`hidden opacity-0 textP landingItem1 font-[300]  font-Lora pl-2 
            sm:text-3xl ml-2 mr-44 sm:block  text-left  `}>
           We eliminate invisibility by crafting distinct creative ideas that resonate
 

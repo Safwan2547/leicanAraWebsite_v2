@@ -14,10 +14,16 @@ import CallToAction from './HomePage/CallToAction';
 import { Parallax } from '@react-spring/parallax';
 import Marquee from 'react-fast-marquee';
 
+import { timeline } from 'motion';
+
 function HomePage() {
+  
 
   return (
     <div  className='  bg-white'>
+
+      <Watcher/>
+      
         <LandingPage  />
         <ProjectGrid projects={projects} />
         <CallToAction />

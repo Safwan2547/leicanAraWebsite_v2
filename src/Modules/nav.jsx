@@ -2,6 +2,8 @@ import React, { useRef,useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TransitionCover from './TransitionCover';
 import TransitionLink from './TransitionLink';
+import { animate, scroll, inView,timeline,spring, } from "motion";
+
 
 // import DropdownMenu from './DropDown';
 
@@ -9,19 +11,25 @@ const Navbar = () => {
     const [isMounted, setIsMounted] = useState(false);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const toggleDropdown = () => {
-      setIsDropdownOpen(!isDropdownOpen);
-      console.log(isDropdownOpen)
-    };
-    const closeDropdown = () => {
-      setIsDropdownOpen(false);
-      console.log(isDropdownOpen)
-    };
+    const navBar=document.getElementById("navBar");
 
 
+    const navAnimations=[
+
+      [navBar, { opacity: 0,y:0 }], 
+      [navBar,{ opacity: 1, y:0}, { duration: 2, easing:"cubic-bezier(.16,1.17,1,.98)"}]
+  
+    ]
     useEffect(() => {
-        const timer = setTimeout(() => setIsMounted(true),400); // 
+
+        animate("nav",{opacity:1}, {duration : 1,delay:1})
+    },[]);
+
+    
+    useEffect(() => {
+
+        const timer = setTimeout(() => setIsMounted(true),400);
+         
         
       
         
@@ -35,7 +43,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className={`   appearance-none transition-opacity  ease-expo duration-1000 
+        <nav id="navBar" className={`   appearance-none transition-color opacity-0 ease-expo 
         flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
             
             <TransitionLink to="/" className='mix-blend-difference opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105

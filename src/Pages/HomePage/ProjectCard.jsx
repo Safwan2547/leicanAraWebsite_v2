@@ -1,6 +1,9 @@
 // Import necessary modules and components
 import React, { useState,useEffect } from 'react';
 import TransitionLink from '../../Modules/TransitionLink';
+import { inView,animate,timeline } from "motion"
+import { easeInOut } from 'framer-motion';
+
 
 // Functional component to render a project card
 const ProjectCard = ({ project }) => {
@@ -10,6 +13,29 @@ const ProjectCard = ({ project }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
+ const cardAnimation=(target,baseVal)=>{
+  animate(
+    target,
+    { opacity: baseVal },
+    {  duration: 0.5,delay:0.1, easing:"ease-out" }
+  );
+  animate(
+    target.querySelector('h4'),
+    { opacity: baseVal,transform: "scale(1)" },
+    {  duration: 0.5,delay:0.3, easing:"ease-out" }
+  );
+  
+  animate(
+    target.querySelector('p'),
+    { opacity: baseVal,transform: "scale(1)" },
+    {  duration: 0.5,delay:0.7, easing:"ease-out" }
+  );
+
+
+  
+
+ }
+
   // Check if the screen size is small enough to be considered mobile
 const checkIsMobile = () => {
   const newIsMobile = window.innerWidth <= 640;
@@ -18,8 +44,50 @@ const checkIsMobile = () => {
     console.log("window.innerWidth :" + window.innerWidth);
   // Adjust the threshold as needed
 };
-  
+
   useEffect(() => {
+
+    inView(".group", ({ target }) => {cardAnimation(target,1)
+    
+      return(leaveInfo)=>{ animate(
+        target,
+        { opacity: 0 },
+        {  duration: 0.5,delay:0.1, easing:"ease-out" })
+
+        animate(
+          target.querySelector('h4'),
+          { opacity: 0 },
+          {  duration: 0.5, easing:"ease-out" }
+        );
+        
+        animate(
+          target.querySelector('p'),
+          { opacity: 0,transform: "scale(0.99)" },
+          {  duration: 0.5, easing:"ease-out" }
+        );
+    }});
+
+    // Use inView to detect when each ProjectCard element comes into view
+  // inView(".group", ({ target }) => {
+  //   //animation for when the cards are in view
+  //   animate(
+  //     target,
+  //     { opacity: 1 },
+  //     {  duration: 0.5,delay:0.1, easing:"ease-out" }
+  //   );
+    
+  //   animate(
+  //     target.querySelector('p'),
+  //     { opacity: 1 },
+  //     {  duration: 0.5,delay:0.5, easing:"ease-out" }
+  //   );
+
+  // return(leaveInfo)=>{ animate(
+  //   target,
+  //   { opacity: 0 },
+  //   {  duration: 0.5,delay:0.1, easing:"ease-out" }
+  // );}} );
+
     checkIsMobile();
     console.log("Mounted")
 
@@ -40,7 +108,7 @@ const checkIsMobile = () => {
         className="group cursor-none enterC"
        
       >
-    <div className='watcher overflow-hidden w-full group transition-all duration-500    h-full snap-start relative enterC  flex' >
+    <div className='watcher  opacity-10 overflow-hidden w-full group     h-full snap-start relative enterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
         <div className="enterC object-cover overflow-x-visible   transition-all duration-300">
@@ -96,10 +164,10 @@ const checkIsMobile = () => {
       <div className="cursor-none enterC ml-10 mt-10 col-span-4 absolute">
         
 
-        <h4 className={`enterC font-Satoshi font-light   transition-all duration-500 text-4xl sm:text-3xl opacity-90 ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
+        <h4 className={`enterC font-Satoshi font-light scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
           {project.title}
         </h4>
-        <p className={`enterC  ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
+        <p className={`enterC opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
          text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.mainHeader)}</p>

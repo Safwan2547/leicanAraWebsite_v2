@@ -1,7 +1,7 @@
 // Import React and the ProjectCard component
 import React,{ useState,useEffect } from 'react';
 import ProjectCard from './ProjectCard';
-import { inView,animate } from "motion"
+import { inView,animate,timeline } from "motion"
 
 
 // Functional component to render a grid of projects
@@ -37,11 +37,21 @@ const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margi
 // Use this to separate things that should be close together, such as headers and descriptions, etc.
 const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
 
-  
+const projectCardTimeLine=[
+  [".projectCard", { opacity: 0,y:5}],
+    [".projectCard", { opacity: 0}],
+    [".projectCard", { opacity: 0,y:0}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}]
+]
+
+const animateObj=document.getElementById("#projectHolder");
+const boxes = document.querySelectorAll(".projectCard")
+
+
+
   
   return (
     // Outer container with flex layout and centering
-    <div id='gridClassWrap' className="w-[100%] flex justify-center  flex-col overflow-x-scroll items-center flex-wrap">
+    <section id='gridClassWrap' className="w-[100%] flex justify-center  flex-col overflow-x-scroll items-center flex-wrap">
       <h1 className='text-NightFall font-Lora font-light text-3xl    sm:text-5xl'>Projects</h1>
       {/* Grid container for projects with specified columns, gap, and border */}
       <div id='projectHolder' className={`${marginExpression2} sm:flex-col flex-row  relative flex overflow-x-scroll overflow-y-hidden 
@@ -53,11 +63,11 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
         {/* Map through the projects and render ProjectCard for each */}
         {projects.map((project) => (
           <div id='projectCard' className={`projectCard  ${marginExpression3}  cursor-none flex-none h-1/3  transition-all duration-500   border-black snap-always snap-center `} key={project.key}>
-            <ProjectCard project={project} />
+            <span className='opacity-0'><ProjectCard project={project} /></span>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

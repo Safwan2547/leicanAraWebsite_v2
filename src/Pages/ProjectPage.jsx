@@ -3,10 +3,11 @@
 //Is dynamically generated based on the project
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link, animateScroll as scroll } from "react-scroll";
 import projects from './Projects/Projects';
 import Footer from '../Modules/Footer';
 import Marquee from "react-fast-marquee";
+import { scroll, animate } from "motion"
+
 
 
 const ProjectPage = () => {
@@ -18,6 +19,9 @@ const ProjectPage = () => {
   //Must apply the biggest margin value
   //The value must be available for use in tailwindCss or the margin wont work
   const margin=20;
+  const scrollTest=document.getElementById("#prologue");
+
+
 
 // Use this to separate sections
 const marginExpression = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin)}`;
@@ -182,15 +186,12 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
           <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
           <h1 id='identityHead'  className={` ${marginExpression3} text-3xl textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.identityHead}</h1>
-            <p id='identityDescription' className={`font-Satoshi textP opacity-80 ${bodyMod}  ${marginExpression3} font-light text-sm sm:text-2xl`} >Lorem Ipsum is simply dummy text of 
-            the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-             and scrambled it to make a type specimen book.</p>
+            <p id='identityDescription' className={`font-Satoshi textP opacity-80 ${bodyMod}  ${marginExpression3} font-light text-sm sm:text-2xl`} >{projectData.identityDescription}</p>
 
           </div>
           <div id='visualSection2 ' className={`flex flex-col ${marginExpression2} sm:flex-row justify-center items-center w-[100vw]`}>
             <video alt={projectData.vidAlt2} autoPlay loop  muted className={`p-6 sm:p-0 sm:max-w-1/3 drop-shadow-2xl aspect-[1/2] object-cover ${floater} max-h-[80vh] `} src={projectData.video2} ></video>
-            <img className={` p-1 sm:p-10  sm:w-1/2 drop-shadow-2xl ${floater}`} src={projectData.image2} alt="" />
+            <img className={` p-1 sm:p-10 mt-10 sm:w-1/2 drop-shadow-2xl ${floater}`} src={projectData.image2} alt="" />
             </div>
 
             

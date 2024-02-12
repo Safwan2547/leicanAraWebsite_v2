@@ -49,7 +49,7 @@ const projects = [
       thumbnail2:starFallPhoto,
 
       prologueHead:"The year is 2051, ",
-      prologueDescription:"Humanity’s Rapid Progress Drives our resource Demands to unpreceedented levels. The strain on terrestrial Resources intensifies as they dwindle. In the face of this crisis, a group of visionaries created a revolution in stellar extraction. ",
+      prologueDescription:"Starfall is a revolutionary space mining company that aims to get resources from celestial bodies back to Earth. With projects like MoonForge and EcoStellar, it sets a benchmark for responsible resource extraction in the space industry. ",
   
       ambitionHead:"Aim for the Stars",
       ambitionDescription:"StarFall was crafted with the vision of setting a precedent in the space industry. \
@@ -62,6 +62,7 @@ const projects = [
       approachHead:"The approach of brilliance",
       approachDescription:"Deeply understanding StarFall's ethos laid the critical groundwork. The design team, drawing inspiration from celestial phenomena and industry giants, embraced a deliberate and thoughtful minimalist approach, resulting in the birth of a unique brand identity named The Triangulum.",
       identityHead:"The Triangulum ",
+      identityDescription:"At the heart of StarFall's brand identity lies a concept we term \"Triangulum\". Which Contains 3 base ideas: ",
       epilogueHead:"The Legacy ",
 
 
@@ -100,6 +101,11 @@ const projects = [
       textColorMobile:"text-[#efece3]", 
       typeMobile:"image",
       thumbnailPort:leicanAraPortrait,
+
+      //Project Page Content
+      prologueHead:"StoryTellers for the visionaries",
+      prologueDescription:"LeicanAra was born out of the belief that shared experiences shape human connections. We realized the power of compelling narratives and visuals and how they bridge businesses and audiences.",
+      ambitionHead:"The Journey"
     },
     {
       key:"svava",
