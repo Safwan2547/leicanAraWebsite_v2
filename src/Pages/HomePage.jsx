@@ -14,6 +14,8 @@ import CallToAction from './HomePage/CallToAction';
 import { Parallax } from '@react-spring/parallax';
 import Marquee from 'react-fast-marquee';
 
+import Introductory from './HomePage/Introductory';
+
 import { timeline } from 'motion';
 
 function HomePage() {
@@ -25,6 +27,7 @@ function HomePage() {
       <Watcher/>
       
         <LandingPage  />
+        <Introductory/>
         <ProjectGrid projects={projects} />
         <CallToAction />
         <div className='buttonC cursor-none textC '>

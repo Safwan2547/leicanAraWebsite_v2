@@ -14,22 +14,21 @@ const ProjectCard = ({ project }) => {
 
   
 
- const cardAnimation=(target,baseVal)=>{
-  console.log("inview active")
+ const cardAnimation=(target)=>{
   animate(
     target,
-    { opacity: baseVal },
+    { opacity: 1 },
     {  duration: 0.5,delay:0.1, easing:"ease-out" }
   );
   animate(
     target.querySelector('h4'),
-    { opacity: baseVal,transform: "scale(1)" },
+    { opacity: 1,transform: "scale(1)" },
     {  duration: 0.5,delay:0.3, easing:"ease-out" }
   );
   
   animate(
     target.querySelector('p'),
-    { opacity: baseVal,transform: "scale(1)" },
+    { opacity: 1,transform: "scale(1)" },
     {  duration: 0.5,delay:0.7, easing:"ease-out" }
   );
 
@@ -96,7 +95,7 @@ const checkIsMobile = () => {
         className="group cursor-none enterC"
        
       >
-    <div className='watcher   overflow-hidden w-full group     h-full snap-start relative enterC  flex' >
+    <div className='watcher   overflow-hidden w-full group   h-full snap-start relative enterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
         <div className="enterC object-cover overflow-x-visible   transition-all duration-300">

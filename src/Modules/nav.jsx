@@ -45,11 +45,12 @@ const Navbar = () => {
     return (
         <nav id="navBar" className={`   appearance-none transition-color opacity-0 ease-expo 
         flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
-            
+            <div>
             <TransitionLink to="/" className='mix-blend-difference opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105
              hover:text-LunarTwilight hover:animate-pulse-slow 
              buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none'>
               LeicanAra</TransitionLink>
+              </div>
             <div className="links flex justify-between items-center space-x-8">
             <Link to="" className=' navItem opacity-80 sm:hidden bg-none  text-white font-bold w-full flex justify-center align-middle items-center h-6  rounded-full relative'>
           
