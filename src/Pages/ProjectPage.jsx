@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import projects from './Projects/Projects';
 import Footer from '../Modules/Footer';
 import Marquee from "react-fast-marquee";
-import { scroll, animate } from "motion"
+import { scroll, animate,inView } from "motion"
 
 
 
@@ -36,27 +36,58 @@ const floater= ` transition-all duration-1000   ease-in-out `;
 //This serves as body text modifier
 const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
 
+const aboutAnimationsEntry=(target)=>{
+  //animate(target.querySelector("video") ,{transform:"scale(1)",opacity:0},{duration:1,easing:"ease-out"});
+
+  animate(target.querySelector("h1"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+
+  animate(target.querySelector("p"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+
+  animate(target.querySelector("img"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+
+  animate(target.querySelector("#line"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+
+  animate(target.querySelector(".animateOnEntry"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+
+}
+
 
 
   useEffect(() => {
     // Fetch project details based on projectKey from Projects
     const projectDetails = projects.find((project) => project.key === projectKey);
 
+   
     if (projectDetails) {
       setProjectData(projectDetails);
+      setTimeout(() => {
+        inView("section", ({ target }) => {
+          aboutAnimationsEntry(target);
+          console.log("In view:",  target);
+        })}, 1000);
+        
     } else {
       // Handle project not found (optional)
       console.error(`Project with key "${projectKey}" not found`);
       // Set an empty object or handle it in a way that suits your application
       setProjectData({});
     }
+
+    //After Building the page, Call the animations
+    
+
+    
+
+
   }, [projectKey]);
 
+  
+
   return (
-    <div className=" text-NightFall leading-relaxed  overflow-hidden bg-white">
+    <div className=" pageWrap text-NightFall leading-relaxed  overflow-hidden bg-white">
       {projectData ? (
         <>
-        <section id='landing' className=' w-screen h-screen overflow-hidden ' >
+        <div id='landing' className=' w-screen h-screen overflow-hidden ' >
        
         {/* Contains main header and description for the landing */}
         <div className={ `w-full h-full justify-center flex overflow-hidden items-center  `} id='thumbnail'>
@@ -77,14 +108,14 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
             
             
             
-          </section>
+          </div>
 
            <section id='prologue' className={`relative justify-center
            flex  ${marginExpression}`}>
             <div id='prologue' className="w-full  sm:p-0 sm:w-2/3 ">
               <div className='p-6 sm:p-0'>
-            <p className='text-sm sm:text-2xl textP font-light opacity-80  font-Satoshi'>Prologue:</p>
-            <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5  bg-black'></div>
+            <p className='text-sm sm:text-2xl textP font-light opacity-0  font-Satoshi'>Prologue:</p>
+            <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 opacity-0 scale-y-0 bg-black'></div>
             <h1 id='prologue' className={`text-3xl ${marginExpression3} textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.prologueHead}
           
@@ -92,7 +123,7 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
             <p id='prologueDescription' className={`font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >{projectData.prologueDescription}</p>
              </div>
              <div className={`flex justify-center drop-shadow items-center w-full ${floater}`}>
-            <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" w-full  p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
+            <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" animateOnEntry w-full opacity-0 scale-90 p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
 
             </div>
               {/* Render video or image based on file type */}

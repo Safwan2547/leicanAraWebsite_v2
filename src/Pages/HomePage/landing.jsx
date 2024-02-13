@@ -20,12 +20,12 @@ function LandingPage() {
 //This is the animation for the landing page
   const landingAnimations=[
     // Initial state: set opacity to 0
-    [".landingItem1", { opacity: 0,y:5}],
+    [".landingItem1", { opacity: 0,y:5,transform:"scale(0.99)"}],
     [".landingItem2", { opacity: 0}],
     [".braidedStar", { opacity: 0}],  
     // Final state: set opacity to desired value
     
-    [".landingItem1",{ opacity: 1,y:0}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}],
+    [".landingItem1",{ opacity: 1,y:0,transform:"scale(1)"}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}],
     
   ];
 //animation for the nav bar
@@ -93,7 +93,7 @@ function LandingPage() {
       
 
           {/* This is the Mobile view */}       
-          <div className=' flex justify-center top-2/3 items-center  sm:hidden  absolute '>  
+          <div className=' flex justify-center  top-2/3 items-center  sm:hidden  absolute '>  
       <h1  className={`landingItem1  text-5xl  sm:text-6xl w-3/4 font-Satoshi font-light text-center  opacity-0 sm:w-1/3 z-10 text-NightFall   
          sm:hidden textC transition duration-200 `}>
             StoryTellers for the Visionaries
@@ -106,7 +106,7 @@ function LandingPage() {
           {/* This is the Desktop view */}
          
           <div strength={100} className='opacity-100 landingItem1 mouseParallax text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
-            transition-text duration-200 text-left   left-10 bottom-[10%] w-2/3 flex-col '>
+            transition-text duration-200 text-left  left-10 bottom-[10%] w-2/3 flex-col '>
           
           <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1  text-NightFall font-Satoshi font-normal sm:text-9xl  leading-none`}>
           Storytellers for the Visionaries

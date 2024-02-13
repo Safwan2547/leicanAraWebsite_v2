@@ -2,7 +2,6 @@
 import React, { useState,useEffect } from 'react';
 import TransitionLink from '../../Modules/TransitionLink';
 import { inView,animate,timeline } from "motion"
-import { easeInOut } from 'framer-motion';
 
 
 // Functional component to render a project card
@@ -67,26 +66,7 @@ const checkIsMobile = () => {
         );
     }});
 
-    // Use inView to detect when each ProjectCard element comes into view
-  // inView(".group", ({ target }) => {
-  //   //animation for when the cards are in view
-  //   animate(
-  //     target,
-  //     { opacity: 1 },
-  //     {  duration: 0.5,delay:0.1, easing:"ease-out" }
-  //   );
-    
-  //   animate(
-  //     target.querySelector('p'),
-  //     { opacity: 1 },
-  //     {  duration: 0.5,delay:0.5, easing:"ease-out" }
-  //   );
-
-  // return(leaveInfo)=>{ animate(
-  //   target,
-  //   { opacity: 0 },
-  //   {  duration: 0.5,delay:0.1, easing:"ease-out" }
-  // );}} );
+   
 
     checkIsMobile();
     console.log("Mounted")
