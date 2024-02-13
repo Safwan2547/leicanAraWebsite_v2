@@ -15,6 +15,10 @@ const Navbar = () => {
     const navBar=document.getElementById("navBar");
     const location = useLocation();
 
+    const isAboutPage=location.pathname==="/AboutPage";
+    const isFAQPage=location.pathname==="/FAQPage";
+
+
     const getNavbarTitle = () => {
       switch (location.pathname) {
           case '/starfall':
@@ -78,11 +82,11 @@ const Navbar = () => {
                
                 <TransitionLink 
                   to="/AboutPage" 
-                  className='navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight 
-                  transform ease-in-out transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none '>
+                  className={`navItem hover:animate-pulse-slow ${isAboutPage?'opacity-20':'opacity-100'} hover:text-LunarTwilight 
+                  transform ease-in-out transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none `} >
                   about
                 </TransitionLink>
-                 {<TransitionLink to="/FAQPage"  className=' ease-in-out navItem hover:animate-pulse-slow opacity-100 hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none '>faq</TransitionLink> }
+                 {<TransitionLink to="/FAQPage"  className={`${isFAQPage?'opacity-20':'opacity-100'} ease-in-out navItem hover:animate-pulse-slow  hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none `}>faq</TransitionLink> }
 
 
             </div>
