@@ -114,7 +114,7 @@ function LandingPage() {
           
 
           <h1   className={`hidden opacity-0 textP landingItem1 font-[300]  font-Lora pl-2 
-           sm:text-3xl ml-2 mr-44 sm:block  text-left  `}>
+           sm:text-3xl ml-2 mr-44 sm:hidden  text-left  `}>
           We eliminate invisibility by crafting distinct creative ideas that resonate
 
            

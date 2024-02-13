@@ -92,10 +92,10 @@ const checkIsMobile = () => {
   return (
     <TransitionLink
         to={`/${project.key}`} 
-        className="group cursor-none enterC"
+        className=" cursor-none enterC"
        
       >
-    <div className='watcher   overflow-hidden w-full group   h-full snap-start relative enterC  flex' >
+    <div className='watcher   overflow-hidden w-full    h-full snap-start relative enterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
         <div className="enterC object-cover overflow-x-visible   transition-all duration-300">
@@ -148,7 +148,7 @@ const checkIsMobile = () => {
           ></div>
         </div>
       {/* Additional project information */}
-      <div className="cursor-none enterC ml-10 mt-10 col-span-4 absolute">
+      <div className="cursor-none group enterC ml-10 mt-10 col-span-4 absolute">
         
 
         <h4 className={`enterC font-Satoshi font-light scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>

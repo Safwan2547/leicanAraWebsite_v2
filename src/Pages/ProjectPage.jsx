@@ -36,20 +36,35 @@ const floater= ` transition-all duration-1000   ease-in-out `;
 //This serves as body text modifier
 const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
 
-const aboutAnimationsEntry=(target)=>{
-  //animate(target.querySelector("video") ,{transform:"scale(1)",opacity:0},{duration:1,easing:"ease-out"});
+// const aboutAnimationsEntry=(target)=>{
+//   //animate(target.querySelector("video") ,{transform:"scale(1)",opacity:0},{duration:1,easing:"ease-out"});
 
-  animate(target.querySelector("h1"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//   animate(target.querySelector("h1"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-  animate(target.querySelector("p"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//   animate(target.querySelector("p"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-  animate(target.querySelector("img"),{opacity:0,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//   animate(target.querySelector("img"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-  animate(target.querySelector("#line"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//   animate(target.querySelector("#line"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-  animate(target.querySelector(".animateOnEntry"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//   animate(target.querySelector(".animateOnEntry"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-}
+// }
+
+const aboutAnimationsEntry = (target) => {
+  const elementsToAnimate = target.querySelectorAll(".animateOnEntry");
+
+  elementsToAnimate.forEach((element) => {
+    element.classList.add("opacity-0");
+
+    animate(
+      element,
+      { opacity: 1, transform: "scale(1)" },
+      { duration: 1, easing: "ease-out" }
+    );
+  });
+};
+
 
 
 
@@ -59,9 +74,10 @@ const aboutAnimationsEntry=(target)=>{
 
    
     if (projectDetails) {
+
       setProjectData(projectDetails);
       setTimeout(() => {
-        inView("section", ({ target }) => {
+        inView(".pageWrap", ({ target }) => {
           aboutAnimationsEntry(target);
           console.log("In view:",  target);
         })}, 1000);
@@ -93,8 +109,8 @@ const aboutAnimationsEntry=(target)=>{
         <div className={ `w-full h-full justify-center flex overflow-hidden items-center  `} id='thumbnail'>
         <div id="headerInfo" className=' drop-shadow-lg flex  absolute  justify-evenly align-baseline bottom-16  w-full items-center  border-black  
         flex-row '>
-          <h1 className='uppercase textC    text-6xl sm:text-7xl text-white tracking-wider font-normal font-Satoshi  '>{projectData.title}</h1>
-          <p className={`text-2xl text-white overflow-hidden textP align-baseline font-Satoshi font-light `}>{projectData.mainHeader}</p>
+          <h1 className='uppercase textC  animateOnEntry  text-6xl sm:text-7xl text-white tracking-wider font-normal font-Satoshi  '>{projectData.title}</h1>
+          <p className={`text-2xl text-white  overflow-hidden textP align-baseline font-Satoshi font-light `}>{projectData.mainHeader}</p>
           
           </div>
         
@@ -112,18 +128,18 @@ const aboutAnimationsEntry=(target)=>{
 
            <section id='prologue' className={`relative justify-center
            flex  ${marginExpression}`}>
-            <div id='prologue' className="w-full  sm:p-0 sm:w-2/3 ">
+            <div id='prologue' className="w-full    sm:p-0 sm:w-2/3 ">
               <div className='p-6 sm:p-0'>
-            <p className='text-sm sm:text-2xl textP font-light opacity-0  font-Satoshi'>Prologue:</p>
-            <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 opacity-0 scale-y-0 bg-black'></div>
-            <h1 id='prologue' className={`text-3xl ${marginExpression3} textC font-medium sm:text-5xl font-Lora`}> 
+            <p className='text-sm sm:text-2xl  animateOnEntry textP font-light   font-Satoshi'>Prologue:</p>
+            <div id='line' className='h-20 rounded-sm w-[1px]  animateOnEntry sm:w-0.5  scale-y-0 bg-black'></div>
+            <h1 id='prologue' className={`text-3xl ${marginExpression3}  animateOnEntry textC font-medium sm:text-5xl font-Lora`}> 
             {projectData.prologueHead}
           
             </h1>
-            <p id='prologueDescription' className={`font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >{projectData.prologueDescription}</p>
+            <p id='prologueDescription' className={`font-Satoshi animateOnEntry  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >{projectData.prologueDescription}</p>
              </div>
              <div className={`flex justify-center drop-shadow items-center w-full ${floater}`}>
-            <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" animateOnEntry w-full opacity-0 scale-90 p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
+            <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" animateOnEntry w-full  scale-90 p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
 
             </div>
               {/* Render video or image based on file type */}
@@ -194,7 +210,7 @@ const aboutAnimationsEntry=(target)=>{
 
           <section id="projectInfo3"  className={`flex flex-col ${marginExpression} justify-center items-center`}>
             
-            <div id='approach' className='w-full  sm:p-0 p-6 sm:w-2/3 font-Satoshi'>
+            <div id='approach' className='w-full   sm:p-0 p-6 sm:w-2/3 font-Satoshi'>
           <h4 className='text-sm sm:text-2xl  textP font-light font-Satoshi'>Approach:</h4>
           <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
           <h1 id='approachHead'  className={`${marginExpression3}  text-3xl textC font-medium sm:text-5xl font-Lora`}> 
