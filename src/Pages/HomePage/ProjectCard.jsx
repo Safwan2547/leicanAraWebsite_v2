@@ -12,7 +12,10 @@ const ProjectCard = ({ project }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
+  
+
  const cardAnimation=(target,baseVal)=>{
+  console.log("inview active")
   animate(
     target,
     { opacity: baseVal },
@@ -46,11 +49,16 @@ const checkIsMobile = () => {
 
   useEffect(() => {
 
-    inView(".group", ({ target }) => {cardAnimation(target,1)
+    inView(".group", ({ target }) => {
+
+
+      
+      cardAnimation(target,1);
+
     
       return(leaveInfo)=>{ animate(
         target,
-        { opacity: 0 },
+        { opacity:[0,1] },
         {  duration: 0.5,delay:0.1, easing:"ease-out" })
 
         animate(
@@ -88,7 +96,7 @@ const checkIsMobile = () => {
         className="group cursor-none enterC"
        
       >
-    <div className='watcher  opacity-10 overflow-hidden w-full group     h-full snap-start relative enterC  flex' >
+    <div className='watcher   overflow-hidden w-full group     h-full snap-start relative enterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
         <div className="enterC object-cover overflow-x-visible   transition-all duration-300">

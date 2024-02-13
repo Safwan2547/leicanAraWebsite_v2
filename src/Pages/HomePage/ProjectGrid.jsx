@@ -8,25 +8,6 @@ import { inView,animate,timeline } from "motion"
 const ProjectGrid = ({ projects }) => {
 
 
-  // useEffect(() => {
-  //   const target = document.getElementsByClassName('projectCard');
-    
-  //   const animations = {
-  //     opacity: ["0", "100"],
-  //     duration:10,
-  //   };
-
-  //   inView(target, (isVisible) => {
-  //     if (isVisible) {
-  //       const elementsToAnimate = Array.from(target).flatMap(element => element.querySelectorAll("img"));
-  //       elementsToAnimate.forEach((element) => {
-  //         animate(element, animations);
-  //       });
-  //     }
-  //   });
-
-  // }, []);
-
 
   const margin=20;
 
@@ -37,11 +18,7 @@ const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margi
 // Use this to separate things that should be close together, such as headers and descriptions, etc.
 const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
 
-const projectCardTimeLine=[
-  [".projectCard", { opacity: 0,y:5}],
-    [".projectCard", { opacity: 0}],
-    [".projectCard", { opacity: 0,y:0}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}]
-]
+
 
 const animateObj=document.getElementById("#projectHolder");
 const boxes = document.querySelectorAll(".projectCard")
@@ -63,7 +40,7 @@ const boxes = document.querySelectorAll(".projectCard")
         {/* Map through the projects and render ProjectCard for each */}
         {projects.map((project) => (
           <div id='projectCard' className={`projectCard  ${marginExpression3}  cursor-none flex-none h-1/3  transition-all duration-500   border-black snap-always snap-center `} key={project.key}>
-            <span className='opacity-0'><ProjectCard project={project} /></span>
+            <span><ProjectCard project={project} /></span>
           </div>
         ))}
       </div>
