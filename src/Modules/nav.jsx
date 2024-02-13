@@ -1,7 +1,8 @@
 import React, { useRef,useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 import TransitionCover from './TransitionCover';
 import TransitionLink from './TransitionLink';
+
 import { animate, scroll, inView,timeline,spring, } from "motion";
 
 
@@ -12,6 +13,18 @@ const Navbar = () => {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navBar=document.getElementById("navBar");
+    const location = useLocation();
+
+    const getNavbarTitle = () => {
+      switch (location.pathname) {
+          case '/starfall':
+              return ' x Starfall';
+          case '/svava':
+              return ' x Sväva';
+          default:
+              return '';
+      }
+  };
 
 
     const navAnimations=[
@@ -49,7 +62,7 @@ const Navbar = () => {
             <TransitionLink to="/" className='mix-blend-difference opacity-100 navItem antialiased transform transition-button duration-500 hover:scale-105
              hover:text-LunarTwilight hover:animate-pulse-slow 
              buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none'>
-              LeicanAra</TransitionLink>
+                LeicanAra </TransitionLink> <span className='textP text-3xl font-light font-Satoshi '> {getNavbarTitle()}</span>
               </div>
             <div className="links flex justify-between items-center space-x-8">
             <Link to="" className=' navItem opacity-80 sm:hidden bg-none  text-white font-bold w-full flex justify-center align-middle items-center h-6  rounded-full relative'>
