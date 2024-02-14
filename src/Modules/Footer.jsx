@@ -6,9 +6,9 @@ function Footer() {
   return (
     <div className=' '>
       <Marquee autoFill={true} speed={25} className={`p-5   text-NightFall opacity-90 textC hover:text-LunarTwilight duration-1000
-        transition-all font-Lora text-4xl sm:text-5xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
+        transition-all font-Lora text-3xl sm:text-5xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
     
-    <footer className="relative p-10 overflow-hidden  flex justify-normal items-center h-64 bg-NightFall text-nightfall py-24">
+    <footer className="relative p-10 overflow-hidden  flex justify-normal items-center h-56 sm:h-64 bg-NightFall text-nightfall py-24">
       
       <div className="container mx-auto flex justify-center items-center">
         
@@ -39,7 +39,7 @@ function Footer() {
       </div>
       
       {/* Text section for small screens */}
-      <div className='text-NightFall text-center sm:text-xl text-sm w-100 align-start absolute bottom-10 items-end justify-start pt-10 sm:hidden flex'>
+      <div className='text-NightFall text-center sm:text-xl text-xs w-100 align-start absolute bottom-10 items-end justify-start pt-10 sm:hidden flex'>
         <p>Designed and Developed by LeicanAra<br />All Rights Reserved</p>
       </div>
     </footer>

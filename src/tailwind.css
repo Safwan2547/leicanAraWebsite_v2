@@ -47,3 +47,9 @@ html {
 }
 
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('Fonts/Satoshi_Complete/Fonts/Variable/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 400;
+  }
+
