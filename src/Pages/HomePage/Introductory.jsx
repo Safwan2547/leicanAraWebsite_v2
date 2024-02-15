@@ -18,22 +18,22 @@ const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margi
 
 const introductoryAnimate=(target,baseVal)=>{
 
-    animate(
-        target.querySelector('p'),
-        { opacity: baseVal,transform: `scale(${baseVal==1?1:0.99})` },
-        {  duration: 1,delay:0.5, easing:"ease-in-out" }
-      );
+    // animate(
+    //     target.querySelector('p'),
+    //     { opacity: baseVal,transform: `scale(${baseVal==1?1:0.99})` },
+    //     {  duration: 1,delay:0.3, easing:"ease-in-out" }
+    //   );
 
-    animate(
-        target.querySelector('#line'),
-        { opacity: baseVal },
-        {  duration: 1, easing:"ease-in-out",delay:0.7}
-      );
+    // animate(
+    //     target.querySelector('#line'),
+    //     { opacity: baseVal },
+    //     {  duration: 1, easing:"ease-in-out",delay:0.5}
+    //   );
 
     animate(
       target.querySelector("h1"),
       { opacity: baseVal,transform:`scale(${baseVal==1?1:0.99})` },
-      {  duration: 1,delay:0.8, easing:"ease-in-out" }
+      {  duration: 1,delay:0.6, easing:"ease-in-out" }
     );
 
   
@@ -41,7 +41,7 @@ const introductoryAnimate=(target,baseVal)=>{
     animate(
       target.querySelector('#introductoryDescription'),
       { opacity: baseVal-0.2, },
-      {  duration: 1,delay:1, easing:"ease-in-out" }
+      {  duration: 1,delay:0.8, easing:"ease-in-out" }
     );
   
   
@@ -71,19 +71,21 @@ const introductoryAnimate=(target,baseVal)=>{
 return(
 
 
-    <section id='Introductory' className={`relative justify-start ml-20
+    <section id='Introductory' className={`relative h-[30vh] justify-start ml-20
     flex just sm:mt-12 sm:mb-32`}>
      <div  className="w-full  sm:p-0 sm:w-2/3 ">
        <div id="group" className='p-6  sm:p-0'>
-     <p className='text-sm sm:text-2xl textP font-light scale-[99%] opacity-0 font-Satoshi'>Who we are:</p>
+     {/* <p className='text-sm sm:text-2xl textP font-light scale-[99%] opacity-0 font-Satoshi'>Who we are:</p>
      <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 opacity-0 bg-black'></div>
+     */}
      <h1 id='IntroductoryHead' className={`text-3xl opacity-0 scale-[99%] ${marginExpression3} textC font-medium sm:text-5xl font-Lora`}> 
      
-     To Eliminate invisibility
-   
+      We tell stories to empower visibility!   
      </h1>
 
-     <p id='introductoryDescription' className={`opacity-0 font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light  text-sm sm:text-2xl`} >Our mission at LeicanAra is to create captivating designs that help our partners share their unique stories with the world. We aim to provide businesses with a soul, crafting ideas that truly connect with and inspire customers. </p>
+     <p id='introductoryDescription' className={`opacity-0 font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light  text-xl sm:text-3xl   `} >LeicanAra is a branding-focused creative studio
+     specializing in storytelling.  We craft distinctive ideas that forge connections 
+     between businesses and customers, while eradicating market invisibility. </p>
       </div>
       <div className={`flex justify-center drop-shadow items-center w-full `}>
 

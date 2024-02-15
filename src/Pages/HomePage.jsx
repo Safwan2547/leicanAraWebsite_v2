@@ -13,7 +13,7 @@ import Watcher from '../Modules/Watcher';
 import CallToAction from './HomePage/CallToAction';
 import { Parallax } from '@react-spring/parallax';
 import Marquee from 'react-fast-marquee';
-
+import Capabilities from './HomePage/Capabilities';
 import Introductory from './HomePage/Introductory';
 
 import { timeline } from 'motion';
@@ -22,13 +22,14 @@ function HomePage() {
   
 
   return (
-    <div  className='  bg-white'>
+    <div  className=' ml-5 mr-5 bg-white'>
 
       <Watcher/>
       
         <LandingPage  />
         <Introductory/>
         <ProjectGrid projects={projects} />
+        <Capabilities/>
         <CallToAction />
         <div className='buttonC cursor-none textC '>
         </div>

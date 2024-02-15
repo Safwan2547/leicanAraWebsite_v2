@@ -50,7 +50,7 @@ timeline(aboutPageAnimate,{duration:2.5});
 })
 
   return (
-    <div>
+    <div className='flex items-center justify-center flex-col'>
       <section className='w-screen h-screen flex flex-col justify-center items-center' id="Landing">
       <div id='philosophy' className='w-full  sm:p-0 p-6 sm:w-2/3 font-Satoshi'>
           <h4 className=' opacity-0 text-sm sm:text-2xl  textP font-light font-Satoshi'>Philosophy:</h4>
@@ -75,6 +75,12 @@ timeline(aboutPageAnimate,{duration:2.5});
           </div>
       
         
+      </section>
+      <div id='divider1' className='divider w-3/4 h-[2px] opacity-50 bg-black'></div>
+
+      <section id='Capabilities' className='h-screen'> 
+
+      
       </section>
     </div>
   );
