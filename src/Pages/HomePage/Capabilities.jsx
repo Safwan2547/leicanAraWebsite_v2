@@ -9,7 +9,7 @@ function Capabilities() {
   return (
     <div className={`grid  grid-cols-2 gap-4 mt-20  relative ${borderCheck? border: ""} justify-center items-start h-[50vh]`}>
       <div className="col-span-1 flex p-10 items-center ">
-        <h1 className="text-6xl font-Lora font-normal">Capabilities</h1>
+        <h1 className="text-5xl font-Lora font-normal">Capabilities</h1>
       </div>
       <div className="col-span-1 flex relative justify-start pt-36 flex-end items-end ">
         <ul className="list-disc flex justify-center  items-start flex-col">

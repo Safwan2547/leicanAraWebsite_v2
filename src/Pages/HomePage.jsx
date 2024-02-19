@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Intro from './HomePage/Intro';
 import LandingPage from './HomePage/landing';
-import AboutSection from './HomePage/About';
 import ProjectsSection from './Projects/Projects';
 import LocomotiveScroll from 'locomotive-scroll';
 import Footer from '../Modules/Footer';
@@ -29,7 +28,7 @@ function HomePage() {
         <LandingPage  />
         <Introductory/>
         <ProjectGrid projects={projects} />
-        <Capabilities/>
+        {/* <Capabilities/> */}
         <CallToAction />
         <div className='buttonC cursor-none textC '>
         </div>

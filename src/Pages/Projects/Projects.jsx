@@ -14,8 +14,10 @@ import starFallVideo2 from "../../Assets/Laptop Mockup 1080 v2.mp4"
 import starFallVideo3 from "../../Assets/StarFall Colors 6.mp4" 
 import starFallImage3 from "../../Assets/Mockup 3.webp"
 import starFallImage4 from "../../Assets/StarFall Thumbnail-4.webp"
+import starFallImage5 from "../../Assets/Starfall Robots Lab Mockup 2.webp"
 import starFallIntroVideo from "../../Assets/StarFall Introducing website2.mp4"
 import starFallPrologue from "../../Assets/StarFall Founded Graphic v2.mp4"
+import starFallVideo4 from "../../Assets/Logo Construct v1.mp4"
  
 
 
@@ -59,8 +61,10 @@ const projects = [
       
       challengeHead:"To create a revolution",
       challengeDescription:"Crafting an identity for StarFall posed a unique and formidable challenge — to meticulously reflect its audacious vision and resonate with a diverse audience, spanning investors to future astronauts.",
+      
       approachHead:"The approach of brilliance",
       approachDescription:"Deeply understanding StarFall's ethos laid the critical groundwork. The design team, drawing inspiration from celestial phenomena and industry giants, embraced a deliberate and thoughtful minimalist approach, resulting in the birth of a unique brand identity named The Triangulum.",
+      
       identityHead:"The Triangulum ",
       identityDescription:"At the heart of StarFall's brand identity lies a concept we term \"Triangulum\". Which Contains 3 base ideas: ",
       epilogueHead:"The Legacy ",
@@ -72,14 +76,40 @@ const projects = [
       image3:starFallImage3,
       
       introVideo:starFallIntroVideo,
-      prologueContent:starFallPrologue,
-      video1:starFallVideo2  ,
+
+      prologueContent1:starFallPrologue,
+      prologueContent2:starFallIntroVideo,
+
+      ambitionContent1:starFallVideo2,
+      ambitionContent2:starFallImage1,
+
+      challengeContent1:starFallImage5,
+      challengeContent2:"",
+
+      approachContent1:starFallImage2,
+      approachContent2:"",
+
+      identityLayout:1,
+      identityContent1:starFallVideo3,
+      identityContent2:starFallVideo4,
+      
+      
+      epilogueContent1:starFallImage3,
+      epilogueContent2:starFallImage4,
+
+
+
+      
       video1Alt:"video description",
+
       video2:starFallVideo,
       video3:starFallVideo3,
+      video4:starFallVideo4,
 
 
       finalWords:"The End."
+
+
     },
     {
       key:"leicanara",

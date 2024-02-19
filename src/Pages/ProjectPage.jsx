@@ -13,15 +13,31 @@ import { scroll, animate,inView } from "motion"
 const ProjectPage = () => {
   const { projectKey } = useParams();
   const [projectData, setProjectData] = useState(null);
+  let projectDetails;
 
   
   //The margin constants are used to determine the margin between sections
   //Must apply the biggest margin value
   //The value must be available for use in tailwindCss or the margin wont work
   const margin=20;
-  const scrollTest=document.getElementById("#prologue");
 
 
+  const getSectionLayout = (name) => {
+    // Use square brackets to access object properties dynamically
+    const sectionLayout = projectDetails[name];
+
+    if(sectionLayout==1){
+      return `flex flex-col justify-center items-center ${marginExpression}`;
+    }
+    return sectionLayout;
+  };
+
+  
+
+
+  
+  
+  
 
 // Use this to separate sections
 const marginExpression = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin)}`;
@@ -36,27 +52,27 @@ const floater= ` transition-all duration-1000   ease-in-out `;
 //This serves as body text modifier
 const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
 
-// const aboutAnimationsEntry=(target)=>{
-//   //animate(target.querySelector("video") ,{transform:"scale(1)",opacity:0},{duration:1,easing:"ease-out"});
 
-//   animate(target.querySelector("h1"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+//These variables control the visual layout of the video and image elements
+  //Layout1: columbs, designed for 2 landscape content one after the other
+  const visualLayout1=`flex  sm:w-3/4 flex-col ${marginExpression2} justify-center items-center w-[100vw]`;
 
-//   animate(target.querySelector("p"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+  //Layout2: rows, designed for 2 portrait content next to each other for desktop and in columns for mobile
 
-//   animate(target.querySelector("img"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-//   animate(target.querySelector("#line"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
+  //Class 1 is for landscape videos
+  const visualClass1=`w-screen drop-shadow-2xl p-1 sm:py-10 aspect-video object-cover ${marginExpression3}`;
+  //Class 2 is for Landscape images
+  const visualClass2="w-screen drop-shadow-2xl p-1 sm:py-10  object-cover";
 
-//   animate(target.querySelector(".animateOnEntry"),{opacity:1,transform:"scale(1)"},{duration:1,easing:"ease-out"})
 
-// }
 
 const aboutAnimationsEntry = (target) => {
   const elementsToAnimate = target.querySelectorAll(".animateOnEntry");
 
   elementsToAnimate.forEach((element) => {
     element.classList.add("opacity-0");
-
+    
     animate(
       element,
       { opacity: 1, transform: "scale(1)" },
@@ -70,28 +86,36 @@ const aboutAnimationsEntry = (target) => {
 
   useEffect(() => {
     // Fetch project details based on projectKey from Projects
-    const projectDetails = projects.find((project) => project.key === projectKey);
-
+     projectDetails = projects.find((project) => project.key === projectKey);
    
     if (projectDetails) {
 
       setProjectData(projectDetails);
+
+      //Call the animations after the page has been built
       setTimeout(() => {
         inView(".pageWrap", ({ target }) => {
           aboutAnimationsEntry(target);
           console.log("In view:",  target);
         })}, 1000);
         
+
+        console.log(getSectionLayout('identityLayout'))
+        
+        
+       
+
+        
     } else {
+
       // Handle project not found (optional)
       console.error(`Project with key "${projectKey}" not found`);
       // Set an empty object or handle it in a way that suits your application
       setProjectData({});
+
     }
 
-    //After Building the page, Call the animations
     
-
     
 
 
@@ -102,6 +126,7 @@ const aboutAnimationsEntry = (target) => {
   return (
     <div className=" pageWrap text-NightFall leading-relaxed  overflow-hidden bg-white">
       {projectData ? (
+        
         <>
         <div id='landing' className=' w-screen h-screen overflow-hidden ' >
        
@@ -126,9 +151,9 @@ const aboutAnimationsEntry = (target) => {
             
           </div>
 
-           <section id='prologue' className={`relative justify-center
+           <section id='prologue' className={`relative justify-center items-center flex-col
            flex  ${marginExpression}`}>
-            <div id='prologue' className="w-full    sm:p-0 sm:w-2/3 ">
+            <div id='prologue' className="w-full  flex justify-center flex-col  sm:p-0 sm:w-2/3 ">
               <div className='p-6 sm:p-0'>
             <p className='text-sm sm:text-2xl  animateOnEntry textP font-light   font-Satoshi'>Prologue:</p>
             <div id='line' className='h-20 rounded-sm w-[1px]  animateOnEntry sm:w-0.5  scale-y-0 bg-black'></div>
@@ -138,36 +163,62 @@ const aboutAnimationsEntry = (target) => {
             </h1>
             <p id='prologueDescription' className={`font-Satoshi animateOnEntry  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light opacity-80 text-sm sm:text-2xl`} >{projectData.prologueDescription}</p>
              </div>
-             <div className={`flex justify-center drop-shadow items-center w-full ${floater}`}>
-            <video alt={projectData.introVideoAlt} muted autoPlay loop  className=" animateOnEntry w-full  scale-90 p-1 sm:py-10 aspect-video drop-shadow-2xl object-cover"src={projectData.introVideo}></video>
 
-            </div>
+            
               {/* Render video or image based on file type */}
-    {projectData.prologueContent && (
-      <div className={`p-1  ${floater} sm:p-0 ${marginExpression3}`}>
-        {projectData.prologueContent.endsWith('.mp4') ? (
-          <video
-            alt={projectData.prologueContent}
-            autoPlay
-            loop
-            muted
-            className='w-screen drop-shadow-2xl p-1 sm:py-10 aspect-video object-cover'
-            src={projectData.prologueContent}
-          ></video>
-        ) : (
-          <img
-            className='w-full py-10 drop-shadow-2xl aspect-image object-cover'
-            src={projectData.prologueContent}
-            alt={projectData.prologueContent}
-          />
-          
-        )}
-        </div>)}
+
+              
+    
       
 
 
 
           </div>
+
+          <div id='prologueLayout' className={`${visualLayout1}`}>
+           
+           {projectData.prologueContent1.endsWith('.mp4') ? (
+         <video
+           alt={projectData.prologueContent1}
+           autoPlay
+           loop
+           muted
+           className={`${visualClass1}`}
+           src={projectData.prologueContent1}
+         ></video>
+       ) : (
+         <img
+           className={`${visualClass2}`}
+           src={projectData.prologueContent1}
+           alt={projectData.prologueContent1}
+         />
+
+         
+         
+       )}
+       {/* Ambition Content 2 */}
+     {projectData.prologueContent2.endsWith('.mp4') ? (
+         <video
+           alt={projectData.prologueContent2}
+           autoPlay
+           loop
+           muted
+           className={`${visualClass1}`}
+           src={projectData.prologueContent2}
+         ></video>
+       ) : (
+         <img
+           className={`${visualClass2}`}
+           src={projectData.prologueContent2}
+           alt={projectData.prologueContent2}
+         />
+
+         
+         
+       )}
+
+       </div>
+            
 
            </section>
 
@@ -184,9 +235,50 @@ const aboutAnimationsEntry = (target) => {
             <p id='ambitionDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 ${marginExpression3} textP  font-light text-sm sm:text-2xl`} >{projectData.ambitionDescription}</p>
 
             </div>
-           
-            <video alt={projectData.vidAlt1} autoPlay loop  muted className={`w-full p-1 sm:w-3/4 drop-shadow-2xl sm:p-10 aspect-video object-cover  ${floater} `} src={projectData.video1} ></video>
 
+            <div id='ambitionLayout' className={`${visualLayout1}`}>
+           
+            {projectData.ambitionContent1.endsWith('.mp4') ? (
+          <video
+            alt={projectData.ambitionContent1}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.ambitionContent1}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.ambitionContent1}
+            alt={projectData.ambitionContent1}
+          />
+
+          
+          
+        )}
+        {/* Ambition Content 2 */}
+      {projectData.ambitionContent2.endsWith('.mp4') ? (
+          <video
+            alt={projectData.ambitionContent2}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.ambitionContent2}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.ambitionContent2}
+            alt={projectData.ambitionContent2}
+          />
+
+          
+          
+        )}
+
+        </div>
            
 
 
@@ -203,8 +295,50 @@ const aboutAnimationsEntry = (target) => {
             <p id='challengeDescription' className={`text-balance hyphens-auto max-w-[35em] font-Satoshi textP ${marginExpression3}  font-light opacity-80 text-sm sm:text-2xl`} >{projectData.challengeDescription}</p>
 
           </div>
-          <img className={`w-full p-1 drop-shadow-2xl sm:p-0  ${floater} ${marginExpression2} sm:w-3/4 `} src={projectData.image1} alt="" />
-          </section>
+
+          <div className='scale-75 w-screen p-1 '>
+           {/* Challenge content 1 */}
+           {projectData.challengeContent1.endsWith('.mp4') ? (
+         <video
+           alt={projectData.challengeContent1}
+           autoPlay
+           loop
+           muted
+           className={`${visualClass1}`}
+           src={projectData.challengeContent1}
+         ></video>
+       ) : (
+         <img
+           className={`${visualClass2}`}
+           src={projectData.challengeContent1}
+           alt={projectData.challengeContent1}
+         />
+
+         
+         
+       )}
+       {/* Challenge Content 2 */}
+     {projectData.challengeContent2.endsWith('.mp4') ? (
+         <video
+           alt={projectData.challengeContent2}
+           autoPlay
+           loop
+           muted
+           className={`${visualClass1}`}
+           src={projectData.challengeContent2}
+         ></video>
+       ) : (
+         <img
+           className={`${visualClass2}`}
+           src={projectData.challengeContent2}
+           alt={projectData.challengeContent2}
+         />
+
+         
+         
+       )}
+       </div>
+       </section>
 
 
 
@@ -222,9 +356,44 @@ const aboutAnimationsEntry = (target) => {
             
             
             <div id='visualSection1 ' className={`flex  sm:w-3/4 flex-col ${marginExpression2} justify-center items-center w-[100vw]`}>
-            <video alt={projectData.vidAlt2} autoPlay loop  muted className={` drop-shadow-2xl p-1 sm:p-0 aspect-video object-cover  ${floater} `} src={projectData.video3} ></video>
-            <img className={`drop-shadow-2xl p-1 sm:p-0   ${floater}`} src={projectData.image3} alt="" />
-            </div>
+
+
+            {projectData.approachContent1.endsWith('.mp4') ? (
+          <video
+            alt={projectData.approachContent1alt}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.approachContent1}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.approachContent1}
+            alt={projectData.approachContent1alt}
+          />
+          
+        )}
+
+              
+            {projectData.approachContent2.endsWith('.mp4') ? (
+          <video
+            alt={projectData.approachContent2}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.approachContent2}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.approachContent2}
+            alt={projectData.approachContent2}
+          />
+          
+        )} </div>
             
           </section>
           <section id='projectInfo4' className={` ${marginExpression} flex flex-col justify-center items-center`}>
@@ -236,10 +405,43 @@ const aboutAnimationsEntry = (target) => {
             <p id='identityDescription' className={`font-Satoshi textP opacity-80 ${bodyMod}  ${marginExpression3} font-light text-sm sm:text-2xl`} >{projectData.identityDescription}</p>
 
           </div>
-          <div id='visualSection2 ' className={`flex flex-col ${marginExpression2} sm:flex-row justify-center items-center w-[100vw]`}>
-            <video alt={projectData.vidAlt2} autoPlay loop  muted className={`p-6 sm:p-0 sm:max-w-1/3 drop-shadow-2xl aspect-[1/2] object-cover ${floater} max-h-[80vh] `} src={projectData.video2} ></video>
-            <img className={` p-1 sm:p-10 mt-10 sm:w-1/2 drop-shadow-2xl ${floater}`} src={projectData.image2} alt="" />
-            </div>
+          <div id='visualSection2 ' className={`${visualLayout1}`}>
+            {projectData.identityContent1.endsWith('.mp4') ? (
+          <video
+            alt={projectData.identityContent1alt}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.identityContent1}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.identityContent1}
+            alt={projectData.identityContent1alt}
+          />
+          
+        )}
+
+              
+            {projectData.identityContent2.endsWith('.mp4') ? (
+          <video
+            alt={projectData.identityContent2}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.identityContent2}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.identityContent2}
+            alt={projectData.identityContent2}
+          />
+          
+        )} </div>
 
             
 
@@ -258,9 +460,24 @@ const aboutAnimationsEntry = (target) => {
              and scrambled it to make a type specimen book.</p>
 
           </div>
-          <div id='visualSection3 ' className={`flex flex-col   ${marginExpression2} sm:flex-row justify-center items-center w-[100vw]`}>
-            <img className={`sm:p-0 p-1 drop-shadow-2xl  sm:w-1/2 ${floater}`} src={projectData.image2} alt="" />
-            </div>
+          <div id='visualSection3 ' className={visualLayout1}>
+          {projectData.epilogueContent1.endsWith('.mp4') ? (
+          <video
+            alt={projectData.epilogueContent1.alt}
+            autoPlay
+            loop
+            muted
+            className={`${visualClass1}`}
+            src={projectData.epilogueContent1}
+          ></video>
+        ) : (
+          <img
+            className={`${visualClass2}`}
+            src={projectData.epilogueContent1}
+            alt={projectData.epilogueContent1.alt}
+          />
+          
+        )} </div>
 
             
 

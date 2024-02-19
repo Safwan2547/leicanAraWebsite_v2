@@ -108,7 +108,7 @@ function LandingPage() {
           <div strength={100} className='opacity-100 landingItem1 mouseParallax text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
             transition-text duration-200 text-left  left-10 bottom-[10%] w-2/3 flex-col '>
           
-          <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1  text-NightFall font-Satoshi font-normal sm:text-9xl  leading-none`}>
+          <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1   text-NightFall font-Satoshi font-bold sm:text-9xl  leading-none`}>
           Storytellers for the Visionaries
           </h1>
           

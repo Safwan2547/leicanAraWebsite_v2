@@ -92,8 +92,10 @@ const renderArrow = () => {
   if (hovering === 'enterC') {
     return (
       <div className='  animate-pulse-slow flex transition-opacity duration-500 justify-center w-full h-full items-center '>
-        <div className=" scale-[200%] rotate-90 ">
-          <span className=' text-LunarTwilight'>&#8593;</span>
+        <div className=" scale-[100%]  ">
+          {/* <span className=' text-LunarTwilight'>&#8593;</span> */}
+          <span className='font-Satoshi  font-extralight text-LunarTwilight'>VIEW</span>
+
         </div>
       </div>
     );

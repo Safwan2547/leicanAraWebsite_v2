@@ -33,7 +33,7 @@ const introductoryAnimate=(target,baseVal)=>{
     animate(
       target.querySelector("h1"),
       { opacity: baseVal,transform:`scale(${baseVal==1?1:0.99})` },
-      {  duration: 1,delay:0.6, easing:"ease-in-out" }
+      {  duration: 1,delay:0.2, easing:"ease-in-out" }
     );
 
   
@@ -41,7 +41,7 @@ const introductoryAnimate=(target,baseVal)=>{
     animate(
       target.querySelector('#introductoryDescription'),
       { opacity: baseVal-0.2, },
-      {  duration: 1,delay:0.8, easing:"ease-in-out" }
+      {  duration: 1,delay:0.4, easing:"ease-in-out" }
     );
   
   
@@ -71,7 +71,7 @@ const introductoryAnimate=(target,baseVal)=>{
 return(
 
 
-    <section id='Introductory' className={`relative h-[30vh] justify-start ml-20
+    <section id='Introductory' className={`relative h-[30vh] justify-start ml-10
     flex just sm:mt-12 sm:mb-32`}>
      <div  className="w-full  sm:p-0 sm:w-2/3 ">
        <div id="group" className='p-6  sm:p-0'>

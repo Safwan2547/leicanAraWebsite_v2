@@ -5,9 +5,10 @@ import Marquee from 'react-fast-marquee';
 function Footer() {
   return (
     <div className=' '>
-      <Marquee autoFill={true} speed={25} className={`p-5   text-NightFall opacity-90 textC hover:text-LunarTwilight duration-1000
-        transition-all font-Lora text-3xl sm:text-5xl `}> | Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |</Marquee>
-    
+      <div className=''>
+      <Marquee autoFill={true} speed={25} className={`p-5   text-NightFall opacity-90  duration-1000
+        transition-all font-Satoshi  text-3xl font-light  sm:text-5xl `}> Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |&nbsp;</Marquee>
+    </div>
     <footer className="relative p-10 overflow-hidden  flex justify-normal items-center h-56 sm:h-64 bg-NightFall text-nightfall py-24">
       
       <div className="container mx-auto flex justify-center items-center">
@@ -15,7 +16,7 @@ function Footer() {
         
         {/* Text section */}
         <div className='text-MainBeige  sm:text-center sm:text-sm   items-center justify-start text-left sm:flex'>
-          <p className='w-2/3 textP sm:w-full' >Designed and Developed by LeicanAra<br />All Rights Reserved</p>
+          <p className='w-2/3 textP sm:w-full' >Designed and Developed by LeicanAra <br />All Rights Reserved</p>
         </div>
         
         {/* Footer icons */}

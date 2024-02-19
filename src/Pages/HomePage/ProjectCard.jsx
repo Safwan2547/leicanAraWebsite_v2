@@ -92,7 +92,7 @@ const checkIsMobile = () => {
   return (
     <TransitionLink
         to={`/${project.key}`} 
-        className=" cursor-none enterC"
+        className="group cursor-none enterC"
        
       >
     <div className='watcher   overflow-hidden w-full    h-full snap-start relative enterC  flex' >
