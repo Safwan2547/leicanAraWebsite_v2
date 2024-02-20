@@ -3,7 +3,7 @@
 //Is dynamically generated based on the project
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import projects from './Projects/Projects';
+import projects from './ProjectPage/Projects';
 import Footer from '../Modules/Footer';
 import Marquee from "react-fast-marquee";
 import { scroll, animate,inView } from "motion"
@@ -176,28 +176,28 @@ const aboutAnimationsEntry = (target) => {
           </div>
 
           <div id='prologueLayout' className={`${visualLayout1}`}>
-           
-           {projectData.prologueContent1.endsWith('.mp4') ? (
-         <video
-           alt={projectData.prologueContent1}
-           autoPlay
-           loop
-           muted
-           className={`${visualClass1}`}
-           src={projectData.prologueContent1}
-         ></video>
-       ) : (
-         <img
-           className={`${visualClass2}`}
-           src={projectData.prologueContent1}
-           alt={projectData.prologueContent1}
-         />
+            { projectData.prologueContent1 && (
+               projectData.prologueContent1.endsWith('.mp4') ? (
+      <video
+        alt={projectData.prologueContent1}
+        autoPlay
+        loop
+        muted
+        className={`${visualClass1}`}
+        src={projectData.prologueContent1}
+      ></video>
+    ) : (
+      <img
+        className={`${visualClass2}`}
+        src={projectData.prologueContent1}
+        alt={projectData.prologueContent1}
+      />
+    )
+  )}
+                                                                                                                                                                                                                            
 
-         
-         
-       )}
        {/* Ambition Content 2 */}
-     {projectData.prologueContent2.endsWith('.mp4') ? (
+     {projectData.prologueContent2 && projectData.prologueContent2.endsWith('.mp4') ? (
          <video
            alt={projectData.prologueContent2}
            autoPlay
@@ -238,7 +238,7 @@ const aboutAnimationsEntry = (target) => {
 
             <div id='ambitionLayout' className={`${visualLayout1}`}>
            
-            {projectData.ambitionContent1.endsWith('.mp4') ? (
+            {projectData.ambitionContent1 && projectData.ambitionContent1.endsWith('.mp4') ? (
           <video
             alt={projectData.ambitionContent1}
             autoPlay
@@ -258,7 +258,7 @@ const aboutAnimationsEntry = (target) => {
           
         )}
         {/* Ambition Content 2 */}
-      {projectData.ambitionContent2.endsWith('.mp4') ? (
+      {projectData.ambitionContent2 && projectData.ambitionContent2.endsWith('.mp4') ? (
           <video
             alt={projectData.ambitionContent2}
             autoPlay
@@ -298,7 +298,7 @@ const aboutAnimationsEntry = (target) => {
 
           <div className='scale-75 w-screen p-1 '>
            {/* Challenge content 1 */}
-           {projectData.challengeContent1.endsWith('.mp4') ? (
+           {projectData.challengeContent1 && projectData.challengeContent1.endsWith('.mp4') ? (
          <video
            alt={projectData.challengeContent1}
            autoPlay
@@ -318,7 +318,7 @@ const aboutAnimationsEntry = (target) => {
          
        )}
        {/* Challenge Content 2 */}
-     {projectData.challengeContent2.endsWith('.mp4') ? (
+     {projectData.challengeContent2 && projectData.challengeContent2.endsWith('.mp4') ? (
          <video
            alt={projectData.challengeContent2}
            autoPlay
@@ -358,7 +358,7 @@ const aboutAnimationsEntry = (target) => {
             <div id='visualSection1 ' className={`flex  sm:w-3/4 flex-col ${marginExpression2} justify-center items-center w-[100vw]`}>
 
 
-            {projectData.approachContent1.endsWith('.mp4') ? (
+            {projectData.approachContent1 && projectData.approachContent1.endsWith('.mp4') ? (
           <video
             alt={projectData.approachContent1alt}
             autoPlay
@@ -377,7 +377,7 @@ const aboutAnimationsEntry = (target) => {
         )}
 
               
-            {projectData.approachContent2.endsWith('.mp4') ? (
+            {projectData.approachContent2 && projectData.approachContent2.endsWith('.mp4') ? (
           <video
             alt={projectData.approachContent2}
             autoPlay
@@ -406,7 +406,7 @@ const aboutAnimationsEntry = (target) => {
 
           </div>
           <div id='visualSection2 ' className={`${visualLayout1}`}>
-            {projectData.identityContent1.endsWith('.mp4') ? (
+            {projectData.identityContent1 && projectData.identityContent1.endsWith('.mp4') ? (
           <video
             alt={projectData.identityContent1alt}
             autoPlay
@@ -425,7 +425,7 @@ const aboutAnimationsEntry = (target) => {
         )}
 
               
-            {projectData.identityContent2.endsWith('.mp4') ? (
+            {projectData.identityContent2 && projectData.identityContent2.endsWith('.mp4') ? (
           <video
             alt={projectData.identityContent2}
             autoPlay
@@ -461,7 +461,7 @@ const aboutAnimationsEntry = (target) => {
 
           </div>
           <div id='visualSection3 ' className={visualLayout1}>
-          {projectData.epilogueContent1.endsWith('.mp4') ? (
+          {projectData.epilogueContent1 && projectData.epilogueContent1.endsWith('.mp4') ? (
           <video
             alt={projectData.epilogueContent1.alt}
             autoPlay
@@ -474,7 +474,7 @@ const aboutAnimationsEntry = (target) => {
           <img
             className={`${visualClass2}`}
             src={projectData.epilogueContent1}
-            alt={projectData.epilogueContent1.alt}
+            alt={projectData.epilogueContent1}
           />
           
         )} </div>

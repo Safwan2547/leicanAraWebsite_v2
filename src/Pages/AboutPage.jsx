@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import thumbNail from '../Assets/Artboard5.webp';
+import thumbNail from '../Assets/LeicanAra Project/Artboard5.webp';
 import { inView,animate,timeline } from "motion"
 
 function AboutPage() {

@@ -3,7 +3,7 @@ import Intro from './HomePage/Intro';
 import LandingPage from './HomePage/landing';
 import Footer from '../Modules/Footer';
 import ProjectGrid from '../Pages/HomePage/ProjectGrid';
-import projects from './Projects/Projects';
+import projects from './ProjectPage/Projects';
 import { float } from '../Modules/floater';
 import Watcher from '../Modules/Watcher';
 import CallToAction from './HomePage/CallToAction';

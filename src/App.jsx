@@ -10,7 +10,6 @@ import HomePage from './Pages/HomePage';
 import FAQPage from './Pages/FAQPage';
 import ProjectPage from './Pages/ProjectPage';
 import AboutPage from './Pages/AboutPage';
-import {Scrollbar} from 'smooth-scrollbar-react';
 import Footer from './Modules/Footer';
 
 
