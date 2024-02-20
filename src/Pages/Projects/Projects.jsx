@@ -2,7 +2,7 @@ import React, { useRef,useState, useEffect } from 'react';
 
 
 import LeicanAraPhoto from "../../Assets/Magazine.webp"
-import SvavaPhoto from "../../Assets/Zen.webp"
+import SvavaPhoto from "../../Assets/svava placeholder.webp"
 import leicanAraPortrait from "../../Assets/portrait uw.webp"
 
 //Starfall Imports
@@ -145,7 +145,7 @@ const projects = [
       thumbnail:SvavaPhoto,
       thumbnailPort:starFallPhoto,
       projectLink: 'https://www.starfallstudios.com/',
-      textColor:"text-[#efece3]",
+      textColor:"text-[#141414]",
       typeMobile:"image"
 
     }

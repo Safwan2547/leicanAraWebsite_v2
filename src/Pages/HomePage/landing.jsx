@@ -1,9 +1,7 @@
 import React, { useRef,useState, useEffect } from 'react';
 import logo from '../../Assets/Logo.svg'; // Adjust the path according to your directory structure
-import LocomotiveScroll from 'locomotive-scroll';
 import landingVid from '../../Assets/Website landing 1.mp4'
 import { animate, scroll, inView,timeline,spring, } from "motion"
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Intro from './Intro';
 //FIX LOCOMOTIVE SCROLL
 
