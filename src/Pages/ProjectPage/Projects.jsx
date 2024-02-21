@@ -11,7 +11,7 @@ import leicanAraVideo2 from "../../Assets/LeicanAra Project/Logo Construction.mp
 import leicanAraVideo3 from "../../Assets/LeicanAra Project/Minimal Initial Reveal widescreen.mp4"
 import leicanAraImage1 from "../../Assets/LeicanAra Project/Artboard4.webp"
 import leicanAraImage2 from "../../Assets/LeicanAra Project/Artboard3.webp"
-import leicanAraImage3 from "../../Assets/LeicanAra Project/Asset 2.png"
+import leicanAraImage3 from "../../Assets/LeicanAra Project/Asset 2.webp"
 import leicanAraImage4 from "../../Assets/LeicanAra Project/COLOR leicanAra 3.webp"
 import leicanAraImage5 from "../../Assets/LeicanAra Project/LeicanAra Narrow Board.webp"
 import leicanAraImage6 from "../../Assets/LeicanAra Project/TYPOGRAPHY.webp"
@@ -29,6 +29,8 @@ import starFallImage5 from "../../Assets/Starfall Robots Lab Mockup 2.webp"
 import starFallIntroVideo from "../../Assets/StarFall Introducing website2.mp4"
 import starFallPrologue from "../../Assets/StarFall Founded Graphic v2.mp4"
 import starFallVideo4 from "../../Assets/Logo Construct v1.mp4"
+import starFallImage6 from "../../Assets/StarFall Logo Showcase v4.webp"
+import starFallImage7 from "../../Assets/StarFall Rocket.webp"
  
 
 
@@ -93,16 +95,17 @@ const projects = [
 
       ambitionContent1:starFallVideo2,
       ambitionContent2:starFallImage1,
-
-      challengeContent1:starFallImage5,
-      challengeContent2:"",
+      
+      challengeLayout:2,
+      challengeContent1:starFallVideo,
+      challengeContent2:starFallImage7,
 
       approachContent1:starFallImage2,
-      approachContent2:"",
+      approachContent2:starFallImage6,
 
       identityLayout:1,
-      identityContent1:starFallVideo3,
-      identityContent2:starFallVideo4,
+      identityContent1:starFallVideo4,
+      identityContent2:starFallVideo3,
       
       
       epilogueContent1:starFallImage3,

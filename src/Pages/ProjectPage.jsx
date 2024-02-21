@@ -22,15 +22,7 @@ const ProjectPage = () => {
   const margin=20;
 
 
-  const getSectionLayout = (name) => {
-    // Use square brackets to access object properties dynamically
-    const sectionLayout = projectDetails[name];
 
-    if(sectionLayout==1){
-      return `flex flex-col justify-center items-center ${marginExpression}`;
-    }
-    return sectionLayout;
-  };
 
   
 
@@ -56,14 +48,48 @@ const bodyMod=`text-balance hyphens-auto max-w-[35em]`;
 //These variables control the visual layout of the video and image elements
   //Layout1: columbs, designed for 2 landscape content one after the other
   const visualLayout1=`flex  sm:w-3/4 flex-col ${marginExpression2} justify-center items-center w-[100vw]`;
+ 
+  
 
   //Layout2: rows, designed for 2 portrait content next to each other for desktop and in columns for mobile
+  const visualLayout2=`flex sm:w-3/4 flex-col sm:flex-row ${marginExpression2} justify-center items-center w-[100vw]`;
 
+  //Layout3: rows, designed for one landscape and one portrait content next to each other for desktop and in columns for mobile
+  const visualLayout3=`flex sm:w-3/4 p-10 flex-col sm:flex-row ${marginExpression2} justify-center items-center w-[100vw]`;
 
   //Class 1 is for landscape videos
   const visualClass1=`w-screen drop-shadow-2xl p-1 sm:py-10 aspect-video object-cover ${marginExpression3}`;
   //Class 2 is for Landscape images
-  const visualClass2="w-screen drop-shadow-2xl p-1 sm:py-10  object-cover";
+  const visualClass2=" drop-shadow-2xl p-1 sm:py-10  object-cover";
+
+  const visualClass3 = "w-1/2  drop-shadow-2xl p-1 sm:py-10 h object-cover aspect-[9/16]";
+
+
+  const getSectionLayout = (projectData, name) => {
+    if (projectData) {
+      // Iterate over projectData to find the correct project
+      const sectionLayout = projectData[name];
+      
+        if (sectionLayout === 1) {
+          return visualLayout1;
+        }
+        else if (sectionLayout === 2) {
+          return visualLayout2;
+        }
+        else if (sectionLayout === 3) {
+          return visualLayout3;
+        }
+        
+       else {
+        console.error(`Project with key "${projectData[name]}" not found`);
+      }
+    }
+    // Return a default layout if projectData is not available or if the project is not found
+    return "default-layout";
+  };
+  
+
+
 
 
 
@@ -100,7 +126,8 @@ const aboutAnimationsEntry = (target) => {
         })}, 1000);
         
 
-        console.log(getSectionLayout('identityLayout'))
+        console.log(getSectionLayout(projectDetails,'identityLayout'))
+       
         
         
        
@@ -114,7 +141,6 @@ const aboutAnimationsEntry = (target) => {
       setProjectData({});
 
     }
-
     
     
 
@@ -296,7 +322,7 @@ const aboutAnimationsEntry = (target) => {
 
           </div>
 
-          <div className='scale-75 w-screen p-1 '>
+          <div className={`${getSectionLayout(projectData,"challengeLayout")}`}>
            {/* Challenge content 1 */}
            {projectData.challengeContent1 && projectData.challengeContent1.endsWith('.mp4') ? (
          <video
@@ -304,7 +330,7 @@ const aboutAnimationsEntry = (target) => {
            autoPlay
            loop
            muted
-           className={`${visualClass1}`}
+           className={`${visualClass3}`}
            src={projectData.challengeContent1}
          ></video>
        ) : (
@@ -329,7 +355,7 @@ const aboutAnimationsEntry = (target) => {
          ></video>
        ) : (
          <img
-           className={`${visualClass2}`}
+           className={`${visualClass3}`}
            src={projectData.challengeContent2}
            alt={projectData.challengeContent2}
          />
@@ -405,7 +431,7 @@ const aboutAnimationsEntry = (target) => {
             <p id='identityDescription' className={`font-Satoshi textP opacity-80 ${bodyMod}  ${marginExpression3} font-light text-sm sm:text-2xl`} >{projectData.identityDescription}</p>
 
           </div>
-          <div id='visualSection2 ' className={`${visualLayout1}`}>
+          <div id='visualSection2 ' className={`${getSectionLayout(projectData,"identityLayout")} `}>
             {projectData.identityContent1 && projectData.identityContent1.endsWith('.mp4') ? (
           <video
             alt={projectData.identityContent1alt}
