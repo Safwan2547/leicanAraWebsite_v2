@@ -90,12 +90,13 @@ const projects = [
       
       introVideo:starFallIntroVideo,
 
+      prologueLayout:1,
       prologueContent1:starFallPrologue,
       prologueContent2:starFallIntroVideo,
 
       ambitionContent1:starFallVideo2,
       ambitionContent2:starFallImage1,
-      
+
       challengeLayout:2,
       challengeContent1:starFallVideo,
       challengeContent2:starFallImage7,
