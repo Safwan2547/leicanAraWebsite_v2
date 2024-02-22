@@ -62,15 +62,15 @@ const ProjectPage = () => {
 
 
     // Layout2: rows, designed for 2 portrait content next to each other for desktop and in columns for mobile
-    const visualLayout2 = `flex sm:w-3/4 flex-col sm:flex-row ${marginExpression2} justify-center items-center w-[100vw]`;
+    const visualLayout2 =  ` *:w-1/2  flex sm:w-3/4 flex-col sm:flex-row ${marginExpression2} justify-center items-center w-[100vw]`;
 
     // Layout3: grid, designed for two landscape and one portrait content next to each other for desktop and in columns for mobile
-    const visualLayout3 = `grid grid-cols-2 gap-4 sm:w-3/4 p-10 ${marginExpression2} justify-center items-center w-[100vw]`;
+    const visualLayout3 = `grid grid-cols-7 *:w-full grid-flow-col  gap-4  w-3/4 ${marginExpression2}  `;
 
-    // Class 1 is for landscape videos
-    const landScape = `w-screen drop-shadow-2xl  p-1 sm:py-10  object-cover ${marginExpression3}`;
+    // Landscape Content
+    const landScape = ` drop-shadow-2xl  p-1  col-span-4 col-start-1 object-cover ${marginExpression3}`;
     // Portrait Content
-    const portrait = ` ${marginExpression3} w-1/2  drop-shadow-2xl p-1 sm:py-10 h-full object-cover `;
+    const portrait = `${marginExpression3}   row-span-2 col-span-3 col-start-5 drop-shadow-2xl p-1  object-cover`;
 
 
     const getSectionLayout = (projectData, name) => {

@@ -100,9 +100,11 @@ const projects = [
       challengeLayout:2,
       challengeContent1:starFallVideo,
       challengeContent2:starFallImage7,
-
+      
+      approachLayout:3,
       approachContent1:starFallImage2,
       approachContent2:starFallImage6,
+      approachContent3:starFallVideo,
 
       identityLayout:1,
       identityContent1:starFallVideo4,

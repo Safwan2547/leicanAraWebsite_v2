@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ApproachSection = ({ projectData, sectionLayout, margins }) => {
-  const { approachHead, approachDescription, approachContent1, approachContent2 } = projectData;
+  const { approachHead, approachDescription, approachContent1, approachContent2, approachContent3 } = projectData;
 
   return (
     <section id='approach' className={`flex flex-col justify-center items-center ${margins[0]}`}>
@@ -16,13 +16,22 @@ const ApproachSection = ({ projectData, sectionLayout, margins }) => {
         {approachContent1 && approachContent1.endsWith('.mp4') ? (
           <video alt={approachContent1} autoPlay loop muted className={`${sectionLayout[1]}`} src={approachContent1}></video>
         ) : (
-          <img className={`${sectionLayout[2]}`} src={approachContent1} alt={approachContent1} />
+          <img className={`${sectionLayout[1]}`} src={approachContent1} alt={approachContent1} />
         )}
 
         {approachContent2 && approachContent2.endsWith('.mp4') ? (
-          <video alt={approachContent2} autoPlay loop muted className={`${sectionLayout[1]}`} src={approachContent2}></video>
+          <video alt={approachContent2} autoPlay loop muted className={`${sectionLayout[2]}`} src={approachContent2}></video>
         ) : (
           <img className={`${sectionLayout[2]}`} src={approachContent2} alt={approachContent2} />
+        )}
+
+        {/* Render approachContent3 if it exists */}
+        {approachContent3 && (
+          approachContent3.endsWith('.mp4') ? (
+            <video alt={approachContent3} autoPlay loop muted className={`${sectionLayout[3]}`} src={approachContent3}></video>
+          ) : (
+            <img className={`${sectionLayout[3]}`} src={approachContent3} alt={approachContent3} />
+          )
         )}
       </div>
     </section>
