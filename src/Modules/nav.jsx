@@ -33,13 +33,13 @@ const Navbar = () => {
 
     const navAnimations=[
 
-      [navBar, { opacity: 0,y:0 }], 
-      [navBar,{ opacity: 1, y:0}, { duration: 2, easing:"cubic-bezier(.16,1.17,1,.98)"}]
+      [navBar, { opacity: 1 }], 
+      [navBar,{ opacity: 1, y:-10}, { duration: 2, easing:"cubic-bezier(.16,1.17,1,.98)"}]
   
     ]
     useEffect(() => {
 
-        animate("nav",{opacity:1}, {duration : 1,delay:1})
+        animate("nav",{opacity:1}, {duration : 1,delay:1,easing:"ease-in-out"})
     },[]);
 
     
@@ -60,7 +60,7 @@ const Navbar = () => {
 
 
     return (
-        <nav id="navBar" className={`     appearance-none transition-color opacity-0 ease-expo 
+        <nav id="navBar" className={`  appearance-none transition-color opacity-0 ease-expo 
         flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10`} >
             <div>
             <TransitionLink to="/" className=' opacity-90 navItem antialiased transform transition-button duration-500 hover:scale-105

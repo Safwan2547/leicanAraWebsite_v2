@@ -10,6 +10,8 @@ import CallToAction from './HomePage/CallToAction';
 import Capabilities from './HomePage/Capabilities';
 import Introductory from './HomePage/Introductory';
 
+import LocomotiveScroll from 'locomotive-scroll';
+
 import { timeline } from 'motion';
 
 function HomePage() {
@@ -18,7 +20,6 @@ function HomePage() {
   return (
     <div  className=' ml-5 mr-5 bg-white'>
 
-      <Watcher/>
       
         <LandingPage  />
         <Introductory/>

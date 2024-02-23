@@ -92,7 +92,7 @@ const checkIsMobile = () => {
   return (
     <TransitionLink
         to={`/${project.key}`} 
-        className="group cursor-none enterC"
+        className="group  cursor-none enterC"
        
       >
     <div className='watcher   overflow-hidden w-full    h-full snap-start relative enterC  flex' >
@@ -122,7 +122,7 @@ const checkIsMobile = () => {
             
             (!isMobile && project.type === 'image') ? (
               <img loading='lazy' alt={project.alt}  src={project.thumbnail} className="
-               rounded-t object-cover overflow-hidden max-w-full aspect-[1/2] group-hover:scale-110 transition-all duration-1000 ease-in-out  sm:aspect-[1.85/1] cursor-none " />
+               rounded-t object-cover  overflow-hidden max-w-full aspect-[1/2] group-hover:scale-110 transition-all duration-1000 ease-in-out  sm:aspect-[1.85/1] cursor-none " />
             ) : 
 
             
@@ -148,14 +148,14 @@ const checkIsMobile = () => {
           ></div>
         </div>
       {/* Additional project information */}
-      <div className="cursor-none group enterC ml-10 mt-10 col-span-4 absolute">
+      <div className="cursor-none  group enterC ml-10 mt-10 col-span-4 absolute">
         
 
         <h4 className={`enterC font-Satoshi font-light scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
           {project.title}
         </h4>
         <p className={`enterC opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
-         text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow ` }>{
+         text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow  ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.mainHeader)}</p>
       </div>

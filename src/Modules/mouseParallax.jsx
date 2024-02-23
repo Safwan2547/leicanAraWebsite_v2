@@ -13,62 +13,40 @@ import React, { useEffect } from 'react';
  */
 function MouseParallax() {
   useEffect(() => {
-    // Step 3: Establish the center point of the viewport
+    const parallaxElements = document.querySelectorAll('.mouseParallax');
+    let xVal = 0;
+    let yVal = 0;
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
+    const parallaxFactor = 0.01;
+    console.log(parallaxElements);
 
-    // Step 1: Capture initial positions of all elements
-    const targets = document.getElementsByClassName('mouseParallax');
-    const initialPositions = [];
-    for (let i = 0; i < targets.length; i++) {
-      const rect = targets[i].getBoundingClientRect();
-      initialPositions[i] = { x: rect.left, y: rect.top };
-      console.log(initialPositions[i])
-    }
+    const handleMouseMove = (e) => {
+      xVal = e.clientX;
+      yVal = e.clientY;
 
-    const handleMouseMove = (event) => {
-      // Step 2: Get mouse position
-      const { clientX: mouseX, clientY: mouseY } = event;
+      parallaxElements.forEach((element) => {
+        const xDisplacement = xVal - centerX;
+        const yDisplacement = yVal - centerY;
 
-      // Step 4: Calculate the displacement between the mouse and the center point
-      let deltaX = mouseX - centerX;
-      let deltaY = mouseY - centerY;
-        console.log("Del X "+ deltaX)
-      console.log("Del Y "+ deltaY)
+        const elementX = element.offsetLeft + element.offsetWidth / 2;
+        const elementY = element.offsetTop + element.offsetHeight / 2;
 
-      // Iterate through each target element
-      for (let i = 0; i < targets.length; i++) {
-        // Step 5: Translate the element based on mouse displacement and a reduction factor
-        const factor = 0.01; 
+        const xParallax = xDisplacement - elementX;
+        const yParallax = yDisplacement - elementY;
 
-        const initialX = initialPositions[i].x;
-        const initialY = initialPositions[i].y;
-        console.log("Initial X "+ initialX)
-        console.log("Initial Y "+ initialY)
-
-        let moveX = initialX + deltaX * factor;
-        let moveY = initialY + deltaY * factor;
-
-        // Constrain movement to keep elements within the viewport
-        const rect = targets[i].getBoundingClientRect();
-       
-        // Apply the transform
-        targets[i].style.transform = `translate(${moveX}px, ${moveY}px)`;
-        console.log("Move X "+ moveX)
-        console.log("Move Y "+ moveY)
-        console.log(targets[i].getBoundingClientRect().top)
-      }
+        element.style.transform = `translate(${xParallax * parallaxFactor}px, ${yParallax * parallaxFactor}px)`;
+      });
     };
 
-    // Attach event listener for mouse movement
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Cleanup function to remove the event listener
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   });
 
+  // Return null if you don't need to render anything
   return null;
 }
 

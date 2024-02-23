@@ -15,6 +15,7 @@ function LandingPage() {
     setShowLandingVideo(true);
   }, 0);
 
+
 //This is the animation for the landing page
   const landingAnimations=[
     // Initial state: set opacity to 0
@@ -54,6 +55,8 @@ function LandingPage() {
    timeline(landingAnimations, {duration : 1,delay:1},{
     defaultOptions: {easing:"ease-in-out" },
   })
+
+  
   
   
    
@@ -69,7 +72,7 @@ function LandingPage() {
 
     return (
       //wrapper
-      <div   className=" ">
+      <div  className=" ">
       {/* <Parallax pages={3} ref={parallax} scrolling={true} horizontal={false} > */}
         
       <div  className={` transition-opacity overflow-hidden duration-1000 
@@ -79,10 +82,10 @@ function LandingPage() {
 
 
 
-<div className="z-1   w-screen h-screen absolute outline-none ">
+<div className="z-1 mouseParallax   w-screen h-screen absolute outline-none ">
           {/* Conditionally render the landing video based on showLandingVideo state */}
           {showLandingVideo && (
-            <video className="w-full  h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[60%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
+            <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[60%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
               <source src={landingVid} type="video/mp4" />
             </video>
           )}
@@ -103,7 +106,7 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
          
-          <div strength={100} className='opacity-100 landingItem1 mouseParallax text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
+          <div strength={100} className='opacity-100 landingItem1  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
             transition-text duration-200 text-left  left-10 bottom-[10%] w-2/3 flex-col '>
           
           <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1   text-NightFall font-Satoshi font-bold sm:text-9xl  leading-none`}>

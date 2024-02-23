@@ -12,9 +12,15 @@ import ProjectPage from './Pages/ProjectPage';
 import AboutPage from './Pages/AboutPage';
 import Footer from './Modules/Footer';
 
+import MouseParallax from './Modules/mouseParallax';
+
+
 
 function App() {
+  useEffect(() => {
+
   
+  });
   return (
     
     <Router >
@@ -23,6 +29,7 @@ function App() {
       {/* <Intro/> */}
       <Cursor />
       <Navbar />
+      <MouseParallax/>
       
       
       <Routes >
@@ -37,7 +44,12 @@ function App() {
       
       </div>
       <Footer />
+
+
+      
+
     </Router>
+    
 );
 }
 export default App;

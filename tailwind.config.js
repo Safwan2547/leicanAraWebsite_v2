@@ -31,6 +31,16 @@ module.exports = {
 
 
     },
+    fontFamily: {
+      'satoshi': ['Satoshi', 'sans-serif'],
+    },
+    fontWeight: {
+      'satoshi-light': 200,
+      'satoshi-normal': 400,
+      'satoshi-medium': 500,
+      'satoshi-semibold': 600,
+      'satoshi-bold': 700,
+    },
     fontSize: {
       'sm': '0.875rem',   // small
       'base': '1rem',     // default
