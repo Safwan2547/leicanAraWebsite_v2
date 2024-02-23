@@ -4,7 +4,7 @@ import { animate,spring, scroll, inView } from "motion"
 
 function Cursor() {
   //initializing position state and hovering state
-  const [position, setPosition] = useState({ x: 0, y: 0});
+  const [position, setPosition] = useState({ x: window.innerWidth/2, y: window.innerHeight/2 });
   const [hovering, setHovering] = useState(null);
   
   
@@ -19,6 +19,7 @@ function Cursor() {
 
 
   useEffect(() => {
+
     
     
 

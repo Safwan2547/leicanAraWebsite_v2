@@ -1,7 +1,7 @@
 import React, { useRef,useState, useEffect } from 'react';
 import logo from '../../Assets/Logo.svg'; // Adjust the path according to your directory structure
 import landingVid from '../../Assets/Website landing 1.mp4'
-import { animate, scroll, inView,timeline,spring, } from "motion"
+import { animate, scroll, inView,timeline,spring,stagger } from "motion"
 import Intro from './Intro';
 //FIX LOCOMOTIVE SCROLL
 
@@ -15,17 +15,15 @@ function LandingPage() {
     setShowLandingVideo(true);
   }, 0);
 
+  const select=document.querySelectorAll("span");
 
 //This is the animation for the landing page
   const landingAnimations=[
-    // Initial state: set opacity to 0
-    [".landingItem1", { opacity: 0,y:5,transform:"scale(0.99)"}],
-    [".landingItem2", { opacity: 0}],
-    [".braidedStar", { opacity: 0}],  
+   
     // Final state: set opacity to desired value
-    
-    [".landingItem1",{ opacity: 1,y:0,transform:"scale(1)"}, { duration: 1, easing:"cubic-bezier(.16,1.17,1,.98)"}],
-    
+  
+    ['.landingAnimations', { opacity: 1, y: 0, transform: "scale(1)" }, {duration:2, delay: stagger(0.2,{ easing: "ease-out" },{from:"last"}), easing: "cubic-bezier(.16,1.17,1,.98)" }],
+
   ];
 //animation for the nav bar
   
@@ -52,7 +50,7 @@ function LandingPage() {
   // timeline(introAnimate, {duration : 0},{
   //   defaultOptions: { ease: "ease-in"}} )
 
-   timeline(landingAnimations, {duration : 1,delay:1},{
+   timeline(landingAnimations, {delay:1},{
     defaultOptions: {easing:"ease-in-out" },
   })
 
@@ -95,9 +93,9 @@ function LandingPage() {
 
           {/* This is the Mobile view */}       
           <div className=' flex justify-center  top-2/3 items-center  sm:hidden  absolute '>  
-      <h1  className={`landingItem1  text-5xl  sm:text-6xl w-3/4 font-Satoshi font-light text-center  opacity-0 sm:w-1/3 z-10 text-NightFall   
+      <h1  className={`landingAnimations  text-5xl  sm:text-6xl w-3/4 font-Lora font-light text-center  opacity-0 sm:w-1/3 z-10 text-NightFall   
          sm:hidden textC transition duration-200 `}>
-            StoryTellers for the Visionaries
+          <span className='textC  opacity-0 font-normal text-8xl'>Storytellers</span> <span className='opacity-0 '>for</span> <br></br><span className=' opacity-0'>the</span> <span className=' textC opacity-0 text-8xl'>Visionaries</span>
           </h1>
           
          
@@ -106,12 +104,12 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
          
-          <div strength={100} className=' opacity-100 landingItem1  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
+          <div strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
             transition-text duration-200  bottom-[10%] w-2/3 flex-col '>
             
           
-          <h1 data-speed="3" id='hero_line'  className={` mouseParallax font-extralight tracking-wide textC mb-5 opacity-0 landingItem1   text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
-          <span className='font-normal text-8xl'>Storytellers</span> for <br></br>the <span className=' text-8xl'>Visionaries</span>
+          <h1 data-speed="3" id='hero_line'  className={` mouseParallax font-extralight tracking-wide textC mb-5 opacity-100 landingItem1   text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
+          <span className='textC landingAnimations opacity-0 font-normal text-8xl'>Storytellers</span> <span className='opacity-0 landingAnimations'>for</span> <br></br><span className='landingAnimations opacity-0'>the</span> <span className='landingAnimations textC opacity-0 text-8xl'>Visionaries</span>
           </h1>
           
 
