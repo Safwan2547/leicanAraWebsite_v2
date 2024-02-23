@@ -106,11 +106,12 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
          
-          <div strength={100} className='opacity-100 landingItem1  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
-            transition-text duration-200 text-left  left-10 bottom-[10%] w-2/3 flex-col '>
+          <div strength={100} className=' opacity-100 landingItem1  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
+            transition-text duration-200  bottom-[10%] w-2/3 flex-col '>
+            
           
-          <h1 data-scroll id='hero_line'  className={` textC mb-5 opacity-0 landingItem1   text-NightFall font-Satoshi font-bold sm:text-9xl  leading-none`}>
-          Storytellers for the Visionaries
+          <h1 data-scroll id='hero_line'  className={` font-extralight tracking-wide textC mb-5 opacity-0 landingItem1   text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
+          <span className='font-normal text-8xl'>Storytellers</span> for <br></br>the <span className=' text-8xl'>Visionaries</span>
           </h1>
           
 

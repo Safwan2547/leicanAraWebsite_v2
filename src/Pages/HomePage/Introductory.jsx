@@ -70,7 +70,7 @@ const introductoryAnimate=(target,baseVal)=>{
 return(
 
 
-    <section id='Introductory' className={`relative h-[30vh] justify-start ml-10
+    <section id='Introductory' className={` relative h-[30vh] justify-start ml-10
     flex just sm:mt-12 sm:mb-32`}>
      <div  className="w-full  sm:p-0 sm:w-2/3 ">
        <div id="group" className='p-6  sm:p-0'>

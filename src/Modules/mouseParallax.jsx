@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import {animate,spring, scroll, inView } from "motion"
 
 /**
  * MouseParallax - A function designed to create a parallax effect relative to the mouse position.
@@ -35,16 +36,26 @@ function MouseParallax() {
         const xParallax = xDisplacement - elementX;
         const yParallax = yDisplacement - elementY;
 
-        element.style.transform = `translate(${xParallax * parallaxFactor}px, ${yParallax * parallaxFactor}px)`;
+        animate(element, {
+          translateX: xParallax * parallaxFactor,
+          translateY: yParallax * parallaxFactor,
+        }, {
+          // Adjust the duration to control the "drag" effect
+         easing: spring({mass:10,stiffness:300, damping: 500,
+           }) // Custom easing to give a feeling of inertia
+       });
+        
+        // element.style.transform = `translate(${xParallax * parallaxFactor}px, ${yParallax * parallaxFactor}px)`;
       });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    console.log('MouseParallax mounted' + parallaxElements[0]);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  });
+  },[]);
 
   // Return null if you don't need to render anything
   return null;

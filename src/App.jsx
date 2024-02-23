@@ -29,7 +29,6 @@ function App() {
       {/* <Intro/> */}
       <Cursor />
       <Navbar />
-      <MouseParallax/>
       
       
       <Routes >

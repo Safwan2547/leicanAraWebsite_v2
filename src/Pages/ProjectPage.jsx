@@ -68,9 +68,9 @@ const ProjectPage = () => {
     const visualLayout3 = `grid grid-cols-7 *:w-full grid-flow-col  gap-1  w-3/4 ${marginExpression2}  `;
 
     // Landscape Content
-    const landScape = ` drop-shadow-lg  p-1  col-span-4 col-start-1 object-cover ${marginExpression3}`;
+    const landScape = ` drop-shadow-lg  p-1  col-span-4 col-start-1 object-cover ${marginExpression3} `;
     // Portrait Content
-    const portrait = `${marginExpression3}   row-span-2 col-span-3 col-start-5 drop-shadow-lg p-1  object-cover`;
+    const portrait = `${marginExpression3}   row-span-2 col-span-3  col-start-5 drop-shadow-lg p-1  object-cover`;
 
 
     const getSectionLayout = (projectData, name) => {
