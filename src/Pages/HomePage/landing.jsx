@@ -82,7 +82,7 @@ function LandingPage() {
 
 
 
-<div className="z-1 mouseParallax   w-screen h-screen absolute outline-none ">
+<div data-speed="1"  className="z-1 mouseParallax   w-screen h-screen absolute outline-none ">
           {/* Conditionally render the landing video based on showLandingVideo state */}
           {showLandingVideo && (
             <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[60%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
@@ -110,7 +110,7 @@ function LandingPage() {
             transition-text duration-200  bottom-[10%] w-2/3 flex-col '>
             
           
-          <h1 data-scroll id='hero_line'  className={` font-extralight tracking-wide textC mb-5 opacity-0 landingItem1   text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
+          <h1 data-speed="3" id='hero_line'  className={` mouseParallax font-extralight tracking-wide textC mb-5 opacity-0 landingItem1   text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
           <span className='font-normal text-8xl'>Storytellers</span> for <br></br>the <span className=' text-8xl'>Visionaries</span>
           </h1>
           

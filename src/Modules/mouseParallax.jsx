@@ -36,9 +36,11 @@ function MouseParallax() {
         const xParallax = xDisplacement - elementX;
         const yParallax = yDisplacement - elementY;
 
+        const speed=element.dataset.speed;
+
         animate(element, {
-          translateX: xParallax * parallaxFactor,
-          translateY: yParallax * parallaxFactor,
+          translateX: xParallax * parallaxFactor*speed,
+          translateY: yParallax * parallaxFactor*speed,
         }, {
           // Adjust the duration to control the "drag" effect
          easing: spring({mass:10,stiffness:300, damping: 500,
