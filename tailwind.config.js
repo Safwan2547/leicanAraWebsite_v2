@@ -105,7 +105,8 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('tailwindcss-animated')
+    require('tailwindcss-animated'),
+    require("@xpd/tailwind-3dtransforms")
     
   ],
     

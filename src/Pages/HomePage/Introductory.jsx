@@ -71,7 +71,7 @@ return(
 
 
     <section id='Introductory' className={` relative h-[30vh] justify-start ml-10
-    flex just sm:mt-12 sm:mb-32`}>
+    flex just sm:mt-24 sm:mb-32`}>
      <div  className="w-full  sm:p-0 sm:w-2/3 ">
        <div id="group" className='p-6  sm:p-0'>
      {/* <p className='text-sm sm:text-2xl textP font-light scale-[99%] opacity-0 font-Satoshi'>Who we are:</p>

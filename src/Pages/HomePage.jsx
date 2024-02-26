@@ -18,7 +18,7 @@ function HomePage() {
   
 
   return (
-    <div  className=' ml-5 mr-5 bg-white'>
+    <div  className='  mr-5 bg-white'>
             <MouseParallax/>
 
 

@@ -19,13 +19,13 @@ function MouseParallax() {
     let yVal = 0;
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
-    const parallaxFactor = 0.01;
+    const parallaxFactor = 0.02;
     console.log(parallaxElements);
 
     const handleMouseMove = (e) => {
       xVal = e.clientX;
       yVal = e.clientY;
-
+      const skewFactor=-0.05
       parallaxElements.forEach((element) => {
         const xDisplacement = xVal - centerX;
         const yDisplacement = yVal - centerY;
@@ -37,6 +37,7 @@ function MouseParallax() {
         const yParallax = yDisplacement - elementY;
 
         const speed=element.dataset.speed;
+        
 
         animate(element, {
           translateX: xParallax * parallaxFactor*speed,
