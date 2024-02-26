@@ -1,67 +1,87 @@
+// Import React and useEffect hook from React library
 import React, { useEffect } from 'react';
-import {animate,spring, scroll, inView } from "motion"
 
-/**
- * MouseParallax - A function designed to create a parallax effect relative to the mouse position.
- *
- * Approach:
- * 1. Get all elements with the class 'mouseParallax'.
- * 2. Get the mouse position on mouse movement.
- * 3. Establish the center point of the viewport.
- * 4. Calculate the displacement between the mouse and the center point.
- * 5. Translate each target element based on the mouse displacement, reduced by a factor,
- *    ensuring elements never leave the viewport.
- */
+// Import animate and spring functions from "motion" library
+import { animate, spring } from "motion";
+
+// Define the MouseParallax component
 function MouseParallax() {
+  // Use the useEffect hook to perform side effects in function components
   useEffect(() => {
-    const parallaxElements = document.querySelectorAll('.mouseParallax');
-    let xVal = 0;
-    let yVal = 0;
+    // Select all elements with the class 'mouseParallax' and convert the NodeList to an array
+    const parallaxElements = Array.from(document.querySelectorAll('.mouseParallax'));
+    
+    // Calculate the center coordinates of the viewport
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
+
+    // Set the parallax factor, debounce delay, animation frame ID, and last mouse update time
     const parallaxFactor = 0.02;
-    console.log(parallaxElements);
+    let animationFrameId;
+    let lastMouseUpdateTime = 0;
+    const debounceDelay = 10;
 
+    // Define a debounce function to limit the frequency of mousemove events
+    const debounce = (func, delay) => {
+      let timer;
+      return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func.apply(context, args);
+        }, delay);
+      };
+    };
+
+    // Define the mousemove event handler
     const handleMouseMove = (e) => {
-      xVal = e.clientX;
-      yVal = e.clientY;
-      const skewFactor=-0.05
-      parallaxElements.forEach((element) => {
-        const xDisplacement = xVal - centerX;
-        const yDisplacement = yVal - centerY;
+      const currentTime = Date.now();
+      if (currentTime - lastMouseUpdateTime > debounceDelay) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = requestAnimationFrame(() => {
+          const xVal = e.clientX;
+          const yVal = e.clientY;
+          const xDisplacement = xVal - centerX;
+          const yDisplacement = yVal - centerY;
 
-        const elementX = element.offsetLeft + element.offsetWidth / 2;
-        const elementY = element.offsetTop + element.offsetHeight / 2;
+          // Iterate over each parallax element and calculate the parallax effect
+          parallaxElements.forEach((element) => {
+            const elementX = element.offsetLeft + element.offsetWidth / 2;
+            const elementY = element.offsetTop + element.offsetHeight / 2;
+            const xParallax = xDisplacement - elementX;
+            const yParallax = yDisplacement - elementY;
+            const speed = element.dataset.speed || 1;
 
-        const xParallax = xDisplacement - elementX;
-        const yParallax = yDisplacement - elementY;
-
-        const speed=element.dataset.speed;
-        
-
-        animate(element, {
-          translateX: xParallax * parallaxFactor*speed,
-          translateY: yParallax * parallaxFactor*speed,
-        }, {
-          // Adjust the duration to control the "drag" effect
-         easing: spring({mass:10,stiffness:300, damping: 500,
-           }) // Custom easing to give a feeling of inertia
-       });
-        
-        // element.style.transform = `translate(${xParallax * parallaxFactor}px, ${yParallax * parallaxFactor}px)`;
-      });
+            // Animate the element's translation based on the parallax effect
+            animate(element, {
+              translateX: xParallax * parallaxFactor * speed,
+              translateY: yParallax * parallaxFactor * speed,
+            }, {
+              easing: spring({ mass: 10, stiffness: 300, damping: 500 }),
+            });
+          });
+        });
+        lastMouseUpdateTime = currentTime;
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    console.log('MouseParallax mounted' + parallaxElements[0]);
+    // Apply debounce to the mousemove event handler
+    const debouncedMouseMove = debounce(handleMouseMove, debounceDelay);
 
+    // Add event listener for mousemove events
+    window.addEventListener('mousemove', debouncedMouseMove);
+
+    // Clean up function to remove event listener and cancel animation frame
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('mousemove', debouncedMouseMove);
     };
-  },[]);
+  }, []);
 
-  // Return null if you don't need to render anything
+  // Return null as this component does not render any JSX
   return null;
 }
 
+// Export the MouseParallax component as the default export
 export default MouseParallax;

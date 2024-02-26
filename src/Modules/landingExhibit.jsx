@@ -21,9 +21,9 @@ function LandingExhibit(){
     })
 
     return (
-        <div className="landingExhibit opacity-0 scale-0 w-[95vw] h-[100vh]  absolute">
+        <div data-speed="2.5" className="landingExhibit mouseParallax opacity-0 scale-0 w-[95vw] h-[100vh]  absolute">
                 {/* <div data-speed="3"  className="   w-full h-full relative flex border-black "> */}
-                <div data-speed="5" className="mouseParallax  exhibit-1  w-36 left-90 bottom-[20vh] absolute">
+                <div data-speed="5" className="  exhibit-1  w-36 left-90 bottom-[20vh] absolute">
                 {exhibitContent[0] && (
             exhibitContent[0].endsWith('.mp4') ? (
               <video alt={exhibitContent[0]} autoPlay loop muted className={``}>
@@ -34,7 +34,7 @@ function LandingExhibit(){
             )
           )}
                 </div>
-                <div data-speed="3.5"  className="w-64 mouseParallax exhibit-2  right-10 bottom-[50vh] absolute ">
+                <div data-speed="3.5"  className="w-64  exhibit-2  right-10 bottom-[50vh] absolute ">
                 {exhibitContent[1] && (
             exhibitContent[1].endsWith('.mp4') ? (
               <video alt={exhibitContent[1]} autoPlay loop muted className={``}>
@@ -45,7 +45,7 @@ function LandingExhibit(){
             )
           )}
                 </div>
-                <div data-speed="2" className="w-48 mouseParallax  exhibit-3  right-[50vw] bottom-[70vh] absolute ">
+                <div data-speed="2" className="w-48   exhibit-3  right-[50vw] bottom-[70vh] absolute ">
                 {exhibitContent[2] && (
             exhibitContent[2].endsWith('.mp4') ? (
               <video alt={exhibitContent[2]} autoPlay loop muted className={``}>
