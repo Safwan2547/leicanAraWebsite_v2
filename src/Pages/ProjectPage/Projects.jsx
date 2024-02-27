@@ -6,6 +6,8 @@ import SvavaPhoto from "../../Assets/svava placeholder.webp"
 import leicanAraPortrait from "../../Assets/portrait uw.webp"
 
 //LeicanAra Imports
+import leicanAraSVG from "../../Assets/LeicanAra Project/VectorBraidedStar.svg"
+import leicanAraThumbnail from "../../Assets/LeicanAra Project/LeicanAra Website thumbnail Backdrop.webp"
 import leicanAraVideo1 from "../../Assets/LeicanAra Project/LeicanAra website Intro v2.mp4"
 import leicanAraVideo2 from "../../Assets/LeicanAra Project/Logo Construction.mp4"
 import leicanAraVideo3 from "../../Assets/LeicanAra Project/Minimal Initial Reveal widescreen.mp4"
@@ -18,7 +20,7 @@ import leicanAraImage6 from "../../Assets/LeicanAra Project/TYPOGRAPHY.webp"
 
 //Starfall Imports
 import starFallLogo from "../../Assets/StarFall logo.svg"
-import starFallThumbnail from "../../Assets/Starfall Backgrop thumbnail.png"
+import starFallThumbnail from "../../Assets/Starfall Backgrop thumbnail.webp"
 import starFallVideo from "../../Assets/StarFall insta reel blue.mp4"
 import starFallPhoto from "../../Assets/Container-Mockup.webp"
 import starFallImage1 from "../../Assets/Ecostellar v4.webp"
@@ -45,6 +47,7 @@ const projects = [
       
       type: 'image',
       thumbnail3d:starFallLogo,
+      thumbnail3dW:"w-40",
       thumbnail: starFallThumbnail,
       
       thumbnailAlt:"image description",
@@ -135,8 +138,11 @@ const projects = [
       title: 'LEICANARA',
       mainHeader: 'Stories that Bind us.',
       type: 'image',
-      thumbnail: leicanAraImage2,
+      thumbnail: leicanAraThumbnail,
       thumbnail2: LeicanAraPhoto,
+      thumbnail3d:leicanAraSVG,
+      thumbnail3dW:"w-2/3",
+
       services:"",
       
       projectLink: 'https://www.leicanAra.com',

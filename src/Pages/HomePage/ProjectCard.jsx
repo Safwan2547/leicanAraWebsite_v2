@@ -21,7 +21,7 @@ const ProjectCard = ({ project }) => {
   animate(
     target.querySelector('p'),
     { opacity: 1,transform: "scale(1)" },
-    {  duration: 0.5,delay:0.7, easing:"ease-out" }
+    {  duration: 1,delay:0.4, easing:"cubic-bezier(.16,1.17,1,.98)" }
   );
 
 
@@ -66,22 +66,24 @@ const checkIsMobile = () => {
       
 
     
-      return(leaveInfo)=>{ animate(
-        target,
-        { opacity:[0,1] },
-        {  duration: 0.5,delay:0.1, easing:"ease-out" })
+      return(leaveInfo)=>{
+        //This code makes it so the elements dissapear once it left the viewport
+        //  animate(
+        // target,
+        // { opacity:[0,1] },
+        // {  duration: 0.5,delay:0.1, easing:"ease-out" })
 
-        animate(
-          target.querySelector('h4'),
-          { opacity: 0 },
-          {  duration: 0.5, easing:"ease-out" }
-        );
+        // animate(
+        //   target.querySelector('h4'),
+        //   { opacity: 0 },
+        //   {  duration: 0.5, easing:"ease-out" }
+        // );
         
-        animate(
-          target.querySelector('p'),
-          { opacity: 0,transform: "scale(0.99)" },
-          {  duration: 0.5, easing:"ease-out" }
-        );
+        // animate(
+        //   target.querySelector('p'),
+        //   { opacity: 0,transform: "scale(0.99)" },
+        //   {  duration: 0.5, easing:"ease-out" }
+        // );
     }});
 
    
@@ -112,18 +114,18 @@ const checkIsMobile = () => {
         <div className=" object-cover overflow-x-visible w-full  transition-all duration-300">
         
        
-  <div className={`relative  snap-center transition-all duration-[600ms] border-black flex justify-center items-center w-full h-full overflow-hidden`}>
-  <TransitionLink to={`/${project.key}`} className="cursor-none absolute peer w z-10 border- w-[60vw] h-[30vw]  enterC"/>
+  <div className={`relative  snap-center transition-all duration-[600ms] cursor-none border-black flex justify-center items-center w-full h-full overflow-hidden`}>
+  <TransitionLink to={`/${project.key}`} className="cursor-none absolute peer w z-10 group w-[60vw] h-[30vw]  enterC"/>
     {/* Render image or video based on the project type */}
     {isMobile === true && project.typeMobile === 'video' ? (
-      <video muted autoPlay loop fetchPriority="low" loading='lazy' alt={project.alt} src={project.thumbnailPort} type="video/mp4" className="rounded-t object-cover max-w-[90vw] absolute snap-center aspect-[1/1.85] overflow-y-hidden " />
+      <video muted autoPlay loop fetchPriority="low" loading='lazy' alt={project.alt} src={project.thumbnailPort} type="video/mp4" className=" object-cover max-w-[90vw] absolute snap-center aspect-[1/1.85] overflow-y-hidden " />
     ) : (
       isMobile === true && project.typeMobile === "image" ? (
-        <img loading='lazy' alt={project.alt} src={project.thumbnailPort} fetchPriority="low" className="rounded-t object-cover w-[90vw] snap-center aspect-[1/1.85] overflow-y-hidden crsor-none" />
+        <img loading='lazy' alt={project.alt} src={project.thumbnailPort} fetchPriority="low" className=" object-cover w-[90vw] snap-center aspect-[1/1.85] overflow-y-hidden crsor-none" />
       ) : (
         !isMobile && project.type === 'image' ? (
          
-            <img loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className="rounded-t object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
+            <img loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className=" object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
         ) : (
           <video alt={project.alt} loading="lazy" muted autoPlay loop fetchPriority="low" className={`transition-all duration-[600ms] ${isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'}`}>
             <source src={project.thumbnail} type="video/mp4" />
@@ -137,20 +139,21 @@ const checkIsMobile = () => {
         </div>
       {/* Additional project information */}
       
-      <div  className=" z-3 group   sm:mt-12 flex justify-center items-center w-full absolute">
+      <div  className=" z-3 group  sm:mt-12 flex justify-center items-center w-full absolute">
         
 
         <h4 className={` font-satoshi-light  scale-[100%] absolute bottom-0 opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
          
         </h4>
-        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
-         text-pretty sm:text-[14rem]  capitalize text-center  ` }>{
+        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[102%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
+         text-pretty lg:text-[14rem] sm:text-[10rem]  capitalize text-center ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.title)}</p>
+         
       </div>
 
 
-      <h4  className={`mainHeader  font-satoshi-light text-pretty  absolute bottom-10 mb-24 inset-0 flex items-end justify-center opacity-0 text-4xl sm:text-6xl z-1 ${isMobile===true?(project.textColorMobile):(project.textColor)} `}>
+      <h4  className={`mainHeader  font-satoshi-light text-pretty  absolute bottom-10 mb-24 inset-y-12 inset-x-16 border- border- flex items-end justify-end opacity-0 text-4xl sm:text-6xl z-1 ${isMobile===true?(project.textColorMobile):(project.textColor)} `}>
          {project.mainHeader}
       </h4>
 
@@ -158,7 +161,7 @@ const checkIsMobile = () => {
 
       {project.thumbnail3d !== null && project.thumbnail3d !== undefined && (
   <div className='sm:flex hidden transition-all duration-1000  h-full w-full  justify-center absolute'>
-    <img data-speed="0.5" className='w-48 z-3   mouseParallax left-50 top-50 hover:scale-[120%]' src={project.thumbnail3d} />
+    <img data-speed="2" className={`${project.thumbnail3dW} z-3   mouseParallax left-50 top-50 `} src={project.thumbnail3d} />
   </div>
 )}
 
