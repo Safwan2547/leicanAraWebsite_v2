@@ -208,6 +208,8 @@ const projects = [
       type:'image',
       thumbnail:SvavaPhoto,
       thumbnailPort:starFallPhoto,
+      thumbnail3d:leicanAraSVG,
+      thumbnail3dW:"w-2/3",
       projectLink: 'https://www.starfallstudios.com/',
       textColor:"text-[#21323e]",
       typeMobile:"image"
@@ -227,6 +229,8 @@ const projects = [
     // Main thumbnail
     thumbnail: "",
     thumbnailAlt: "Thumbnail Description",
+    thumbnail3d:leicanAraSVG,
+      thumbnail3dW:"w-2/3",
   
     // Link to the project page
     projectLink: '/project-page',

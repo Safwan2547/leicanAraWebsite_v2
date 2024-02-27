@@ -16,7 +16,7 @@ function MouseParallax() {
     const centerY = window.innerHeight / 2;
 
     // Set the parallax factor, debounce delay, animation frame ID, and last mouse update time
-    const parallaxFactor = 0.02;
+    const parallaxFactor = -0.02;
     let animationFrameId;
     let lastMouseUpdateTime = 0;
     const debounceDelay = 12;
@@ -53,7 +53,7 @@ function MouseParallax() {
           // Sort elements based on their distance to the viewport center
           parallaxElements.sort((a, b) => a.distanceToViewportCenter - b.distanceToViewportCenter);
           // Apply the parallax effect only to the five closest elements
-          const closestElements = parallaxElements.slice(0, 4);
+          const closestElements = parallaxElements.slice(0, 3);
            closestElements.forEach((element) => {
         const xDisplacement = xVal - centerX;
         const yDisplacement = yVal - centerY;

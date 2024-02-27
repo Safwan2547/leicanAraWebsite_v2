@@ -21,7 +21,7 @@ function LandingExhibit(){
     })
 
     return (
-        <div data-speed="2.5" className="landingExhibit mouseParallax opacity-0 scale-0 w-[95vw] h-[100vh]  absolute">
+        <div data-speed="4" className="landingExhibit mouseParallax opacity-0 scale-0 w-[95vw] h-[100vh]  absolute">
                 {/* <div data-speed="3"  className="   w-full h-full relative flex border-black "> */}
                 <div data-speed="5" className="  exhibit-1  w-36 left-90 bottom-[20vh] absolute">
                 {exhibitContent[0] && (
@@ -56,9 +56,7 @@ function LandingExhibit(){
             )
           )}
                 </div>
-                <div className="abosolute left-50 bottom-50 w-48 h-64 border-2 border-NightFall">
-
-                </div>
+                
 
                 </div>
                

@@ -1,7 +1,7 @@
 // Import necessary modules and components
 import React, { useState,useEffect } from 'react';
 import TransitionLink from '../../Modules/TransitionLink';
-import { inView,animate,timeline } from "motion";
+import { inView,animate,timeline,scroll } from "motion";
 
 
 // Functional component to render a project card
@@ -21,7 +21,7 @@ const ProjectCard = ({ project }) => {
   animate(
     target.querySelector('p'),
     { opacity: 1,transform: "scale(1)" },
-    {  duration: 1,delay:0.4, easing:"cubic-bezier(.16,1.17,1,.98)" }
+    {  duration: 1.3,delay:0.4, easing:"cubic-bezier(.16,1.17,1,.98)" }
   );
 
 
@@ -38,6 +38,8 @@ const checkIsMobile = () => {
 };
 
   useEffect(() => {
+   // scroll(animate(".mainHeader",{y:[-100,100]}),{threshold:0.5})
+
     inView(".mainHeader", ({ target }) => {
 
       animate(
@@ -145,7 +147,7 @@ const checkIsMobile = () => {
         <h4 className={` font-satoshi-light  scale-[100%] absolute bottom-0 opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
          
         </h4>
-        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[102%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
+        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[101%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
          text-pretty lg:text-[14rem] sm:text-[10rem]  capitalize text-center ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.title)}</p>

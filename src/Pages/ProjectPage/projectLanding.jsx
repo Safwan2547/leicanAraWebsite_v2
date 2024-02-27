@@ -28,17 +28,18 @@ const LandingSection = ({ projectData }) => {
   }, []);
 
   return (
-    <div id='landing' className='w-screen  overflow-hidden'>
-        <div id='landingText' className='w-full relative h-[66vh]'> 
+    <div id='landing' className='w-screen h-[120vh]
+     overflow-hidden flex justify-center items-start'>
+        <div id='landingText' className='w-full z-3 text-LunarTwilight  '> 
         <div id="headerInfo" className=' flex absolute bottom-5 justify-evenly align-baseline   place-items-end border-black '>
-          <h1 className=' textC text-6xl  sm:text-8xl max-w-[75vw] pl-10 text-[#141414] tracking-wider  font-satoshi-normal'>{mainHeader}</h1>
+          <h1 className=' textC text-6xl  sm:text-8xl max-w-[75vw] pl-10 text-LunarDawn tracking-wider  font-satoshi-normal'>{mainHeader}</h1>
           <p className='text-2xl hidden text-black overflow-hidden textP align-baseline font-Satoshi font-light'>{title}</p>
         </div>
         
         </div>
-      <div className='w-full h-full justify-center flex overflow-hidden items-center' id='thumbnail'>
+      <div className='w-full h-full z-1 absolute justify-center flex overflow-hidden items-center' id='thumbnail'>
         
-        <img className='w-screen object-cover sm:h-[100vh]' src={thumbnail2} alt="Project Thumbnail" />
+        <img className='w-[90vw] object-cover sm:h-[50vh]' src={thumbnail2} alt="Project Thumbnail" />
         <div id='x'></div>
       </div>
     </div>

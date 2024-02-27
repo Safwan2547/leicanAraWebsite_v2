@@ -6,8 +6,8 @@ function Footer() {
   return (
     <div className=' '>
       <div className='relative'>
-        <div className='flex w-full justify-center'>
-        <h1 className=' font-satoshi-light opacity-50 text-2xl'>Words that define us</h1>
+        <div className='flex w-full  justify-center'>
+        <h1 className=' font-satoshi-light pt-10 opacity-50 text-xl'>Words that define us</h1>
         </div>
       <Marquee autoFill={true} speed={25} className={`p-5   text-NightFall opacity-90  duration-1000
         transition-all font-satoshi-light  text-3xl sm:text-5xl `}> Visionary | Soul | Storytelling | Visibility | Timeless | Human | Forward | Ambition | Heritage | Inspire | Evoke | Elevate | Scuplt | Minimal |&nbsp;</Marquee>

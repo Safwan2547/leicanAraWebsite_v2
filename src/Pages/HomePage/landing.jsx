@@ -86,7 +86,7 @@ function LandingPage() {
        h-screen prose prose-sm lg:prose-xl text-MainBeige relative`}>
 
 
-<div data-speed="2"  className="  z-1  mouseParallax w-screen h-screen absolute outline-none ">
+<div data-speed="1"  className="  z-1  mouseParallax w-screen h-screen absolute outline-none ">
           {/* Conditionally render the landing video based on showLandingVideo state */}
           {showLandingVideo && (
             <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[50%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
@@ -112,8 +112,8 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
 
-          {/* <LandingExhibit /> */}
-          <Frame/>
+          <LandingExhibit />
+          {/* <Frame/> */}
 
          
           <div strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 

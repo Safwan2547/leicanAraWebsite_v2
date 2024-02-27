@@ -71,18 +71,18 @@ return(
 
 
     <section id='Introductory' className={` relative h-[30vh] justify-start ml-10
-    flex just sm:mt-24 sm:mb-32`}>
+    flex just sm:mt-24 sm:ml-24 sm:mb-32`}>
      <div  className="w-full  sm:p-0 sm:w-2/3 ">
        <div id="group" className='p-6  sm:p-0'>
      {/* <p className='text-sm sm:text-2xl textP font-light scale-[99%] opacity-0 font-Satoshi'>Who we are:</p>
      <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 opacity-0 bg-black'></div>
      */}
-     <h1 id='IntroductoryHead' className={`text-3xl opacity-0 scale-[99%] ${marginExpression3} textC font-medium sm:text-5xl font-Lora`}> 
+     <h1 id='IntroductoryHead' className={`text-3xl opacity-0 scale-[100%] ${marginExpression3} textC font-light sm:text-4xl font-Lora`}> 
      
       We tell stories to empower visibility!   
      </h1>
 
-     <p id='introductoryDescription' className={`opacity-0 font-Satoshi  textP text-balance hyphens-auto max-w-[35em] ${marginExpression3} font-light  text-xl sm:text-3xl   `} >LeicanAra is a branding-focused creative studio
+     <p id='introductoryDescription' className={`opacity-0 font-Satoshi  textP text-balance hyphens-auto max-w-[45rem] ${marginExpression3} font-light text-pretty  text-xl sm:text-2xl   `} >LeicanAra is a branding-focused creative studio
      specializing in storytelling.  We craft distinctive ideas that forge connections 
      between businesses and customers, while eradicating market invisibility. </p>
       </div>
