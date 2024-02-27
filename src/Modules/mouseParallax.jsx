@@ -36,33 +36,44 @@ function MouseParallax() {
 
     // Define the mousemove event handler
     const handleMouseMove = (e) => {
-      
       const currentTime = Date.now();
       if (currentTime - lastMouseUpdateTime > debounceDelay) {
         cancelAnimationFrame(animationFrameId);
         animationFrameId = requestAnimationFrame(() => {
           const xVal = e.clientX;
           const yVal = e.clientY;
-          const xDisplacement = xVal - centerX;
-          const yDisplacement = yVal - centerY;
-          console.log("Displacement x: "+xDisplacement+" y: "+yDisplacement)
-          // Iterate over each parallax element and calculate the parallax effect
+          // Calculate the distance between each element and the viewport center
           parallaxElements.forEach((element) => {
-            const xParallax = xDisplacement;
-            const yParallax = yDisplacement;
-            const speed = element.dataset.speed || 1;
-
-            // Animate the element's translation based on the parallax effect
-            animate(element, {
-              translateX: xParallax * parallaxFactor * speed,
-              translateY: yParallax * parallaxFactor * speed,
-            }, {
-              easing: spring({ mass: 10, stiffness: 300, damping: 500 }),
-            });
+            const rect = element.getBoundingClientRect();
+            const elementCenterX = rect.left + rect.width / 2;
+            const elementCenterY = rect.top + rect.height / 2;
+            const distance = Math.sqrt((elementCenterX - xVal) ** 2 + (elementCenterY - yVal) ** 2);
+            element.distanceToViewportCenter = distance;
           });
+          // Sort elements based on their distance to the viewport center
+          parallaxElements.sort((a, b) => a.distanceToViewportCenter - b.distanceToViewportCenter);
+          // Apply the parallax effect only to the five closest elements
+          const closestElements = parallaxElements.slice(0, 4);
+           closestElements.forEach((element) => {
+        const xDisplacement = xVal - centerX;
+        const yDisplacement = yVal - centerY;
+        const xParallax = xDisplacement;
+        const yParallax = yDisplacement;
+        const speed = element.dataset.speed || 1;
+        // Animate the element's translation based on the parallax effect
+        animate(element, {
+          translateX: xParallax * parallaxFactor * speed,
+          translateY: yParallax * parallaxFactor * speed,
+        }, {
+          easing: spring({ mass: 10, stiffness: 300, damping: 500 }),
         });
-        lastMouseUpdateTime = currentTime;
+      });
+      // Log the closest elements
+     
+    });
+    lastMouseUpdateTime = currentTime;
       }
+
     };
 
     // Apply debounce to the mousemove event handler
@@ -70,7 +81,10 @@ function MouseParallax() {
 
     // Add event listener for mousemove events
     window.addEventListener('mousemove', debouncedMouseMove);
-
+ document.addEventListener('keydown', (event) => {
+        if (event.code === 'a') {
+          console.log('Closest elements:', closestElements);
+        }});
     // Clean up function to remove event listener and cancel animation frame
     return () => {
       cancelAnimationFrame(animationFrameId);

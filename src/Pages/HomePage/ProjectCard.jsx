@@ -12,19 +12,11 @@ const ProjectCard = ({ project }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
+  const currentFocus =true;
+
   
 
  const cardAnimation=(target)=>{
-  animate(
-    target,
-    { opacity: 1 },
-    {  duration: 0.5,delay:0.1, easing:"ease-out" }
-  );
-  animate(
-    target.querySelector('h4'),
-    { opacity: 1,transform: "scale(1)" },
-    {  duration: 0.5,delay:0.3, easing:"ease-out" }
-  );
   
   animate(
     target.querySelector('p'),
@@ -33,7 +25,6 @@ const ProjectCard = ({ project }) => {
   );
 
 
-  
 
  }
 
@@ -47,12 +38,32 @@ const checkIsMobile = () => {
 };
 
   useEffect(() => {
+    inView(".mainHeader", ({ target }) => {
+
+      animate(
+        target,
+         { opacity: 1,transform: "scale(1)" },
+         {  duration: 0.7,delay:0.6, easing:"ease-in-out" }
+       );
+      
+      return(leaveInfo)=>{ animate(
+        target,
+        { opacity: 0 },
+        {  duration: 0.1, easing:"ease-out" }
+      );
+      }
+    }
+
+
+      )
 
     inView(".group", ({ target }) => {
 
 
       
       cardAnimation(target,1);
+
+      
 
     
       return(leaveInfo)=>{ animate(
@@ -90,89 +101,69 @@ const checkIsMobile = () => {
 
   // Render the project card
   return (
-    <TransitionLink
-        to={`/${project.key}`} 
-        className="group  cursor-none enterC"
+    <div
+        
+        className="  "
        
       >
-    <div className='watcher   overflow-hidden w-full    h-full snap-start relative enterC  flex' >
+    <div className='watcher   overflow-hidden w-full    h-screen snap-start relative eterC  flex' >
       {/* Use TransitionLink component with the project's link */}
       
-        <div className="enterC object-cover overflow-x-visible   transition-all duration-300">
+        <div className=" object-cover overflow-x-visible w-full  transition-all duration-300">
         
-          <div className={`relative enterC snap-center transition-all duration-[600ms] overflow-hidden`}>
-            {/* Render image or video  based on the project type */}
-            {
-           (isMobile===true && project.typeMobile==='video')?(
-            <video 
-            muted
-            autoPlay
-            loop 
-            fetchPriority="low"
+       
+  <div className={`relative  snap-center transition-all duration-[600ms] border-black flex justify-center items-center w-full h-full overflow-hidden`}>
+  <TransitionLink to={`/${project.key}`} className="cursor-none absolute peer w z-10 border- w-[60vw] h-[30vw]  enterC"/>
+    {/* Render image or video based on the project type */}
+    {isMobile === true && project.typeMobile === 'video' ? (
+      <video muted autoPlay loop fetchPriority="low" loading='lazy' alt={project.alt} src={project.thumbnailPort} type="video/mp4" className="rounded-t object-cover max-w-[90vw] absolute snap-center aspect-[1/1.85] overflow-y-hidden " />
+    ) : (
+      isMobile === true && project.typeMobile === "image" ? (
+        <img loading='lazy' alt={project.alt} src={project.thumbnailPort} fetchPriority="low" className="rounded-t object-cover w-[90vw] snap-center aspect-[1/1.85] overflow-y-hidden crsor-none" />
+      ) : (
+        !isMobile && project.type === 'image' ? (
+         
+            <img loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className="rounded-t object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
+        ) : (
+          <video alt={project.alt} loading="lazy" muted autoPlay loop fetchPriority="low" className={`transition-all duration-[600ms] ${isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'}`}>
+            <source src={project.thumbnail} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )
+      )
+    )}
+  </div>
 
-            loading='lazy' alt={project.alt}  src={project.thumbnailPort}  type="video/mp4" className="
-             rounded-t object-cover  max-w-[90vw]  snap-center aspect-[1/1.85] overflow-y-hidden cursor-none " />
-
-          )
-          
-          :
-           
-           (isMobile===true && project.typeMobile==="image")?(
-              <img loading='lazy' alt={project.alt}  src={project.thumbnailPort}  fetchPriority="low"
-              className="
-               rounded-t object-cover  w-[90vw]  snap-center aspect-[1/1.85] overflow-y-hidden cursor-none " />
-            ) 
-              :
-            
-            (!isMobile && project.type === 'image') ? (
-              <img loading='lazy' alt={project.alt}  fetchPriority="low"
-              src={project.thumbnail} className="
-               rounded-t object-cover  overflow-hidden max-w-full aspect-[1/2] group-hover:scale-110 transition-all duration-1000 ease-in-out  sm:aspect-[1.85/1] cursor-none " />
-            ) : 
-
-            
-            
-            (
-              <video alt={project.alt} loading="lazy"
-                muted
-                autoPlay
-                loop
-                fetchPriority="low"
-                className={`transition-all duration-[600ms] ${
-                  isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'
-                }`}
-              >
-                <source src={project.thumbnail} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            )}
-          </div>
-          <div
-            className={`enterC p-4 absolute cursor-none inset-0 transition-opacity duration-[600ms] rounded
-                        bg-opacity-50 flex flex-col justify-center items-center
-                        ${isHovered ? 'opacity-100' : 'opacity-100'}`}
-          ></div>
         </div>
       {/* Additional project information */}
-      <div  className="cursor-none z-1 group enterC ml-10 mt-10 col-span-4 absolute">
+      
+      <div  className=" z-3 group   sm:mt-12 flex justify-center items-center w-full absolute">
         
 
-        <h4 className={`enterC font-satoshi-light  scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
-          {project.title}
+        <h4 className={` font-satoshi-light  scale-[100%] absolute bottom-0 opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
+         
         </h4>
-        <p className={`enterC opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
-         text-pretty sm:text-9xl mt-2 sm:mt-5 drop-shadow  ` }>{
+        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
+         text-pretty sm:text-[14rem]  capitalize text-center  ` }>{
          isMobile===true?(project.mainHeaderMobile):(
-         project.mainHeader)}</p>
+         project.title)}</p>
       </div>
+
+
+      <h4  className={`mainHeader  font-satoshi-light text-pretty  absolute bottom-10 mb-24 inset-0 flex items-end justify-center opacity-0 text-4xl sm:text-6xl z-1 ${isMobile===true?(project.textColorMobile):(project.textColor)} `}>
+         {project.mainHeader}
+      </h4>
+
+      
+
       {project.thumbnail3d !== null && project.thumbnail3d !== undefined && (
-  <div className='sm:flex hidden transition-all duration-1000 enterC h-full w-full  border-black justify-center absolute'>
-    <img data-speed="3" className='w-64 z-3 enterC  mouseParallax left-50 top-50 hover:scale-[120%]' src={project.thumbnail3d} />
+  <div className='sm:flex hidden transition-all duration-1000  h-full w-full  justify-center absolute'>
+    <img data-speed="0.5" className='w-48 z-3   mouseParallax left-50 top-50 hover:scale-[120%]' src={project.thumbnail3d} />
   </div>
 )}
 
     </div>
-    </TransitionLink>
+    </div>
 
   );
 };

@@ -32,7 +32,7 @@ const boxes = document.querySelectorAll(".projectCard")
       <h1 className='text-NightFall font-Lora font-light text-3xl    sm:text-7xl'>Projects</h1>
       {/* Grid container for projects with specified columns, gap, and border */}
       <div id='projectHolder' className={`${marginExpression2} sm:flex-col flex-row  relative flex overflow-x-scroll overflow-y-hidden 
-       gap-2 sm:gap-8 sm:p-0 pl-4 pr-4 w-screen sm:w-[95vw]  snap-mandatory snap-x   `}>
+       gap-2 sm:gap-24 sm:p-0 pl-4 pr-4 w-screen sm:w-[95vw]  snap-mandatory snap-x   `}>
 
        
        

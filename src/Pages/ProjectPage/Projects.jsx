@@ -40,7 +40,7 @@ import starFallImage7 from "../../Assets/StarFall Rocket.webp"
 const projects = [
     {
       key:"starfall",
-      title: 'StarFall',
+      title: 'STARFALL',
       mainHeader: 'Humanity\'s future, Revolutionized.',
       
       type: 'image',
@@ -51,7 +51,7 @@ const projects = [
 
 
       projectLink: '/ProjectPage',
-      textColor:"text-[#efece3]",
+      textColor:"text-LunarDawn",
   
       services:"|  Branding  ||  Vision  ||  Art Direction || Web Design |",
 
@@ -132,7 +132,7 @@ const projects = [
     },
     {
       key:"leicanara",
-      title: 'LeicanAra',
+      title: 'LEICANARA',
       mainHeader: 'Stories that Bind us.',
       type: 'image',
       thumbnail: leicanAraImage2,
@@ -140,7 +140,7 @@ const projects = [
       services:"",
       
       projectLink: 'https://www.leicanAra.com',
-      textColor:"text-[#efece3]",
+      textColor:"text-[#21323e]",
 
       
     
@@ -197,7 +197,7 @@ const projects = [
     },
     {
       key:"svava",
-      title:'Sväva',
+      title:'SVÄVA',
       mainHeader:'Skincare forever changed',
       type:'image',
       thumbnail:SvavaPhoto,
