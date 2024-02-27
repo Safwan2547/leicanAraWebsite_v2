@@ -1,7 +1,7 @@
 // Import necessary modules and components
 import React, { useState,useEffect } from 'react';
 import TransitionLink from '../../Modules/TransitionLink';
-import { inView,animate,timeline } from "motion"
+import { inView,animate,timeline } from "motion";
 
 
 // Functional component to render a project card
@@ -99,6 +99,7 @@ const checkIsMobile = () => {
       {/* Use TransitionLink component with the project's link */}
       
         <div className="enterC object-cover overflow-x-visible   transition-all duration-300">
+        
           <div className={`relative enterC snap-center transition-all duration-[600ms] overflow-hidden`}>
             {/* Render image or video  based on the project type */}
             {
@@ -107,6 +108,8 @@ const checkIsMobile = () => {
             muted
             autoPlay
             loop 
+            fetchPriority="low"
+
             loading='lazy' alt={project.alt}  src={project.thumbnailPort}  type="video/mp4" className="
              rounded-t object-cover  max-w-[90vw]  snap-center aspect-[1/1.85] overflow-y-hidden cursor-none " />
 
@@ -115,13 +118,15 @@ const checkIsMobile = () => {
           :
            
            (isMobile===true && project.typeMobile==="image")?(
-              <img loading='lazy' alt={project.alt}  src={project.thumbnailPort} className="
+              <img loading='lazy' alt={project.alt}  src={project.thumbnailPort}  fetchPriority="low"
+              className="
                rounded-t object-cover  w-[90vw]  snap-center aspect-[1/1.85] overflow-y-hidden cursor-none " />
             ) 
               :
             
             (!isMobile && project.type === 'image') ? (
-              <img loading='lazy' alt={project.alt}  src={project.thumbnail} className="
+              <img loading='lazy' alt={project.alt}  fetchPriority="low"
+              src={project.thumbnail} className="
                rounded-t object-cover  overflow-hidden max-w-full aspect-[1/2] group-hover:scale-110 transition-all duration-1000 ease-in-out  sm:aspect-[1.85/1] cursor-none " />
             ) : 
 
@@ -132,6 +137,7 @@ const checkIsMobile = () => {
                 muted
                 autoPlay
                 loop
+                fetchPriority="low"
                 className={`transition-all duration-[600ms] ${
                   isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'
                 }`}
@@ -148,10 +154,10 @@ const checkIsMobile = () => {
           ></div>
         </div>
       {/* Additional project information */}
-      <div className="cursor-none  group enterC ml-10 mt-10 col-span-4 absolute">
+      <div  className="cursor-none z-1 group enterC ml-10 mt-10 col-span-4 absolute">
         
 
-        <h4 className={`enterC font-Satoshi font-light scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
+        <h4 className={`enterC font-satoshi-light  scale-[100%]  opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
           {project.title}
         </h4>
         <p className={`enterC opacity-0 scale-[99%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-Satoshi   font-normal w-2/3 text-6xl 
@@ -159,6 +165,12 @@ const checkIsMobile = () => {
          isMobile===true?(project.mainHeaderMobile):(
          project.mainHeader)}</p>
       </div>
+      {project.thumbnail3d !== null && project.thumbnail3d !== undefined && (
+  <div className='sm:flex hidden transition-all duration-1000 enterC h-full w-full  border-black justify-center absolute'>
+    <img data-speed="3" className='w-64 z-3 enterC  mouseParallax left-50 top-50 hover:scale-[120%]' src={project.thumbnail3d} />
+  </div>
+)}
+
     </div>
     </TransitionLink>
 

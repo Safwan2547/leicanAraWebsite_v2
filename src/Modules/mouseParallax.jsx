@@ -19,7 +19,7 @@ function MouseParallax() {
     const parallaxFactor = 0.02;
     let animationFrameId;
     let lastMouseUpdateTime = 0;
-    const debounceDelay = 10;
+    const debounceDelay = 12;
 
     // Define a debounce function to limit the frequency of mousemove events
     const debounce = (func, delay) => {
@@ -36,6 +36,7 @@ function MouseParallax() {
 
     // Define the mousemove event handler
     const handleMouseMove = (e) => {
+      
       const currentTime = Date.now();
       if (currentTime - lastMouseUpdateTime > debounceDelay) {
         cancelAnimationFrame(animationFrameId);
@@ -44,13 +45,11 @@ function MouseParallax() {
           const yVal = e.clientY;
           const xDisplacement = xVal - centerX;
           const yDisplacement = yVal - centerY;
-
+          console.log("Displacement x: "+xDisplacement+" y: "+yDisplacement)
           // Iterate over each parallax element and calculate the parallax effect
           parallaxElements.forEach((element) => {
-            const elementX = element.offsetLeft + element.offsetWidth / 2;
-            const elementY = element.offsetTop + element.offsetHeight / 2;
-            const xParallax = xDisplacement - elementX;
-            const yParallax = yDisplacement - elementY;
+            const xParallax = xDisplacement;
+            const yParallax = yDisplacement;
             const speed = element.dataset.speed || 1;
 
             // Animate the element's translation based on the parallax effect

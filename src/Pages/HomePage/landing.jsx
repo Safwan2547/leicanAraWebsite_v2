@@ -4,6 +4,7 @@ import landingVid from '../../Assets/Website landing 1.mp4'
 import { animate, scroll, inView,timeline,spring,stagger } from "motion"
 import Intro from './Intro';
 import LandingExhibit from '../../Modules/landingExhibit';
+import Frame from '../../Modules/frame';
 import starFallImage3 from "../../Assets/Mockup 3.webp"
 import starFallImage4 from "../../Assets/StarFall Thumbnail-4.webp"
 import starFallImage5 from "../../Assets/Starfall Robots Lab Mockup 2.webp"
@@ -85,11 +86,10 @@ function LandingPage() {
        h-screen prose prose-sm lg:prose-xl text-MainBeige relative`}>
 
 
-
-<div data-speed="1"  className="  z-1  w-screen h-screen absolute outline-none ">
+<div data-speed="2"  className="  z-1  mouseParallax w-screen h-screen absolute outline-none ">
           {/* Conditionally render the landing video based on showLandingVideo state */}
           {showLandingVideo && (
-            <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[60%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
+            <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[50%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
               <source src={landingVid} type="video/mp4" />
             </video>
           )}
@@ -112,7 +112,8 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
 
-          <LandingExhibit />
+          {/* <LandingExhibit /> */}
+          <Frame/>
 
          
           <div strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 

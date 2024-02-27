@@ -38,9 +38,9 @@ return(<div className=" border-black border-0 border-solid flex justify-center i
     {/* Header text */}
     <div id="cta" className=" pt-10 text-NightFall w-[95%]  flex flex-wrap 
     flex-col items-center sm:items-start justify-center align-top     ">
-        <h1 className="text-4xl sm:text-5xl textC font-Lora  opacity-0 text-NightFall mb-10 text-center">Ready to turn your ideas into art?</h1>
+        <h1 className="text-4xl sm:text-5xl textC font-Lora font-light opacity-0 text-NightFall mb-10 text-center">Ready to turn your ideas into art?</h1>
         <a href="#" className=" opacity-0  underline hover:animate-pulse-slow buttonC hover:scale-105 hover:text-LunarDawn transition-color
-         cursor-none font-Satoshi underline-offset-4  text-NightFall text-left text-3xl sm:text-4xl">Lets work together!</a>
+         cursor-none font-satoshi-light underline-offset-4  text-NightFall text-left text-3xl sm:text-4xl">Lets work together!</a>
 
     </div>
 

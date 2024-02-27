@@ -17,6 +17,8 @@ import leicanAraImage5 from "../../Assets/LeicanAra Project/LeicanAra Narrow Boa
 import leicanAraImage6 from "../../Assets/LeicanAra Project/TYPOGRAPHY.webp"
 
 //Starfall Imports
+import starFallLogo from "../../Assets/StarFall logo.svg"
+import starFallThumbnail from "../../Assets/Starfall Backgrop thumbnail.png"
 import starFallVideo from "../../Assets/StarFall insta reel blue.mp4"
 import starFallPhoto from "../../Assets/Container-Mockup.webp"
 import starFallImage1 from "../../Assets/Ecostellar v4.webp"
@@ -42,14 +44,14 @@ const projects = [
       mainHeader: 'Humanity\'s future, Revolutionized.',
       
       type: 'image',
-
-      thumbnail: starFallPhoto,
+      thumbnail3d:starFallLogo,
+      thumbnail: starFallThumbnail,
       
       thumbnailAlt:"image description",
 
 
       projectLink: '/ProjectPage',
-      textColor:"text-MainBeige",
+      textColor:"text-[#efece3]",
   
       services:"|  Branding  ||  Vision  ||  Art Direction || Web Design |",
 

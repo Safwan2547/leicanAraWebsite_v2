@@ -56,6 +56,9 @@ function LandingExhibit(){
             )
           )}
                 </div>
+                <div className="abosolute left-50 bottom-50 w-48 h-64 border-2 border-NightFall">
+
+                </div>
 
                 </div>
                

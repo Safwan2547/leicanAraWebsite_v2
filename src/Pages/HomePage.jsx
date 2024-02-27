@@ -10,7 +10,6 @@ import CallToAction from './HomePage/CallToAction';
 import Capabilities from './HomePage/Capabilities';
 import Introductory from './HomePage/Introductory';
 import MouseParallax from '../Modules/mouseParallax';
-import LocomotiveScroll from 'locomotive-scroll';
 
 import { timeline } from 'motion';
 
