@@ -44,6 +44,7 @@ const projects = [
       key:"starfall",
       title: 'STARFALL',
       mainHeader: 'Humanity\'s future, Revolutionized.',
+      secondaryHeader:"BEYOND THE STARS",
       
       type: 'image',
       thumbnail3d:starFallLogo,

@@ -8,8 +8,8 @@ const PrologueSection = ({ projectData, sectionLayout,margins }) => {
   const sectionAnimations = (target,val) => {
     animate(
       target.querySelector("#prologueText"),
-      { opacity: val,transform:`scale(${val==1?1:0})` },
-      {  duration: 0.5,delay:0.2, easing:"ease-in-out" }
+      { opacity: val },
+      {  duration: 1,delay:0.2, easing:"ease-in-out" }
     );}
 
    
@@ -32,7 +32,7 @@ const PrologueSection = ({ projectData, sectionLayout,margins }) => {
       <div className="w-full flex justify-center items-center flex-col sm:p-0 ">
         <div id='prologueText' className='p-6 w-2/3 opacity-0 sm:p-0'>
           <p className='text-sm sm:text-2xl animateOnEntry textP font-light font-Satoshi'>Prologue:</p>
-          <div id='line' className='h-20  rounded-sm w-[1px] animateOnEntry sm:w-0.5 scale-y-0 bg-black'></div>
+          <div id='line' className='h-20  rounded-sm w-[1px] animateOnEntry sm:w-0.5  bg-black'></div>
           <h1 id='prologue' className={`text-3xl animateOnEntry textC font-medium ${margins[2]} sm:text-5xl font-Lora`}>{prologueHead}</h1>
           <p id='prologueDescription' className={`font-Satoshi animateOnEntry ${margins[2]} textP text-balance hyphens-auto max-w-[35em] font-light opacity-80 text-sm sm:text-2xl`}>{prologueDescription}</p>
         </div>

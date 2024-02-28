@@ -14,6 +14,7 @@ import ChallengeSection from './ProjectPage/challengeSection';
 import ApproachSection from './ProjectPage/approachSection';
 import IdentitySection from './ProjectPage/identitySection';
 import EpilogueSection from './ProjectPage/epilogueSection';
+import MouseParallax from '../Modules/mouseParallax';
 
 
 const ProjectPage = () => {
@@ -145,6 +146,7 @@ const ProjectPage = () => {
             projectData ? (
 
                 <>
+                <MouseParallax/>
                     <LandingSection projectData={projectData}/>
 
 

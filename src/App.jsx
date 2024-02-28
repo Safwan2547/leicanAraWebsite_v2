@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import './tailwind.css';
 import './index.css';
 import 'tailwindcss/tailwind.css'
@@ -13,10 +13,18 @@ import AboutPage from './Pages/AboutPage';
 import Footer from './Modules/Footer';
 
 import MouseParallax from './Modules/mouseParallax';
+import NavMenu from './Modules/navMenu';
 
 
 
 function App() {
+  const [navOpen, setNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setNavOpen(!navOpen);
+    console.log("NavOpen "+ navOpen)
+  };
+
   useEffect(() => {
 
   
@@ -24,12 +32,12 @@ function App() {
   return (
     
     <Router >
-    <div className=" snap-y snap-mandatory sm:m-0 bg-white appearance-none  ">
+    <div className=" snap-y  snap-mandatory sm:m-0 bg-white appearance-none  ">
       
       {/* <Intro/> */}
       <Cursor />
-      <Navbar />
-      
+      <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
+
       
       <Routes >
         <Route exact path="/" element={<HomePage/>} />
@@ -40,6 +48,7 @@ function App() {
 
 
       </Routes>
+      <NavMenu navOpen={navOpen} toggleNav={toggleNav} /> 
       
       </div>
       <Footer />

@@ -10,6 +10,7 @@ import CallToAction from './HomePage/CallToAction';
 import Capabilities from './HomePage/Capabilities';
 import Introductory from './HomePage/Introductory';
 import MouseParallax from '../Modules/mouseParallax';
+import NavMenu from '../Modules/navMenu';
 
 import { timeline } from 'motion';
 
@@ -18,10 +19,12 @@ function HomePage() {
 
   return (
     <div  className='   bg-white'>
+
             <MouseParallax/>
 
 
-      
+       
+
         <LandingPage  />
         <Introductory/>
         <ProjectGrid projects={projects} />

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { inView, animate } from 'motion';
 
 const LandingSection = ({ projectData }) => {
-  const { title, mainHeader, thumbnail2 } = projectData;
+  const { title, mainHeader,secondaryHeader, thumbnail2 } = projectData;
 
   const sectionAnimations = (target,val) => {
     animate(
@@ -30,16 +30,16 @@ const LandingSection = ({ projectData }) => {
   return (
     <div id='landing' className='w-screen h-[120vh]
      overflow-hidden flex justify-center items-start'>
-        <div id='landingText' className='w-full z-3 text-LunarTwilight  '> 
-        <div id="headerInfo" className=' flex absolute bottom-5 justify-evenly align-baseline   place-items-end border-black '>
-          <h1 className=' textC text-6xl  sm:text-8xl max-w-[75vw] pl-10 text-LunarDawn tracking-wider  font-satoshi-normal'>{mainHeader}</h1>
+        <div id='landingText' className='w-full z-3 h-full items-center flex text-LunarTwilight  '> 
+        <div id="headerInfo" className=' flex absolute justify-evenly align-baseline   place-items-end border-black '>
+          <h1 data-speed="0" className=' textC text-6xl  sm:text-[10rem] max-w-[75vw] mouseParallax pl-10 text-LunarDawn tracking-wider  font-satoshi-bold'>{secondaryHeader?secondaryHeader:mainHeader}</h1>
           <p className='text-2xl hidden text-black overflow-hidden textP align-baseline font-Satoshi font-light'>{title}</p>
         </div>
         
         </div>
-      <div className='w-full h-full z-1 absolute justify-center flex overflow-hidden items-center' id='thumbnail'>
+      <div className='w-full h-full z-1 absolute justify-end  flex overflow-hidden items-center' id='thumbnail'>
         
-        <img className='w-[90vw] object-cover sm:h-[50vh]' src={thumbnail2} alt="Project Thumbnail" />
+        <img data-speed="4" className='w-[50vw] mouseParallax p-12 object-cover sm:h-[85vh]' src={thumbnail2} alt="Project Thumbnail" />
         <div id='x'></div>
       </div>
     </div>
