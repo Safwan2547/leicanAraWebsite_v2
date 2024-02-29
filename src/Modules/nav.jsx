@@ -82,7 +82,11 @@ const Navbar = ({toggleNav,navOpen}) => {
                
                
                  
-                 <button className={`${navOpen?"text-MainBeige":"text-NightFall" }  ease-in-out navItem hover:animate-pulse-slow  hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none `} onClick={()=>toggleNav(true)} > Menu</button>
+                 <button className={` h-full w-24 group justify-center items-center flex-col flex  ease-in-out navItem hover:animate-pulse-slow   transform transition-button duration-500 hover:scale-110 relative buttonC font-Satoshi text-2xl font-light cursor-none `} onClick={()=>toggleNav(true)} >
+                    <div className={`group-hover:bg-LunarTwilight  buttonC absolute ease-in-out cursor-none  h-[0.2rem] ${navOpen?"bg-MainBeige w-10 rotate-45":"w-12 translate-y-1 bg-NightFall" } rounded-xl  transition-all duration-1000 `}></div>
+                    <div className={` group-hover:bg-LunarTwilight buttonC cursor-none h-[0.2rem] ${navOpen?"bg-MainBeige w-10 rotate-[315deg]":"w-8  bg-NightFall -translate-y-1" } rounded-lg ease-in-out absolute transition-all duration-1000 `}></div>
+
+                     </button>
                  
 
 

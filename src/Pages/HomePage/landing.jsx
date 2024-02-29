@@ -5,9 +5,7 @@ import { animate, scroll, inView,timeline,spring,stagger } from "motion"
 import Intro from './Intro';
 import LandingExhibit from '../../Modules/landingExhibit';
 import Frame from '../../Modules/frame';
-import starFallImage3 from "../../Assets/Mockup 3.webp"
-import starFallImage4 from "../../Assets/StarFall Thumbnail-4.webp"
-import starFallImage5 from "../../Assets/Starfall Robots Lab Mockup 2.webp"
+
 
 
 function LandingPage() {
@@ -22,7 +20,6 @@ function LandingPage() {
 
   const select=document.querySelectorAll("span");
 
-  const landingImages = [starFallImage3,starFallImage4,starFallImage5]
 
 //This is the animation for the landing page
   const landingAnimations=[
@@ -112,7 +109,7 @@ function LandingPage() {
 
           {/* This is the Desktop view */}
 
-          <LandingExhibit />
+          {/* <LandingExhibit /> */}
          
 
          

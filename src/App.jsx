@@ -18,6 +18,7 @@ import NavMenu from './Modules/navMenu';
 
 
 function App() {
+  //this is the controls for the nav Menu
   const [navOpen, setNavOpen] = useState(false);
   const [animating, setAnimating] = useState(false);
 
@@ -29,7 +30,9 @@ function App() {
               setNavOpen(false);
           }
           setAnimating(true);
-          setTimeout(() => setAnimating(false), 1000);
+          setTimeout(() => setAnimating(false), 1500
+          );
+
       }
   };
 
@@ -40,7 +43,7 @@ function App() {
   return (
     
     <Router >
-    <div className=" snap-y  snap-mandatory sm:m-0 bg-white appearance-none  ">
+    <div className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none overflow-hidden   scroll-n">
       
       {/* <Intro/> */}
       <Cursor />
@@ -56,10 +59,11 @@ function App() {
 
 
       </Routes>
-      <NavMenu navOpen={navOpen} toggleNav={toggleNav} /> 
-      
-      </div>
       <Footer />
+      <NavMenu navOpen={navOpen} toggleNav={toggleNav} /> 
+      </div>
+      
+
 
 
       
