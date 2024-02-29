@@ -19,15 +19,18 @@ import NavMenu from './Modules/navMenu';
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);
+  const [animating, setAnimating] = useState(false);
 
   const toggleNav = (mod) => {
-    if(mod===true){
-    setNavOpen(!navOpen);
-    console.log("NavOpen "+ navOpen)}
-    else{
-      setNavOpen(false);
-      console.log("NavOpen "+ navOpen)
-    }
+      if (!animating) {
+          if (mod === true) {
+              setNavOpen(!navOpen);
+          } else {
+              setNavOpen(false);
+          }
+          setAnimating(true);
+          setTimeout(() => setAnimating(false), 1000);
+      }
   };
 
   useEffect(() => {

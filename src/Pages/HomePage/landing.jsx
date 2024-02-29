@@ -113,7 +113,7 @@ function LandingPage() {
           {/* This is the Desktop view */}
 
           <LandingExhibit />
-          {/* <Frame/> */}
+         
 
          
           <div strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
