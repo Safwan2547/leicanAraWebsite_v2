@@ -70,19 +70,19 @@ const Navbar = ({toggleNav,navOpen}) => {
     return (
         <nav id="navBar" className={`  appearance-none transition-color opacity-0 ease-expo 
         flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10 `}  >
-            <div onClick={toggleNav}>
+            <div onClick={()=>toggleNav(false)}>
               
-            <TransitionLink onClick={toggleNav} to="/" className={`${navOpen?"text-MainBeige":"text-NightFall" } opacity-90 navItem antialiased transform transition-button duration-500 hover:scale-110
+            <TransitionLink to="/" className={`${navOpen?"text-MainBeige":"text-NightFall" } opacity-90 navItem antialiased transform transition-button duration-500 hover:scale-110
              hover:text-LunarTwilight hover:animate-pulse-slow 
              buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none`} >
-                LeicanAra </TransitionLink> <span className={`textP text-3xl font-light font-Satoshi ${navOpen?"text-MainBeige":"text-NightFall" } transition-all duration-500 `}> {getNavbarTitle()}</span>
+                LeicanAra </TransitionLink> <span className={`textP  text-3xl font-light font-Satoshi ${navOpen?"text-MainBeige":"text-NightFall" } transition-all duration-500 `}> {getNavbarTitle()}</span>
               </div>
             <div className="links flex justify-between items-center space-x-8">
            
                
                
                  
-                 <button className={`${navOpen?"text-MainBeige":"text-NightFall" }  ease-in-out navItem hover:animate-pulse-slow  hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none `} onClick={toggleNav} > Menu</button>
+                 <button className={`${navOpen?"text-MainBeige":"text-NightFall" }  ease-in-out navItem hover:animate-pulse-slow  hover:text-LunarTwilight transform transition-button duration-500 hover:scale-110 hidden lg:block buttonC font-Satoshi text-2xl font-light cursor-none `} onClick={()=>toggleNav(true)} > Menu</button>
                  
 
 
