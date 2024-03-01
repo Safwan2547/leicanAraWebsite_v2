@@ -156,7 +156,7 @@ const checkIsMobile = () => {
         <h4 className={` font-satoshi-light  scale-[100%] absolute bottom-0 opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
          
         </h4>
-        <p data-speed={currentFocus? "5" : "0"} className={` opacity-100 scale-[101%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
+        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[101%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
          text-pretty lg:text-[14rem] sm:text-[10rem]  capitalize text-center ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.title)}</p>

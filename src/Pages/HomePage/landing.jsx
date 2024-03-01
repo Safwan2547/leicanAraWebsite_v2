@@ -27,7 +27,8 @@ function LandingPage() {
    
     // Final state: set opacity to desired value
   
-    ['.landingAnimations', {  opacity: 1, transform: "scale(1)" }, {duration:1, delay: stagger(0.4,{ easing: "ease-out" },{from:"last"}), easing: "cubic-bezier(.16,1.17,1,.98)" }],
+    ['.landingAnimations', { clipPath:"circle(150% at 0% 0)", opacity: 1 }, {duration:1.5, easing: "cubic-bezier(.16,1.17,1,.98)" }],
+    ['.landingAnimations', { opacity: 1, transform: "scale(1)" }, {duration:1.5, easing: "cubic-bezier(.42,0,.13,1.17)" ,at: "<" } ],
 
   ];
 //animation for the nav bar
@@ -55,7 +56,7 @@ function LandingPage() {
   // timeline(introAnimate, {duration : 0},{
   //   defaultOptions: { ease: "ease-in"}} )
 
-   timeline(landingAnimations, {delay:1},{
+   timeline(landingAnimations, {delay:0.8},{
     defaultOptions: {easing:"ease-in-out" },
   })
 
@@ -118,8 +119,8 @@ function LandingPage() {
             transition-text duration-200   bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
             
           
-          <h1 data-speed="6" id='hero_line'  className={`relative mouseParallax font-extralight tracking-wide textC mb-5 opacity-100 landingItem1 group  text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
-          <span  className='  textC text-LunarTwilight   landingAnimations opacity-0 font-normal text-8xl' >Storytellers</span> <span className='opacity-0 landingAnimations'>for</span> <br></br><span className='landingAnimations opacity-0'>the</span> <span className='landingAnimations textC font-normal text-LunarTwilight opacity-0 text-8xl'>Visionaries</span>
+          <h1 style={{ clipPath: 'circle(0% at 0% 0)' }} data-speed="6" id='hero_line'  className={`relative mouseParallax landingAnimations scale-[90%] font-extralight tracking-wide textC mb-5 opacity-100 landingItem1 group  text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
+          <span  className='  textC text-LunarTwilight    opacity-100 font-normal text-8xl' >Storytellers</span> <span className='opacity-100'>for</span> <br></br><span className=' opacity-100'>the</span> <span className=' textC font-normal text-LunarTwilight opacity-100 text-8xl'>Visionaries</span>
           </h1>
           
           
