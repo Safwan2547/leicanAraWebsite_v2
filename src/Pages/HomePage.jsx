@@ -10,6 +10,7 @@ import CallToAction from './HomePage/CallToAction';
 import Capabilities from './HomePage/Capabilities';
 import Introductory from './HomePage/Introductory';
 import MouseParallax from '../Modules/mouseParallax';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import NavMenu from '../Modules/navMenu';
 
 import { timeline } from 'motion';
@@ -24,12 +25,15 @@ function HomePage() {
 
 
        
-
-        <LandingPage  />
-        <Introductory/>
+            
+            <LandingPage  />      
+            <Introductory/>
+           
         <ProjectGrid projects={projects} />
-        {/* <Capabilities/> */}
+
+        <Capabilities/>
         <CallToAction />
+        
         <div className='buttonC cursor-none textC '>
         </div>
       

@@ -11,6 +11,8 @@ import FAQPage from './Pages/FAQPage';
 import ProjectPage from './Pages/ProjectPage';
 import AboutPage from './Pages/AboutPage';
 import Footer from './Modules/Footer';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+
 
 import MouseParallax from './Modules/mouseParallax';
 import NavMenu from './Modules/navMenu';
@@ -23,7 +25,7 @@ function App() {
   const [animating, setAnimating] = useState(false);
 
   const toggleNav = (mod) => {
-      if (!animating) {
+      if (!animating || mod === false) {
           if (mod === true) {
               setNavOpen(!navOpen);
           } else {
@@ -43,11 +45,12 @@ function App() {
   return (
     
     <Router >
+       <Cursor />
+      <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
     <div className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none overflow-hidden   scroll-n">
       
       {/* <Intro/> */}
-      <Cursor />
-      <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
+     
 
       
       <Routes >

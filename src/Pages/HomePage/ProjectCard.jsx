@@ -2,6 +2,7 @@
 import React, { useState,useEffect } from 'react';
 import TransitionLink from '../../Modules/TransitionLink';
 import { inView,animate,timeline,scroll } from "motion";
+import { Parallax,ParallaxLayer } from '@react-spring/parallax';
 
 
 // Functional component to render a project card
@@ -13,7 +14,14 @@ const ProjectCard = ({ project }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const currentFocus =true;
+// Event handlers for mouse enter and leave
+const handleMouseEnter = () => {
+  setIsHovered(true);
+};
 
+const handleMouseLeave = () => {
+  setIsHovered(false);
+};
   
 
  const cardAnimation=(target)=>{
@@ -117,7 +125,8 @@ const checkIsMobile = () => {
         
        
   <div className={`relative  snap-center transition-all duration-[600ms] cursor-none border-black flex justify-center items-center w-full h-full overflow-hidden`}>
-  <TransitionLink to={`/${project.key}`} className="cursor-none absolute peer w z-10 group w-[60vw] h-[30vw]  enterC"/>
+  <TransitionLink onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave} to={`/${project.key}`} className="cursor-none absolute peer w z-10 group w-[60vw] h-[30vw]  enterC"/>
     {/* Render image or video based on the project type */}
     {isMobile === true && project.typeMobile === 'video' ? (
       <video muted autoPlay loop fetchPriority="low" loading='lazy' alt={project.alt} src={project.thumbnailPort} type="video/mp4" className=" object-cover max-w-[90vw] absolute snap-center aspect-[1/1.85] overflow-y-hidden " />
@@ -127,7 +136,7 @@ const checkIsMobile = () => {
       ) : (
         !isMobile && project.type === 'image' ? (
          
-            <img loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className=" object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
+            <img  loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className=" object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
         ) : (
           <video alt={project.alt} loading="lazy" muted autoPlay loop fetchPriority="low" className={`transition-all duration-[600ms] ${isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'}`}>
             <source src={project.thumbnail} type="video/mp4" />
@@ -141,18 +150,18 @@ const checkIsMobile = () => {
         </div>
       {/* Additional project information */}
       
-      <div  className=" z-3 group  sm:mt-12 flex justify-center items-center w-full absolute">
+      <div horizontal={"true"} offset={0} speed={0.1}   className=" z-3 group  sm:mt-12 flex justify-center items-center w-full absolute">
         
 
         <h4 className={` font-satoshi-light  scale-[100%] absolute bottom-0 opacity-0 text-4xl sm:text-3xl  ${isMobile===true?(project.textColorMobile):(project.textColor)} ml-2 mb-2`}>
          
         </h4>
-        <p data-speed={currentFocus? "5" : "0"} className={` opacity-0 scale-[101%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
+        <p data-speed={currentFocus? "5" : "0"} className={` opacity-100 scale-[101%] ${isMobile===true?(project.textColorMobile):(project.textColor)}  font-satoshi-semibold w-full text-6xl 
          text-pretty lg:text-[14rem] sm:text-[10rem]  capitalize text-center ` }>{
          isMobile===true?(project.mainHeaderMobile):(
          project.title)}</p>
          
-      </div>
+      </div >
 
 
       <h4  className={`mainHeader  font-satoshi-light text-pretty  absolute bottom-10 mb-24 inset-y-12 inset-x-16 border- border- flex items-end justify-end opacity-0 text-4xl sm:text-6xl z-1 ${isMobile===true?(project.textColorMobile):(project.textColor)} `}>

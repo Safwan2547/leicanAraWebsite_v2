@@ -5,6 +5,7 @@ import { animate, scroll, inView,timeline,spring,stagger } from "motion"
 import Intro from './Intro';
 import LandingExhibit from '../../Modules/landingExhibit';
 import Frame from '../../Modules/frame';
+import { Parallax,ParallaxLayer } from '@react-spring/parallax';
 
 
 
@@ -26,7 +27,7 @@ function LandingPage() {
    
     // Final state: set opacity to desired value
   
-    ['.landingAnimations', { opacity: 1, y: 0, transform: "scale(1)" }, {duration:2, delay: stagger(0.2,{ easing: "ease-out" },{from:"last"}), easing: "cubic-bezier(.16,1.17,1,.98)" }],
+    ['.landingAnimations', {  opacity: 1, transform: "scale(1)" }, {duration:1, delay: stagger(0.4,{ easing: "ease-out" },{from:"last"}), easing: "cubic-bezier(.16,1.17,1,.98)" }],
 
   ];
 //animation for the nav bar
@@ -83,7 +84,7 @@ function LandingPage() {
        h-screen prose prose-sm lg:prose-xl text-MainBeige relative`}>
 
 
-<div data-speed="1"  className="  z-1  mouseParallax w-screen h-screen absolute outline-none ">
+<div   data-speed="1"  className="  z-1   w-screen h-screen absolute outline-none ">
           {/* Conditionally render the landing video based on showLandingVideo state */}
           {showLandingVideo && (
             <video className="w-full   h-full absolute scale-90 sm:bottom-0 bottom-12  sm:scale-[50%] border-none overflow-hidden object-cover hover:none" controls={false} autoPlay muted loop>
@@ -97,14 +98,14 @@ function LandingPage() {
       
 
           {/* This is the Mobile view */}       
-          <div className=' flex justify-center  top-2/3 items-center  sm:hidden  absolute '>  
-      <h1  className={`landingAnimations  text-5xl  sm:text-6xl w-3/4 font-Lora font-light text-center  opacity-0 sm:w-1/3  text-NightFall   
+          {/* <div className=' flex justify-center  top-2/3 items-center  sm:hidden  absolute '>  
+      <h1  className={`landingAnimations  text-5xl  sm:text-6xl w-3/4 font-Lora font-light text-center  opacity-100 sm:w-1/3  text-NightFall   
          sm:hidden textC transition duration-200 `}>
           <span className='textC opacity-0 font-normal text-8xl'>Storytellers</span> <span className='opacity-0 '>for</span> <br></br><span className=' opacity-0'>the</span> <span className=' textC opacity-0 text-8xl'>Visionaries</span>
           </h1>
           
          
-          </div>   
+          </div>    */}
 
 
           {/* This is the Desktop view */}
@@ -113,24 +114,17 @@ function LandingPage() {
          
 
          
-          <div strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
-            transition-text duration-200  bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
+          <div  strength={100} className=' opacity-100  text-NightFall hidden sm:flex  sm:absolute hover:text-LunarTwilight 
+            transition-text duration-200   bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
             
           
           <h1 data-speed="6" id='hero_line'  className={`relative mouseParallax font-extralight tracking-wide textC mb-5 opacity-100 landingItem1 group  text-NightFall font-Lora  sm:text-5xl text-center leading-none`}>
-          <span  className='textC text-LunarTwilight landingAnimations opacity-0 font-normal text-8xl'>Storytellers</span> <span className='opacity-0 landingAnimations'>for</span> <br></br><span className='landingAnimations opacity-0'>the</span> <span className='landingAnimations textC font-normal text-LunarTwilight opacity-0 text-8xl'>Visionaries</span>
+          <span  className='  textC text-LunarTwilight   landingAnimations opacity-0 font-normal text-8xl' >Storytellers</span> <span className='opacity-0 landingAnimations'>for</span> <br></br><span className='landingAnimations opacity-0'>the</span> <span className='landingAnimations textC font-normal text-LunarTwilight opacity-0 text-8xl'>Visionaries</span>
           </h1>
           
           
 
-          <h1   className={`hidden opacity-0 textP landingItem1 font-[300]  font-Lora pl-2 
-           sm:text-3xl ml-2 mr-44 sm:hidden  text-left  `}>
-          We eliminate invisibility by crafting distinct creative ideas that resonate
-
-           
-
-          </h1>
-          </div>
+          </div >
           
          
         </div>

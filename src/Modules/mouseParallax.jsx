@@ -6,17 +6,18 @@ import { animate, spring } from "motion";
 
 // Define the MouseParallax component
 function MouseParallax() {
+  let parallaxElements;
   // Use the useEffect hook to perform side effects in function components
   useEffect(() => {
     // Select all elements with the class 'mouseParallax' and convert the NodeList to an array
-    const parallaxElements = Array.from(document.querySelectorAll('.mouseParallax'));
+     parallaxElements = Array.from(document.querySelectorAll('.mouseParallax'));
     
     // Calculate the center coordinates of the viewport
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
 
     // Set the parallax factor, debounce delay, animation frame ID, and last mouse update time
-    const parallaxFactor = -0.02;
+    const parallaxFactor = 0.02;
     let animationFrameId;
     let lastMouseUpdateTime = 0;
     const debounceDelay = 12;
@@ -90,7 +91,7 @@ function MouseParallax() {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('mousemove', debouncedMouseMove);
     };
-  }, []);
+  }, [parallaxElements]);
 
   // Return null as this component does not render any JSX
   return null;
