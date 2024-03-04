@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import ProjectTextBlock from '../ProjectPage/projectTextBlock';
 
 function Introductory() {
   // These define the margins
@@ -14,6 +15,7 @@ function Introductory() {
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref );
+  
 
   const variants = {
     visible: { opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } },
@@ -32,33 +34,11 @@ function Introductory() {
   return (
     <section
       id='Introductory'
-      className={`relative h-[30vh] justify-start ml-10 flex just ${marginExpression} sm:ml-24 sm:mb-32`}
+      className={`relative h-[90vh] justify-start  flex just ${marginExpression}  `}
     >
-      <div className="w-full sm:p-0 sm:w-2/3">
-        <motion.div
-          ref={ref}
-          
-          animate={controls}
-          variants={variants}
-          id="group"
-          className={`p-6 sm:p-0`}
-        >
-          <h1
-            id='IntroductoryHead'
-            className={`text-3xl ${marginExpression3} textC font-light sm:text-5xl font-Lora`}
-          >
-            We tell stories to empower visibility!
-          </h1>
-          <p
-            id='introductoryDescription'
-            className={`font-satoshi-light ${marginExpression3} textP hyphens-auto max-w-[45rem] font-light text-pretty text-xl sm:text-2xl`}
-          >
-            LeicanAra is a branding-focused creative studio specializing in storytelling. We craft
-            distinctive ideas that forge connections between businesses and customers, while
-            eradicating market invisibility.
-          </p>
-        </motion.div>
-        <div className={`flex justify-center drop-shadow items-center w-full`}></div>
+      <div className="w-full flex justify-center items-center flex-col sm:p-0">
+        
+        <ProjectTextBlock sectionHead={" We tell stories to empower visibility!"} sectionName={""} sectionDescription={"LeicanAra is a branding-focused creative studio specializing in storytelling. We craft distinctive ideas that forge connections between businesses and customers, while eradicating market invisibility."}  />
       </div>
     </section>
   );
