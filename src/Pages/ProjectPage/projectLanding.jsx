@@ -26,7 +26,7 @@ const LandingSection = ({ projectData }) => {
         className='w-full z-3 h-screen items-center flex text-LunarTwilight'
         initial={{ clipPath:"circle(0% at 0% 0)",scale:0.95 }}
         animate={{ clipPath:"circle(150% at 0% 0)",scale:1 }}
-        transition={{ duration: 4,ease: "circInOut" }}
+        transition={{ duration: 3,ease: "circInOut" }}
       >
         <motion.div
           id="headerInfo"
@@ -54,7 +54,7 @@ const LandingSection = ({ projectData }) => {
         <motion.img
         initial={{ clipPath:"circle(0% at 0% 0)",scale:0.95 }}
         animate={{ clipPath:"circle(150% at 100% 0)",scale:1 }}
-        transition={{ duration: 3,ease: "circInOut",delay:1 }}
+        transition={{ duration: 3,ease: "anticipate",delay:1 }}
           data-speed="4"
           className='w-[50vw]  p-12 object-cover sm:h-[85vh]'
           src={thumbnail2}

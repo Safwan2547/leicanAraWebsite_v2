@@ -1,106 +1,67 @@
-import { inView,animate } from 'motion';
-import React, { useRef,useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 
+function Introductory() {
+  // These define the margins
+  const margin = 20;
 
+  const marginExpression = `my-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin)}`;
+  // Use this to separate elements within sections
+  const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin / 4)}`;
+  // Use this to separate things that should be close together, such as headers and descriptions, etc.
+  const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
 
-function Introductory(){
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref );
 
-//These define the margins    
-    const margin=20;
+  const variants = {
+    visible: { opacity: 1, transition: { duration: 0.5, ease: "easeInOut" } },
+    hidden: { opacity: 0},
+  };
 
-    const marginExpression = `my-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin)} `;
-// Use this to separate elements within sections
-const marginExpression2 = `mt-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin / 4)}`;
-// Use this to separate things that should be close together, such as headers and descriptions, etc.
-const marginExpression3 = `mt-${Math.floor(margin / 4)} sm:mt-${Math.floor(margin / 8)}`;
+  useEffect(() => {
+    console.log("intro inview: "+ inView)
+    if (inView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [inView]);
 
-
-const introductoryAnimate=(target,baseVal)=>{
-
-    // animate(
-    //     target.querySelector('p'),
-    //     { opacity: baseVal,transform: `scale(${baseVal==1?1:0.99})` },
-    //     {  duration: 1,delay:0.3, easing:"ease-in-out" }
-    //   );
-
-    // animate(
-    //     target.querySelector('#line'),
-    //     { opacity: baseVal },
-    //     {  duration: 1, easing:"ease-in-out",delay:0.5}
-    //   );
-
-    animate(
-      target.querySelector("h1"),
-      { opacity: baseVal,transform:`scale(${baseVal==1?1:0.99})` },
-      {  duration: 1,delay:0.2, easing:"ease-in-out" }
-    );
-
-  
-    
-    animate(
-      target.querySelector('#introductoryDescription'),
-      { opacity: baseVal-0.2, },
-      {  duration: 1,delay:0.4, easing:"ease-in-out" }
-    );
-  
-  
-    
-  
-   }
-
-   useEffect(()=>{
-    inView("#group", ({ target }) => {
-
-    introductoryAnimate(target,1);
-
-    //when the element leaves the viewport
-
-    return ()=>{introductoryAnimate(target,0);}
-
-
-    },{ margin: "0px 0px 0px 0px" })
-
-   })
-
-
-
-
-
-
-return(
-
-
-    <section id='Introductory' className={` relative h-[30vh] justify-start ml-10
-    flex just sm:mt-24 sm:ml-24 sm:mb-32`}>
-     <div  className="w-full  sm:p-0 sm:w-2/3 ">
-       <div id="group" className='p-6  sm:p-0'>
-     {/* <p className='text-sm sm:text-2xl textP font-light scale-[99%] opacity-0 font-Satoshi'>Who we are:</p>
-     <div id='line' className='h-20 rounded-sm w-[1px] sm:w-0.5 opacity-0 bg-black'></div>
-     */}
-     <h1 id='IntroductoryHead' className={`text-3xl opacity-0 scale-[100%] ${marginExpression3} textC font-light sm:text-4xl font-Lora`}> 
-     
-      We tell stories to empower visibility!   
-     </h1>
-
-     <p id='introductoryDescription' className={`opacity-0 font-Satoshi  textP text-balance hyphens-auto max-w-[45rem] ${marginExpression3} font-light text-pretty  text-xl sm:text-2xl   `} >LeicanAra is a branding-focused creative studio
-     specializing in storytelling.  We craft distinctive ideas that forge connections 
-     between businesses and customers, while eradicating market invisibility. </p>
+  return (
+    <section
+      id='Introductory'
+      className={`relative h-[30vh] justify-start ml-10 flex just ${marginExpression} sm:ml-24 sm:mb-32`}
+    >
+      <div className="w-full sm:p-0 sm:w-2/3">
+        <motion.div
+          ref={ref}
+          
+          animate={controls}
+          variants={variants}
+          id="group"
+          className={`p-6 sm:p-0`}
+        >
+          <h1
+            id='IntroductoryHead'
+            className={`text-3xl ${marginExpression3} textC font-light sm:text-5xl font-Lora`}
+          >
+            We tell stories to empower visibility!
+          </h1>
+          <p
+            id='introductoryDescription'
+            className={`font-satoshi-light ${marginExpression3} textP hyphens-auto max-w-[45rem] font-light text-pretty text-xl sm:text-2xl`}
+          >
+            LeicanAra is a branding-focused creative studio specializing in storytelling. We craft
+            distinctive ideas that forge connections between businesses and customers, while
+            eradicating market invisibility.
+          </p>
+        </motion.div>
+        <div className={`flex justify-center drop-shadow items-center w-full`}></div>
       </div>
-      <div className={`flex justify-center drop-shadow items-center w-full `}>
-
-     </div>
-
-     </div>
-
-     </section>
-
-
-
-
-
-
-
-
-);
+    </section>
+  );
 }
+
 export default Introductory;

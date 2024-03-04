@@ -31,7 +31,7 @@ function HomePage() {
            
         <ProjectGrid projects={projects} />
 
-        <Capabilities/>
+        {/* <Capabilities/> */}
         <CallToAction />
         
         <div className='buttonC cursor-none textC '>

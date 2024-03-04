@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 const ChallengeSection = ({ projectData, sectionLayout, margins }) => {
   const { challengeHead, challengeDescription, challengeContent1, challengeContent2 } = projectData;
 
+  const controls = useAnimation();
+  const ref=useRef(null);
+  const  inView  = useInView(ref);
+
+  const variants = {
+    visible: { opacity: 1, transition: { duration: 0.5,delay:0.3, ease: "easeInOut" } },
+    hidden: { opacity: 0},
+  };
+
+  useEffect(() => {
+    console.log("approach inview: "+ inView)
+    if (inView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [inView]);
+
+
   return (
-    <section id='challenge' className={``}>
+    <motion.section animate={controls} variants={variants} ref={ref} id='challenge' className={``}>
       <div className="w-full flex justify-center items-center flex-col sm:p-0 ">
         <div className='p-6 w-2/3 sm:p-0'>
           <p className='text-sm sm:text-2xl animateOnEntry textP font-light font-Satoshi'>Challenge:</p>
@@ -36,7 +57,7 @@ const ChallengeSection = ({ projectData, sectionLayout, margins }) => {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

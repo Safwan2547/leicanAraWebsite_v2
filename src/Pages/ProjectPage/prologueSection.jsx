@@ -1,36 +1,35 @@
 // PrologueSection.jsx
-import React, { useEffect } from 'react';
-import { animate, inView } from 'motion';
+import React, { useEffect,useRef } from 'react';
+import { useAnimation,motion, useInView } from 'framer-motion';
 
 const PrologueSection = ({ projectData, sectionLayout,margins }) => {
   const { prologueHead, prologueDescription, prologueContent1, prologueContent2 } = projectData;
 
-  const sectionAnimations = (target,val) => {
-    animate(
-      target.querySelector("#prologueText"),
-      { opacity: val },
-      {  duration: 1,delay:0.2, easing:"ease-in-out" }
-    );}
+  const controls = useAnimation();
+  const ref=useRef(null);
+  const  inView  = useInView(ref);
+
+  const variants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1,ease:"easeInOut" } },
+    hide: { opacity: 0 },
+  };
+useEffect(() => {
+  if (inView) {
+    controls.start('visible');
+  } else {
+    controls.start('hide');
+  }
+},[inView])
 
    
 
 
-  useEffect(() => {
-    inView("#prologue", ({ target }) => {
-
-      sectionAnimations(target,1);
   
-      //when the element leaves the viewport
-  
-      return ()=>{sectionAnimations(target,0);}})
-
-
-  }, []);
 
   return (
-    <section id='prologue' className={``}>
+    <motion.section animate={controls} variants={variants} ref={ref} id='prologue' className={``}>
       <div className="w-full flex justify-center items-center flex-col sm:p-0 ">
-        <div id='prologueText' className='p-6 w-2/3 opacity-0 sm:p-0'>
+        <div id='prologueText' className='p-6 w-2/3  sm:p-0'>
           <p className='text-sm sm:text-2xl animateOnEntry textP font-light font-Satoshi'>Prologue:</p>
           <div id='line' className='h-20  rounded-sm w-[1px] animateOnEntry sm:w-0.5  bg-black'></div>
           <h1 id='prologue' className={`text-3xl animateOnEntry textC font-medium ${margins[2]} sm:text-5xl font-Lora`}>{prologueHead}</h1>
@@ -60,7 +59,7 @@ const PrologueSection = ({ projectData, sectionLayout,margins }) => {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

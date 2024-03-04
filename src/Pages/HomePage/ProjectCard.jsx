@@ -48,10 +48,10 @@ const ProjectCard = ({ project }) => {
   }, [isInView, titleAnimation, mainHeaderAnimation]);
 
   return (
-    <div className="">
+    <div  className="">
       <div className="watcher overflow-hidden w-full h-screen snap-start relative eterC flex">
         <div className="object-cover overflow-x-visible w-full transition-all duration-300">
-          <div className={`relative snap-center transition-all duration-[600ms] cursor-none border-black flex justify-center items-center w-full h-full overflow-hidden`}>
+          <div ref={ref} className={`relative snap-center transition-all duration-[600ms] cursor-none border-black flex justify-center items-center w-full h-full overflow-hidden`}>
             <TransitionLink onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} to={`/${project.key}`} className="cursor-none absolute peer w z-10 group w-[60vw] h-[30vw]  enterC" />
             {isMobile === true && project.typeMobile === 'video' ? (
               <video muted autoPlay loop fetchPriority="low" loading='lazy' alt={project.alt} src={project.thumbnailPort} type="video/mp4" className="object-cover max-w-[90vw] absolute snap-center aspect-[1/1.85] overflow-y-hidden " />
@@ -71,7 +71,7 @@ const ProjectCard = ({ project }) => {
             )}
           </div>
         </div>
-        <div ref={ref} className=" z-3 group sm:mt-12 flex justify-center items-center w-full absolute">
+        <div  className=" z-3 group sm:mt-12 flex justify-center items-center w-full absolute">
           <motion.p animate={titleAnimation} className={` ${isMobile === true ? (project.textColorMobile) : (project.textColor)} font-satoshi-semibold w-full text-6xl text-pretty lg:text-[14rem] sm:text-[10rem] capitalize text-center `} >{
             isMobile === true ? (project.mainHeaderMobile) : (project.title)}</motion.p>
         </div>
