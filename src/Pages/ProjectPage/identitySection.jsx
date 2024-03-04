@@ -1,6 +1,7 @@
 import React, { useEffect,useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import ProjectTextBlock from './projectTextBlock';
 
 const IdentitySection = ({ projectData, sectionLayout, margins }) => {
   const { identityHead, identityDescription, identityContent1, identityContent2 } = projectData;
@@ -29,12 +30,7 @@ useEffect(() => {
       animate={controls}
       variants={variants}
     >
-      <div className="w-full sm:p-0 p-6 sm:w-2/3 font-Satoshi">
-        <h4 className="text-sm sm:text-2xl textP font-light font-Satoshi">Identity:</h4>
-        <div className="h-20 rounded-sm w-[1px] sm:w-0.5 bg-black"></div>
-        <h1 className={`${margins[2]} text-3xl textC font-medium sm:text-5xl font-Lora`}>{identityHead}</h1>
-        <p className={`font-Satoshi textP opacity-80 ${margins[2]} text-balance hyphens-auto max-w-[35em] font-light text-sm sm:text-2xl`}>{identityDescription}</p>
-      </div>
+      <ProjectTextBlock sectionHead={identityHead} sectionName={"Identity"} sectionDescription={identityDescription} margins={margins} />
 
       <motion.div
        

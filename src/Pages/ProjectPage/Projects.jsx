@@ -69,7 +69,7 @@ const projects = [
       //Project Page Content
       thumbnail2:starFallPhoto,
 
-      prologueHead:"The year is 2051, ",
+      prologueHead:"The year is 2051: ",
       prologueDescription:"Starfall is a revolutionary space mining company that aims to get resources from celestial bodies back to Earth. With projects like MoonForge and EcoStellar, it sets a benchmark for responsible resource extraction in the space industry. ",
   
       ambitionHead:"Aim for the Stars",

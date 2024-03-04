@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
-
+import ProjectTextBlock from './projectTextBlock';
 
 const ApproachSection = ({ projectData, sectionLayout, margins }) => {
   const { approachHead, approachDescription, approachContent1, approachContent2, approachContent3 } = projectData;
@@ -27,13 +27,8 @@ const ApproachSection = ({ projectData, sectionLayout, margins }) => {
 
   return (
     <motion.section animate={controls} ref={ref} variants={variants} id='approach' className={`flex flex-col justify-center items-center ${margins[0]}`}>
-      <div className="w-full sm:p-0 p-6 sm:w-2/3 font-Satoshi">
-        <h4 className='text-sm sm:text-2xl textP font-light font-Satoshi'>Approach:</h4>
-        <div className='h-20 rounded-sm w-[1px] sm:w-0.5 bg-black'></div>
-        <h1 className={`${margins[2]} text-3xl textC font-medium sm:text-5xl font-Lora`}>{approachHead}</h1>
-        <p className={`text-balance hyphens-auto max-w-[35em] font-Satoshi opacity-80 textP ${margins[2]} font-light text-sm sm:text-2xl`}>{approachDescription}</p>
-      </div>
-
+      
+      <ProjectTextBlock sectionHead={approachHead} sectionName={"Approach"} sectionDescription={approachDescription} margins={margins} />
       <div className={sectionLayout[0]}>
         {approachContent1 && approachContent1.endsWith('.mp4') ? (
           <video alt={approachContent1} autoPlay loop muted className={`${sectionLayout[1]}`} src={approachContent1}></video>

@@ -1,6 +1,7 @@
 // PrologueSection.jsx
 import React, { useEffect,useRef } from 'react';
 import { useAnimation,motion, useInView } from 'framer-motion';
+import ProjectTextBlock from './projectTextBlock';
 
 const PrologueSection = ({ projectData, sectionLayout,margins }) => {
   const { prologueHead, prologueDescription, prologueContent1, prologueContent2 } = projectData;
@@ -28,13 +29,8 @@ useEffect(() => {
 
   return (
     <motion.section animate={controls} variants={variants} ref={ref} id='prologue' className={``}>
-      <div className="w-full flex justify-center items-center flex-col sm:p-0 ">
-        <div id='prologueText' className='p-6 w-2/3  sm:p-0'>
-          <p className='text-sm sm:text-2xl animateOnEntry textP font-light font-Satoshi'>Prologue:</p>
-          <div id='line' className='h-20  rounded-sm w-[1px] animateOnEntry sm:w-0.5  bg-black'></div>
-          <h1 id='prologue' className={`text-3xl animateOnEntry textC font-medium ${margins[2]} sm:text-5xl font-Lora`}>{prologueHead}</h1>
-          <p id='prologueDescription' className={`font-Satoshi animateOnEntry ${margins[2]} textP text-balance hyphens-auto max-w-[35em] font-light opacity-80 text-sm sm:text-2xl`}>{prologueDescription}</p>
-        </div>
+      <div className="w-full  flex justify-between items-center flex-col sm:p-0 ">
+        <ProjectTextBlock sectionHead={prologueHead} sectionName={"Prologue"} sectionDescription={prologueDescription} margins={margins} />
 
         <div id='prologueLayout' className={sectionLayout}>
           {prologueContent1 && (

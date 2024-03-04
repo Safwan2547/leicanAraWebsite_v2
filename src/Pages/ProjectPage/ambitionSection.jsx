@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import ProjectTextBlock from './projectTextBlock';
 
 const AmbitionSection = ({ projectData, sectionLayout, margins }) => {
   const { ambitionHead, ambitionDescription, ambitionContent1, ambitionContent2 } = projectData;
@@ -28,16 +29,10 @@ const AmbitionSection = ({ projectData, sectionLayout, margins }) => {
    
   
       id='ambition'
-      className={``}
+      className={`${margins[0]} `}
     >
       <motion.div  className="w-full flex justify-center items-center flex-col sm:p-0 ">
-        <motion.div animate={controls}
-      variants={variants} className='p-6 w-2/3 sm:p-0'>
-          <p className='text-sm sm:text-2xl animateOnEntry textP font-light font-Satoshi'>Ambition:</p>
-          <div id='line' className='h-20 rounded-sm w-[1px] animateOnEntry sm:w-0.5  bg-black'></div>
-          <h1 id='ambitionHead' className={`text-3xl animateOnEntry textC font-medium ${margins[2]} sm:text-5xl font-Lora`}>{ambitionHead}</h1>
-          <p id='ambitionDescription' className={`font-Satoshi animateOnEntry ${margins[2]} textP text-balance hyphens-auto max-w-[35em] font-light opacity-80 text-sm sm:text-2xl`}>{ambitionDescription}</p>
-        </motion.div>
+        <ProjectTextBlock sectionHead={ambitionHead} sectionName={"Ambition"} sectionDescription={ambitionDescription} margins={margins} />
 
         <motion.div animate={controls}
       variants={variants} ref={ref} id='ambitionLayout' className={sectionLayout}>
