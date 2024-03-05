@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import ProjectTextBlock from './projectTextBlock';
+import MediaContent from './mediaContent';
 
 const ChallengeSection = ({ projectData, sectionLayout, margins }) => {
   const { challengeHead, challengeDescription, challengeContent1, challengeContent2 } = projectData;
@@ -33,26 +34,9 @@ const ChallengeSection = ({ projectData, sectionLayout, margins }) => {
         
 
         <div id='challengeLayout' className={sectionLayout}>
-          {challengeContent1 && (
-            challengeContent1.endsWith('.mp4') ? (
-              <video alt={challengeContent1} autoPlay loop muted className={`${sectionLayout[1]}`}>
-                <source src={challengeContent1} type="video/mp4" />
-              </video>
-            ) : (
-              <img className={`${sectionLayout[1]}`} src={challengeContent1} alt={challengeContent1} />
-            )
-          )}
-
-          {/* Challenge Content 2 */}
-          {challengeContent2 && (
-            challengeContent2.endsWith('.mp4') ? (
-              <video alt={challengeContent2} autoPlay loop muted className={`${sectionLayout[2]}`}>
-                <source src={challengeContent2} type="video/mp4" />
-              </video>
-            ) : (
-              <img className={`${sectionLayout[2]}`} src={challengeContent2} alt={challengeContent2} />
-            )
-          )}
+        <MediaContent media={challengeContent1}  isVideo={challengeContent1 && challengeContent1.endsWith('.mp4')} className={sectionLayout[1]} />
+          <MediaContent media={challengeContent2} alt={challengeContent2} isVideo={challengeContent2 && challengeContent2.endsWith('.mp4')} className={sectionLayout[2]} />
+    
         </div>
       </div>
     </motion.section>

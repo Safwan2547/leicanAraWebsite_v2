@@ -2,6 +2,7 @@ import React, { useEffect,useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import ProjectTextBlock from './projectTextBlock';
+import MediaContent from './mediaContent';
 
 const IdentitySection = ({ projectData, sectionLayout, margins }) => {
   const { identityHead, identityDescription, identityContent1, identityContent2 } = projectData;
@@ -34,39 +35,9 @@ useEffect(() => {
         animate={controls}
         variants={variants}
       >
-        {identityContent1 && identityContent1.endsWith('.mp4') ? (
-          <motion.video
-            alt={identityContent1}
-            autoPlay
-            loop
-            muted
-            className={`${sectionLayout[1]}`}
-            src={identityContent1}
-          ></motion.video>
-        ) : (
-          <motion.img
-            className={`${sectionLayout[2]}`}
-            src={identityContent1}
-            alt={identityContent1}
-          />
-        )}
-
-        {identityContent2 && identityContent2.endsWith('.mp4') ? (
-          <motion.video
-            alt={identityContent2}
-            autoPlay
-            loop
-            muted
-            className={`${sectionLayout[1]}`}
-            src={identityContent2}
-          ></motion.video>
-        ) : (
-          <motion.img
-            className={`${sectionLayout[2]}`}
-            src={identityContent2}
-            alt={identityContent2}
-          />
-        )}
+        <MediaContent media={identityContent1}  isVideo={identityContent1 && identityContent1.endsWith('.mp4')} className={sectionLayout[1]} />
+          <MediaContent media={identityContent2} alt={identityContent2} isVideo={identityContent2 && identityContent2.endsWith('.mp4')} className={sectionLayout[2]} />
+    
       </motion.div>
     </motion.section>
   );

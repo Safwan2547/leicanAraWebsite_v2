@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
+import MediaContent from './mediaContent';
 import ProjectTextBlock from './projectTextBlock';
 
 
@@ -30,11 +31,8 @@ const EpilogueSection = ({ projectData, sectionLayout, margins }) => {
       
       <ProjectTextBlock sectionHead={epilogueHead} sectionName={"Epilogue"} sectionDescription={epilogueDescription} margins={margins} />
       <div className={sectionLayout[0]}>
-        {epilogueContent1 && epilogueContent1.endsWith('.mp4') ? (
-          <video alt={epilogueContent1.alt} autoPlay loop muted className={`${sectionLayout[1]}`} src={epilogueContent1}></video>
-        ) : (
-          <img className={`${sectionLayout[2]}`} src={epilogueContent1} alt={epilogueContent1} />
-        )}
+      <MediaContent media={epilogueContent1}  isVideo={epilogueContent1 && epilogueContent1.endsWith('.mp4')} className={sectionLayout[1]} />
+    
       </div>
     </motion.section>
   );

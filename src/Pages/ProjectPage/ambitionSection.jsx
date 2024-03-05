@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import ProjectTextBlock from './projectTextBlock';
+import MediaContent from './mediaContent';
 
 const AmbitionSection = ({ projectData, sectionLayout, margins }) => {
   const { ambitionHead, ambitionDescription, ambitionContent1, ambitionContent2 } = projectData;
@@ -36,26 +37,9 @@ const AmbitionSection = ({ projectData, sectionLayout, margins }) => {
 
         <motion.div animate={controls}
       variants={variants} ref={ref} id='ambitionLayout' className={sectionLayout}>
-          {ambitionContent1 && (
-            ambitionContent1.endsWith('.mp4') ? (
-              <video alt={ambitionContent1} autoPlay loop muted className={`${sectionLayout[1]}`}>
-                <source src={ambitionContent1} type="video/mp4" />
-              </video>
-            ) : (
-              <img className={`${sectionLayout[1]}`} src={ambitionContent1} alt={ambitionContent1} />
-            )
-          )}
-
-          {/* Ambition Content 2 */}
-          {ambitionContent2 && (
-            ambitionContent2.endsWith('.mp4') ? (
-              <video alt={ambitionContent2} autoPlay loop muted className={`${sectionLayout[2]}`}>
-                <source src={ambitionContent2} type="video/mp4" />
-              </video>
-            ) : (
-              <img className={`${sectionLayout[2]}`} src={ambitionContent2} alt={ambitionContent2} />
-            )
-          )}
+          <MediaContent media={ambitionContent1}  isVideo={ambitionContent1 && ambitionContent1.endsWith('.mp4')} className={sectionLayout[1]} />
+          <MediaContent media={ambitionContent2} alt={ambitionContent2} isVideo={ambitionContent2 && ambitionContent2.endsWith('.mp4')} className={sectionLayout[2]} />
+    
         </motion.div >
       </motion.div >
     </motion.section>

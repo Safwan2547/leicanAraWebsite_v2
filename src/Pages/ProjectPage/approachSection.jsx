@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import ProjectTextBlock from './projectTextBlock';
+import MediaContent from './mediaContent';
 
 const ApproachSection = ({ projectData, sectionLayout, margins }) => {
   const { approachHead, approachDescription, approachContent1, approachContent2, approachContent3 } = projectData;
@@ -26,26 +27,10 @@ const ApproachSection = ({ projectData, sectionLayout, margins }) => {
       
       <ProjectTextBlock sectionHead={approachHead} sectionName={"Approach"} sectionDescription={approachDescription} margins={margins} />
       <div className={sectionLayout[0]}>
-        {approachContent1 && approachContent1.endsWith('.mp4') ? (
-          <video alt={approachContent1} autoPlay loop muted className={`${sectionLayout[1]}`} src={approachContent1}></video>
-        ) : (
-          <img className={`${sectionLayout[1]}`} src={approachContent1} alt={approachContent1} />
-        )}
+      <MediaContent media={approachContent1} alt={approachContent1}  isVideo={approachContent1 && approachContent1.endsWith('.mp4')} className={sectionLayout[1]} />
+        <MediaContent media={approachContent2} alt={approachContent2} isVideo={approachContent2 && approachContent2.endsWith('.mp4')} className={sectionLayout[2]} />
+        <MediaContent media={approachContent3} alt={approachContent3} isVideo={approachContent3 && approachContent3.endsWith('.mp4')} className={sectionLayout[3]} />
 
-        {approachContent2 && approachContent2.endsWith('.mp4') ? (
-          <video alt={approachContent2} autoPlay loop muted className={`${sectionLayout[2]}`} src={approachContent2}></video>
-        ) : (
-          <img className={`${sectionLayout[2]}`} src={approachContent2} alt={approachContent2} />
-        )}
-
-        {/* Render approachContent3 if it exists */}
-        {approachContent3 && (
-          approachContent3.endsWith('.mp4') ? (
-            <video alt={approachContent3} autoPlay loop muted className={`${sectionLayout[3]}`} src={approachContent3}></video>
-          ) : (
-            <img className={`${sectionLayout[3]}`} src={approachContent3} alt={approachContent3} />
-          )
-        )}
       </div>
     </motion.section>
   );
