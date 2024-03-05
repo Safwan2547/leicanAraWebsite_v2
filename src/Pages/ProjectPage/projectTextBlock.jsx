@@ -24,12 +24,10 @@ function ProjectTextBlock({ sectionName, sectionHead, sectionDescription }) {
 
 
     useEffect(() => {
-        console.log("approach inview: "+ isInView)
         if (isInView) {
-            mainHeaderAnimation.start({ clipPath: "circle(150% at 0% 0)" ,scale: 1, transition: { duration: 2, ease: "circInOut" } });
-            descriptionAnimation.start({ clipPath: "circle(150% at 0% 0)", scale: 1, transition: { duration:2,delay:0.5, ease: "circInOut" } });
-        } else {
-             }
+            mainHeaderAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"] ,scale: [1.3,1], transition: { duration: 2, ease: "anticipate" } });
+            descriptionAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"], scale: [1.3,1], transition: { duration:2,delay:0.5, ease: "circInOut" } });
+        } 
     }, [isInView, descriptionAnimation, mainHeaderAnimation]);
 
 

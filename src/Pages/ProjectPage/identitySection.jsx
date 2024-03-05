@@ -15,11 +15,7 @@ const IdentitySection = ({ projectData, sectionLayout, margins }) => {
     hide: { opacity: 0 },
   };
 useEffect(() => {
-  if (inView) {
-    controls.start('visible');
-  } else {
-    controls.start('hide');
-  }
+ 
 },[inView])
   return (
     <motion.section

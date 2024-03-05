@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import './tailwind.css';
 import './index.css';
 import 'tailwindcss/tailwind.css'
@@ -11,6 +11,10 @@ import FAQPage from './Pages/FAQPage';
 import ProjectPage from './Pages/ProjectPage';
 import AboutPage from './Pages/AboutPage';
 import Footer from './Modules/Footer';
+import LocomotiveScroll from 'locomotive-scroll';
+
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 
@@ -20,9 +24,14 @@ import NavMenu from './Modules/navMenu';
 
 
 function App() {
+  const containerRef=useRef(null);
   //this is the controls for the nav Menu
   const [navOpen, setNavOpen] = useState(false);
   const [animating, setAnimating] = useState(false);
+
+
+
+
 
   const toggleNav = (mod) => {
       if (!animating || mod === false) {
@@ -37,17 +46,14 @@ function App() {
 
       }
   };
-
-  useEffect(() => {
-
   
-  });
+  
   return (
-    
     <Router >
+
        <Cursor />
       <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
-    <div className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none overflow-hidden   scroll-n">
+    <div data-scroll-container ref={containerRef}   className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none overflow-hidden   scroll-n">
       
       {/* <Intro/> */}
      
@@ -63,16 +69,17 @@ function App() {
 
       </Routes>
       <Footer />
-      <NavMenu navOpen={navOpen} toggleNav={toggleNav} /> 
+      
       </div>
+      <NavMenu navOpen={navOpen} toggleNav={toggleNav} /> 
+
       
 
 
-
+    
       
 
     </Router>
-    
 );
 }
 export default App;

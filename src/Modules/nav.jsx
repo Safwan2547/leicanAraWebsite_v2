@@ -83,7 +83,7 @@ const Navbar = ({toggleNav,navOpen}) => {
               
             <TransitionLink to="/" className={`${navOpen?"text-MainBeige":"text-NightFall" } opacity-90 navItem antialiased transform transition-button duration-500 hover:scale-110
              hover:text-LunarTwilight hover:animate-pulse-slow 
-             buttonC font-Satoshi text-4xl sm:text-4xl ease-in-out  font-light cursor-none`} >
+             buttonC font-satoshi-light text-4xl sm:text-4xl ease-in-out   cursor-none`} >
                 LeicanAra </TransitionLink> <span className={`textP  text-3xl font-satoshi-light ${navOpen?"text-MainBeige":"text-NightFall" } transition-all duration-500 `}> {getNavbarTitle()}</span>
               </div>
             <div className="links flex justify-between items-center space-x-8">

@@ -12,14 +12,37 @@ import Introductory from './HomePage/Introductory';
 import MouseParallax from '../Modules/mouseParallax';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import NavMenu from '../Modules/navMenu';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import LocomotiveScroll from 'locomotive-scroll';
 
 import { timeline } from 'motion';
 
 function HomePage() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let scroll = null;
+
+    const initScroll = () => {
+      scroll = new LocomotiveScroll({
+        el: containerRef.current,
+        smooth: true,
+        // Add any other Locomotive Scroll options here
+      });
+    };
+ 
+
+    return () => {
+      if (scroll) {
+        scroll.destroy();
+      }
+    };
+  }, []);
   
 
   return (
-    <div  className='   bg-white'>
+    <div data-scroll-container ref={containerRef}
+    className='   bg-white'>
 
             <MouseParallax/>
 

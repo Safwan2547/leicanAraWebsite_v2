@@ -38,11 +38,11 @@ const ProjectCard = ({ project }) => {
   useEffect(() => {
     if (isInView) {
       titleAnimation.start({ clipPath:"circle(150% at 0% 0)" },{duration:1.5, ease: "circInOut" });
-      titleAnimation.start({ scale: 1 },{duration:2,delay:0, ease: "easeInOut" });
+      titleAnimation.start({ scale: 1 },{duration:2.5,delay:0, ease: "anticipate" });
 
       mainHeaderAnimation.start({ opacity: 1, y: 0 },{duration:0.5, ease: "easeInOut" });
     } else {
-      titleAnimation.start({ clipPath:"circle(0% at 0% 0)",scale:1.05},{duration:1, ease: "circInOut" });
+      titleAnimation.start({ clipPath:"circle(0% at 0% 0)",scale:1.1},{duration:0.1, ease: "circInOut" });
       mainHeaderAnimation.start({ opacity: 0 });
     }
   }, [isInView, titleAnimation, mainHeaderAnimation]);

@@ -5,7 +5,7 @@ function Cursor() {
   const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const [hovering, setHovering] = useState(null);
   const cursorSize = 30;
-  const debounceDelay = 5; // 60fps
+  const debounceDelay = 12; // 60fps
 
   useEffect(() => {
     const handleMouseMove = debounce((e) => {

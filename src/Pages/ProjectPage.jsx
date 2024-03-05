@@ -1,7 +1,7 @@
 // ProjectPage.jsx
 // Serves as a template for the project pages
 // Is dynamically generated based on the project
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import projects from './ProjectPage/Projects';
 import Footer from '../Modules/Footer';
@@ -15,6 +15,7 @@ import ApproachSection from './ProjectPage/approachSection';
 import IdentitySection from './ProjectPage/identitySection';
 import EpilogueSection from './ProjectPage/epilogueSection';
 import MouseParallax from '../Modules/mouseParallax';
+import LocomotiveScroll from 'locomotive-scroll';
 
 
 const ProjectPage = () => {
@@ -55,6 +56,8 @@ const ProjectPage = () => {
 
     // This serves as body text modifier
     const bodyMod = `text-balance hyphens-auto max-w-[35em]`;
+
+    const containerRef = useRef(null);
 
 
     // These variables control the visual layout of the video and image elements
@@ -139,9 +142,27 @@ const ProjectPage = () => {
 
     }, [projectKey]);
 
+    useEffect(() => {
+        let scroll = null;
+    
+        const initScroll = () => {
+          scroll = new LocomotiveScroll({
+            el: containerRef.current,
+            smooth: true,
+            // Add any other Locomotive Scroll options here
+          });
+        };
+    
+        return () => {
+          if (scroll) {
+            scroll.destroy();
+          }
+        };
+      }, []);
+
 
     return (
-        <div className=" pageWrap text-NightFall leading-relaxed  overflow-hidden bg-white">
+        <div ref={containerRef} className=" pageWrap text-NightFall leading-relaxed  overflow-hidden bg-white">
             {
             projectData ? (
 
