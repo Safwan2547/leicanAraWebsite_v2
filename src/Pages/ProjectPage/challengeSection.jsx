@@ -17,13 +17,8 @@ const ChallengeSection = ({ projectData, sectionLayout, margins }) => {
   };
 
   useEffect(() => {
-    console.log("approach inview: "+ inView)
-    if (inView) {
-      controls.start('visible');
-    } else {
-      controls.start('hidden');
-    }
-  }, [inView]);
+  
+  }, []);
 
 
   return (

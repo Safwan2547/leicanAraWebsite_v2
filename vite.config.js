@@ -5,6 +5,7 @@ import svgrPlugin from 'vite-plugin-svgr';
 import compression from 'vite-plugin-compression';
 
 export default defineConfig(() => {
+  
   return {
     build: {
       outDir: 'build',
@@ -21,5 +22,7 @@ export default defineConfig(() => {
         ext: '.gz', // File extension for compressed files
       }),
     ],
+    assetsInclude: ['**/*.mov'],
+
   };
 });

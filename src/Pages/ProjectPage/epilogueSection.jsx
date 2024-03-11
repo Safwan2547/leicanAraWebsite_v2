@@ -18,13 +18,8 @@ const EpilogueSection = ({ projectData, sectionLayout, margins }) => {
   };
 
   useEffect(() => {
-    console.log("approach inview: "+ inView)
-    if (inView) {
-      controls.start('visible');
-    } else {
-      controls.start('hidden');
-    }
-  }, [inView]);
+   
+  }, []);
 
   return (
     <motion.section animate={controls} variants={variants} ref={ref} id='epilogue' className={`${margins[0]} flex flex-col justify-center items-center`}>

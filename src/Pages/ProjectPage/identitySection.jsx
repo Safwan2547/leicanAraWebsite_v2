@@ -17,7 +17,7 @@ const IdentitySection = ({ projectData, sectionLayout, margins }) => {
   };
 useEffect(() => {
  
-},[inView])
+},[])
   return (
     <motion.section
       id="identity"

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import landingVid from '../../Assets/Website landing 1.mp4';
+import landingVid from '../../Assets/output-1.mov';
 
 function LandingPage() {
   const controls = useAnimation();
@@ -19,9 +19,9 @@ function LandingPage() {
   return (
     <div className="">
       <div className={`transition-opacity overflow-hidden duration-1000 sm:ml-0 overflow-x-hidden flex flex-col sm:flex-wrap justify-center sm:items-center sm:justify-items-start h-screen prose prose-sm lg:prose-xl text-MainBeige relative`}>
-        <div className="z-1 w-screen h-screen absolute flex justify-center items-center outline-none">
+        <div className="z-1 w-screen h-screen  flex justify-center items-center border-none outline-none">
           <motion.video
-            className="w-full  scale-90 absolute sm:scale-[50%] border-none overflow-hidden object-cover hover:none"
+            className=" z-1  outline-none scale-[30%] border-none overflow-hidden object-cover hover:none"
             controls={false} autoPlay muted loop
             
             transition={{ duration: 3,ease: "circInOut" }}

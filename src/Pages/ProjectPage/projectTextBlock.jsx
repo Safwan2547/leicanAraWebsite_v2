@@ -25,9 +25,14 @@ function ProjectTextBlock({ sectionName, sectionHead, sectionDescription }) {
 
     useEffect(() => {
         if (isInView) {
-            mainHeaderAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"] ,scale: [1.3,1], transition: { duration: 2, ease: "anticipate" } });
-            descriptionAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"], scale: [1.3,1], transition: { duration:2,delay:0.5, ease: "circInOut" } });
+            mainHeaderAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"] ,scale: [1.3,1], transition: { duration: 1.5, ease: "anticipate" } });
+            descriptionAnimation.start({ clipPath: ["circle(0% at 0% 0)","circle(150% at 0% 0)"], scale: [1.3,1], transition: { duration:1.5,delay:0.5, ease: "circInOut" } });
         } 
+        else{
+            mainHeaderAnimation.start({ clipPath: ["circle(0% at 0% 0)"] ,scale: [1.3], transition: { duration: 0.1, ease: "anticipate" } });
+            descriptionAnimation.start({ clipPath: ["circle(0% at 0% 0)"], scale: [1.3], transition: { duration:0.1,delay:0.5, ease: "circInOut" } });
+      
+        }
     }, [isInView, descriptionAnimation, mainHeaderAnimation]);
 
 
