@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import AnimatedParagraph from '../../Modules/paragraphAnimator';
 // import minimalImg from '../../assets/introductory2.webp';
 
+
 function Introductory() {
   const margin = 20;
   const marginExpression = `my-${Math.floor(margin / 2)} sm:mt-${Math.floor(margin)}`;
@@ -22,8 +23,8 @@ function Introductory() {
       </div>
       
       {/* <div className="sticky h-12 top-48 border-2 border-solid align-baseline w-1/2 left-12 z-10"> */}
-      <AnimatedParagraph inputText="We tell stories to empower visibility!" textSize="6" />
-          <AnimatedParagraph scrollRef={scrollRef} inputText="We tell stories to empower visibility!" />
+      <AnimatedParagraph  inputText="We tell stories to empower visibility!" textStyle="text-5xl font-Lora" />
+          <AnimatedParagraph scrollRef={scrollRef} textStyle="text-3xl font-satoshi-light" inputText="Halifax Based studio" />
 
         {/* </div> */}
 
