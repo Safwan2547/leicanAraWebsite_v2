@@ -53,7 +53,7 @@ function App() {
 
        <Cursor />
       <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
-    <div data-scroll-container ref={containerRef}   className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none overflow-hidden   scroll-n">
+    <div data-scroll-container ref={containerRef}   className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none    scroll-n">
       
       {/* <Intro/> */}
      

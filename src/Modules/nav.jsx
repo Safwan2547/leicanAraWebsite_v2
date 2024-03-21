@@ -78,7 +78,7 @@ const Navbar = ({toggleNav,navOpen}) => {
 
     return (
         <nav id="navBar" className={`  appearance-none transition-color opacity-0 ease-expo 
-        flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-10 `}  >
+        flex align-baseline justify-between fixed top-8 left-8 right-8 sm:left-5 sm:right-5 sm:top-8 sm:mr-5 sm:ml-5 z-20 `}  >
             <div onClick={()=>toggleNav(false)}>
               
             <TransitionLink to="/" className={`${navOpen?"text-MainBeige":"text-NightFall" } opacity-90 navItem antialiased transform transition-button duration-500 hover:scale-110

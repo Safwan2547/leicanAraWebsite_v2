@@ -44,7 +44,7 @@ const NavMenu = ({ navOpen, toggleNav }) => {
     }, [navOpen, controls]);
 
     return (
-        <motion.div animate={controls} variants={navVariants} className={`overflow-hidden overlay no-scrollbar::-webkit-scrollbar z-100 text-center top-0 left-0 w-screen h-screen fixed bg-NightFall ${navOpen ? ' opacity-100' : 'opacity-0 '}`}>
+        <motion.div animate={controls} variants={navVariants} className={`overflow-hidden overlay no-scrollbar::-webkit-scrollbar z-[19] text-center top-0 left-0 w-screen h-screen fixed bg-NightFall ${navOpen ? ' opacity-100' : 'opacity-0 '}`}>
             <motion.div animate={controls} variants={childVarients}>
                 <div data-speed="3" className='overlay-menu fixed overflow-hidden flex flex-col w-screen h-screen gap-24 justify-center items-center font-Lora text-8xl text-MainBeige'>
                     <div className={`menu-item `} onClick={() => toggleNav(false)}>

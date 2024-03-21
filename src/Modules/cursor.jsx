@@ -1,17 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { animate, spring } from "motion";
+import React, { useEffect, useState,useRef,useCallback } from 'react';
+import { motion,spring,useSpring,useMotionValue } from 'framer-motion';
+
+
 
 function Cursor() {
-  const [position, setPosition] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   const [hovering, setHovering] = useState(null);
+
+
+
   const cursorSize = 30;
-  const debounceDelay = 12; // 60fps
+  const mouse={
+    x:useMotionValue(0),
+    y:useMotionValue(0)
+
+  }
+  const smoothOptions={
+    stiffness: 500,
+    damping: 30,
+    mass:0.1,
+  }
+  const smoothMouse={
+    x:useSpring(mouse.x,smoothOptions),
+    y:useSpring(mouse.y,smoothOptions)
+  }
+  const manageMoveMouse=useCallback((e)=>{
+    const {clientX,clientY}=e;
+    mouse.x.set(clientX-cursorSize/2);
+    mouse.y.set(clientY-cursorSize/2);
+  })
+
+
+  const cursorRef = useRef(null);
+
 
   useEffect(() => {
-    const handleMouseMove = debounce((e) => {
-      adjustCursorPosition(e.clientX, e.clientY);
-    }, debounceDelay);
-
+    
     const handleMouseOver = (e) => {
       const className = e.target.className;
       if (className.includes('textC')) setHovering('text');
@@ -19,39 +42,21 @@ function Cursor() {
       else if (className.includes('textP')) setHovering('textP');
       else if (className.includes('footerC')) setHovering('footerC');
       else if (className.includes('enterC')) setHovering('enterC');
+      else if (className.includes('imageFloater')) setHovering('imageFloater');
       else setHovering(null);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousemove', manageMoveMouse);
     document.addEventListener('mouseover', handleMouseOver);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousemove', manageMoveMouse);
       document.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
 
-  const debounce = (func, delay) => {
-    let timer;
-    return function () {
-      const context = this;
-      const args = arguments;
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func.apply(context, args);
-      }, delay);
-    };
-  };
-
-  const adjustCursorPosition = (x, y) => {
-    const element = document.getElementById('Cursor');
-    animate(element, {
-      left: `${x - cursorSize / 2}px`,
-      top: `${y - cursorSize / 2}px`
-    }, {
-      easing: spring({ mass: 4, stiffness: 700, damping: 200 }),
-    });
-  };
+  
+  
 
   const getCursorClass = () => {
     switch (hovering) {
@@ -63,34 +68,59 @@ function Cursor() {
         return '!opacity-100 !w-1 !h-10 !border-white border-[1px] !border-opacity-30 !bg-NightFall cursor-none';
       case 'enterC':
         return '!opacity-100 transition-all !border-opacity-95 drop-shadow-lg !bg-MainBeige ease-in-out !w-24 !h-24 !border-NightFall border-solid cursor-none';
-      default:
+      case `imageFloater`:
+        return `!w-24 !h-24   !animate-pulse-slow`;
+        default:
         return '';
     }
   };
+ 
 
   const renderArrow = () => {
+    if(hovering === 'imageFloater'){
+      return(
+      <div className='animate-pulse-slow flex transition-opacity duration-500 justify-center w-full h-full items-center'>
+          <div className="scale-[100%]">
+            <span className='font-satoshi-light text-MainBeige'>Click!</span>
+          </div>
+        </div>
+      );
+
+    }
     if (hovering === 'enterC') {
       return (
-        <div className='animate-pulse-slow flex transition-opacity duration-500 justify-center w-full h-full items-center'>
+        <div className=' back animate-pulse-slow flex transition-opacity duration-500 justify-center w-full h-full items-center'>
           <div className="scale-[100%]">
-            <span className='font-Satoshi font-extralight text-LunarTwilight'>VIEW</span>
+            <span className='font-satoshi-light text-LunarTwilight'>VIEW</span>
           </div>
         </div>
       );
     }
+   
     return null;
   };
 
   return (
-    <div
+    <motion.div
       id="Cursor"
+      ref={cursorRef}
+
       className={`${getCursorClass()} !opacity-100 transition-cursor hidden sm:block !duration-300 bg-LunarTwilight fixed rounded-full z-50`}
       style={{
-        pointerEvents: "none"
+        pointerEvents: "none",
+        left: smoothMouse.x,
+        top: smoothMouse.y,
+     
       }}
+      
+
+     
+
+      
+
     >
       {renderArrow()}
-    </div>
+    </motion.div>
   );
 }
 
