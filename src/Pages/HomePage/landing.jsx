@@ -30,7 +30,7 @@ function LandingPage() {
           />
         </div>
 
-        <div data-speed="4" className='opacity-100 text-NightFall hidden sm:flex sm:absolute hover:text-LunarTwilight mouseParallax transition-text duration-200 bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
+        <div data-speed="4" className='opacity-100 text-NightFall hidden sm:flex sm:absolute hover:text-LunarTwilight  transition-text duration-200 bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
           <motion.h1
             style={{ clipPath: 'circle(0% at 0% 0)' }}
             data-speed="6"

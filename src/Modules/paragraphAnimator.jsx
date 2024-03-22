@@ -9,26 +9,24 @@ const AnimatedParagraph = (props) => {
 
   let { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["center center", "end end"]
+    offset: ["center", " end"]
 
     
     
   }) 
-  useEffect(() => {
-    console.log("text size="+props.textStyle);
-  }, [props.textStyle]);
+
   
   return (
-      <div ref={ref} className={` h-12 top-24   align-baseline w-1/2  z-10  max-w-xl mx-auto`}>
+      <div ref={ref} className={` mt-12 flex flex-wrap  align-baseline z-10 text-wrap  w-[75vw] mx-12`}>
         {words.map((word, index) => {
           // Calculate start and end range for each word based on its position in the array
           const rangeStart = 1-(index / words.length);
           const rangeEnd = 1-(index + 1) / words.length;
 
-          const opacity = useSpring(useTransform(scrollYProgress, [rangeStart, rangeEnd], [0.1, 1]),{ stiffness: 100, damping: 10 });
+          const opacity = useSpring(useTransform(scrollYProgress, [rangeStart, rangeEnd], [0.05, 1]),{ stiffness: 1000, damping: 100 ,mass:0.5});
 
           return (
-            <motion.span key={index} style={{ opacity }} className={`mr-2 ${props.textStyle} `}>
+            <motion.span key={index} style={{ opacity }} className={`mr-2  ${props.textStyle} `}>
               {word}
             </motion.span>
           );

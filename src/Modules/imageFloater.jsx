@@ -14,25 +14,39 @@ function ImageFloater() {
 
 
   const handleOnClick = (e) => {
-    if (images.length >= 1) {
-        setImages(currentImages => currentImages.slice(1));
 
-      
-    }
-    const randomIndex = Math.floor(Math.random() * imgArray.length);
+    // Calculate a random end position within a range
+  const maxX = 100; // Max horizontal movement range, adjust as needed
+  const maxY = 100; // Max vertical movement range, adjust as needed
+  const endX = Math.random() *  - maxX / 2; // Random end X within [-maxX/2, maxX/2]
+  const endY = Math.random() *  - maxY / 2; // Random end Y within [-maxY/2, maxY/2]
+  
+
     const imageKey = Math.random(); // Unique key for React list rendering
+// Apply boundary conditions
 
     const newImage = {
       src: imgArray[currentIndex],
-      x: e.clientX,
-      y: e.clientY,
+      x: e.clientX - window.innerWidth / 2,
+      y: e.clientY - window.innerHeight / 2,
       rotate: Math.random() * 120 - 60, // Adjusts the range to -90 to 90
+      endX, // Random end X position
+      endY, // Random end Y position
       key: imageKey,
     };
     setCurrentIndex((currentIndex + 1) % imgArray.length);
 
+    if (images.length >= 2) {
+        // setImages(currentImages => currentImages.slice(1));
+        setTimeout(() => {    setImages(currentImages => [...currentImages, newImage]);
+        },500);
 
-    setImages(currentImages => [...currentImages, newImage]);
+      
+    }
+    else{
+      setImages(currentImages => [...currentImages, newImage]);
+
+    }
 
     // Schedule the removal of this image after 3 seconds
     setTimeout(() => {
@@ -47,39 +61,48 @@ function ImageFloater() {
     };
   }, []);
 
+  const imageVariants = {
+    initial: (image) => ({
+      scale: 0.5,
+      clipPath: "circle(0% at 0% 0)",
+      x: image.x,
+      y: image.y,
+      rotate: image.rotate,
+    }),
+    animate: (image) => ({
+      scale: 0.35,
+      clipPath: "circle(150% at 0% 0)",
+      // x: image.x + image.endX,
+      y: image.y + image.endY,
+      rotate: 0,
+      transition: {
+        scale: { duration: 1, ease: "anticipate" },
+        clipPath: { duration: 1, ease: "anticipate" },
+        x: { duration: 3, ease: "easeInOut"},
+        y: { duration: 3, ease: "easeOut" },
+      },
+    }),
+    exit: {
+      scale: 0,
+      clipPath: "circle(0% at 0% 0)",
+      transition: { duration: 1, ease: "circInOut" },
+    },
+  };
+
   return (
-    <div id='imageFloater' className="w-screen imageFloater h-screen overflow-hidden absolute z-[19]" onClick={handleOnClick}>
+    <div id='imageFloater' className="w-screen h-screen overflow-hidden absolute z-[19]" onClick={handleOnClick}>
       <AnimatePresence>
         {images.map(image => (
-          <motion.img className={``}
+          <motion.img
+            className="absolute z-[21]"
             key={image.key}
             src={image.src}
             alt="Dynamic"
-            initial={{
-              scale: 0,
-              clipPath: "circle(0% at 0% 0)",
-              x: image.x - window.innerWidth / 2,
-              y: image.y - window.innerHeight / 2,
-              rotate: image.rotate,
-
-            }}
-            animate={{
-              scale: 0.35,
-              clipPath: "circle(150% at 0% 0)",
-            }}
-            exit={{
-              scale: 0,
-              clipPath: "circle(0% at 0% 0)",
-              
-            }}
-            transition={{
-              duration: 1,
-              ease: "circInOut",
-            }}
-            style={{
-              position: 'absolute',
-              
-            }}
+            variants={imageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            custom={image}
           />
         ))}
       </AnimatePresence>

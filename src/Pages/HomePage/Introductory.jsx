@@ -12,9 +12,10 @@ function Introductory() {
 
 
   return (
-    <section ref={scrollRef}
+    <section 
+    scrollRef={scrollRef}
       id="Introductory"
-      className={`relative  h-[80vh]  justify-start ${marginExpression} `}
+      className={`relative  h-[70vh] overflow-clip  justify-start ${marginExpression} `}
     >
       <div className="  w-full flex flex-col items-center  sm:p-0">
         {/* <img src={minimalImg} alt="Minimalistic image" className="w-[32rem] aspect-video object-cover z-0" /> */}
@@ -22,11 +23,13 @@ function Introductory() {
         
       </div>
       
-      {/* <div className="sticky h-12 top-48 border-2 border-solid align-baseline w-1/2 left-12 z-10"> */}
+      <div className=" h-12 top-[50vh] max-w-[35rem] text-wrap align-baseline  z-10">
       <AnimatedParagraph  inputText="We tell stories to empower visibility!" textStyle="text-5xl font-Lora" />
-          <AnimatedParagraph scrollRef={scrollRef} textStyle="text-3xl font-satoshi-light" inputText="Halifax Based studio" />
+        <AnimatedParagraph  textStyle="text-3xl font-satoshi-light " inputText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        " />
 
-        {/* </div> */}
+
+        </div>
 
     </section>
   );
