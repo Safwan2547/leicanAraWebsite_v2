@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import TransitionLink from '../../Modules/TransitionLink';
 import { useInView } from 'framer-motion';
+import { Parallax } from 'react-scroll-parallax';
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -75,9 +76,11 @@ const ProjectCard = ({ project }) => {
           <motion.p animate={titleAnimation} className={` ${isMobile === true ? (project.textColorMobile) : (project.textColor)} font-satoshi-semibold w-full text-6xl text-pretty lg:text-[14rem] sm:text-[10rem] capitalize text-center `} >{
             isMobile === true ? (project.mainHeaderMobile) : (project.title)}</motion.p>
         </div>
-        <motion.h4 animate={mainHeaderAnimation} className={`mainHeader font-satoshi-light text-pretty absolute bottom-10 mb-24 inset-y-12 inset-x-16 border- border- flex items-end justify-end text-4xl sm:text-6xl z-1 ${isMobile === true ? (project.textColorMobile) : (project.textColor)} `}>
+        <Parallax className=' flex items-end justify-end absolute bottom-10 mb-24 inset-y-12 inset-x-16' translateY={[10, -10]} speed={10}>
+        <motion.h4 animate={mainHeaderAnimation} className={`mainHeader font-satoshi-light text-pretty  border- border-  text-4xl sm:text-6xl z-1 ${isMobile === true ? (project.textColorMobile) : (project.textColor)} `}>
           {project.mainHeader}
         </motion.h4>
+        </Parallax>
         {project.thumbnail3d !== null && project.thumbnail3d !== undefined && (
           <div className='sm:flex hidden transition-all duration-1000  h-full w-full  justify-center absolute'>
             <img data-speed="2" className={`${project.thumbnail3dW} z-3   mouseParallax left-50 top-50 `} src={project.thumbnail3d} />

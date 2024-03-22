@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import landingVid from '../../Assets/Website landing 1.mp4';
 import Frame from '../../Modules/frame';
 import ImageFloater from '../../Modules/imageFloater';
+import { Parallax,ParallaxProvider } from 'react-scroll-parallax';
 
 function LandingPage() {
   const controls = useAnimation();
@@ -16,10 +17,12 @@ function LandingPage() {
   }, [controls, controlsHeader]);
 
   return (
+    
     <div className='overflow-clip w-screen h-[100vh]'>
       {/* <Frame /> */}
       <ImageFloater />
       <div className={`transition-opacity overflow-hidden duration-1000 sm:ml-0  flex flex-col sm:flex-wrap justify-center sm:items-center sm:justify-items-start h-screen prose prose-sm lg:prose-xl text-MainBeige relative`}>
+        <Parallax speed={-15} tagOuter="figure">
         <div data-speed="6" className="z-1  w-screen h-screen flex justify-center items-center border-none outline-none">
           <motion.video
             className="z-1 outline-none scale-[60%] border-none overflow-hidden object-cover hover:none"
@@ -29,8 +32,10 @@ function LandingPage() {
             type="video/mp4"
           />
         </div>
-
+        </Parallax>
+      
         <div data-speed="4" className='opacity-100 text-NightFall hidden sm:flex sm:absolute hover:text-LunarTwilight  transition-text duration-200 bottom-[10%] w-2/3 flex-col z-3 perspective-800'>
+        <Parallax speed={10} >
           <motion.h1
             style={{ clipPath: 'circle(0% at 0% 0)' }}
             data-speed="6"
@@ -42,6 +47,7 @@ function LandingPage() {
           >
             <span className='textC opacity-100 font-normal text-LunarTwilight text-8xl'>Storytellers</span> <span className='opacity-100'>for</span> <br /><span className='opacity-100'>the</span> <span className='textC font-normal opacity-100 text-8xl text-LunarTwilight '>Visionaries</span>
           </motion.h1>
+          </Parallax>
         </div>
       </div>
     </div>

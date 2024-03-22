@@ -12,6 +12,7 @@ import ProjectPage from './Pages/ProjectPage';
 import AboutPage from './Pages/AboutPage';
 import Footer from './Modules/Footer';
 import LocomotiveScroll from 'locomotive-scroll';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 
@@ -49,11 +50,13 @@ function App() {
   
   
   return (
+    <ParallaxProvider>
     <Router >
+
 
        <Cursor />
       <Navbar toggleNav={toggleNav} navOpen={navOpen}  />
-    <div data-scroll-container ref={containerRef}   className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none    scroll-n">
+    <div  ref={containerRef}   className=" snap-y no-scrollbar::-webkit-scrollbar  snap-mandatory sm:m-0 bg-white appearance-none    scroll-n">
       
       {/* <Intro/> */}
      
@@ -80,6 +83,7 @@ function App() {
       
 
     </Router>
+    </ParallaxProvider>
 );
 }
 export default App;

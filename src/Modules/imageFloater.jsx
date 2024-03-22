@@ -17,9 +17,8 @@ function ImageFloater() {
 
     // Calculate a random end position within a range
   const maxX = 100; // Max horizontal movement range, adjust as needed
-  const maxY = 100; // Max vertical movement range, adjust as needed
-  const endX = Math.random() *  - maxX / 2; // Random end X within [-maxX/2, maxX/2]
-  const endY = Math.random() *  - maxY / 2; // Random end Y within [-maxY/2, maxY/2]
+  const maxY = -50; // Max vertical movement range, adjust as needed
+  
   
 
     const imageKey = Math.random(); // Unique key for React list rendering
@@ -30,8 +29,7 @@ function ImageFloater() {
       x: e.clientX - window.innerWidth / 2,
       y: e.clientY - window.innerHeight / 2,
       rotate: Math.random() * 120 - 60, // Adjusts the range to -90 to 90
-      endX, // Random end X position
-      endY, // Random end Y position
+      maxY, // Random end Y position
       key: imageKey,
     };
     setCurrentIndex((currentIndex + 1) % imgArray.length);
@@ -73,7 +71,7 @@ function ImageFloater() {
       scale: 0.35,
       clipPath: "circle(150% at 0% 0)",
       // x: image.x + image.endX,
-      y: image.y + image.endY,
+      y: image.y + image.maxY,
       rotate: 0,
       transition: {
         scale: { duration: 1, ease: "anticipate" },
@@ -90,7 +88,7 @@ function ImageFloater() {
   };
 
   return (
-    <div id='imageFloater' className="w-screen h-screen overflow-hidden absolute z-[19]" onClick={handleOnClick}>
+    <div id='imageFloater' className="w-screen imageFloater h-screen overflow-hidden absolute z-[19]" onClick={handleOnClick}>
       <AnimatePresence>
         {images.map(image => (
           <motion.img

@@ -16,6 +16,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import LocomotiveScroll from 'locomotive-scroll';
 
 import { timeline } from 'motion';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function HomePage() {
   const containerRef = useRef(null);
@@ -41,7 +42,8 @@ function HomePage() {
   
 
   return (
-    <div data-scroll-container ref={containerRef}
+    
+    <div  ref={containerRef}
     className='   bg-white'>
 
             <MouseParallax/>
