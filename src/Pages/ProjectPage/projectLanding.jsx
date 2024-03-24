@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { Parallax,ParallaxBanner } from 'react-scroll-parallax';
 
 const LandingSection = ({ projectData }) => {
   const { title, mainHeader, secondaryHeader, thumbnail2 } = projectData;
@@ -51,6 +52,7 @@ const LandingSection = ({ projectData }) => {
         id='thumbnail'
         animate={controls}
       >
+        <Parallax speed={20}>
         <motion.img
         initial={{ clipPath:"circle(0% at 0% 0)",scale:0.8 }}
         animate={{ clipPath:"circle(150% at 100% 0)",scale:1 }}
@@ -60,6 +62,7 @@ const LandingSection = ({ projectData }) => {
           src={thumbnail2}
           alt="Project Thumbnail"
         />
+        </Parallax>
         <div id='x'></div>
       </motion.div>
     </motion.div>

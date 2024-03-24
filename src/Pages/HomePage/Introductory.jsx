@@ -25,7 +25,7 @@ function Introductory() {
       {/* </div> */}
       
       <div className="   text-wrap align-baseline  z-10">
-        <Parallax translateY={[-20, 20]} speed={-20}>
+        <Parallax translateY={[-50, 50]} speed={-20}>
       <AnimatedParagraph  inputText="We tell stories to empower visibility!" textStyle="text-5xl font-Lora" />
         <AnimatedParagraph  textStyle="text-3xl font-satoshi-light " inputText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
         " />

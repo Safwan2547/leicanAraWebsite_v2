@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import TransitionLink from '../../Modules/TransitionLink';
 import { useInView } from 'framer-motion';
-import { Parallax } from 'react-scroll-parallax';
+import { Parallax,ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -48,6 +49,14 @@ const ProjectCard = ({ project }) => {
     }
   }, [isInView, titleAnimation, mainHeaderAnimation]);
 
+  const layers = [
+    {
+      image: project.thumbnail,
+      amount: 0.5, // Adjust this value to control the parallax effect
+    },
+  
+  ];
+
   return (
     <div  className="">
       <div className="watcher overflow-hidden w-full h-screen snap-start relative eterC flex">
@@ -61,7 +70,9 @@ const ProjectCard = ({ project }) => {
                 <img loading='lazy' alt={project.alt} src={project.thumbnailPort} fetchPriority="low" className="object-cover w-[90vw] snap-center aspect-[1/1.85] overflow-y-hidden crsor-none" />
               ) : (
                 !isMobile && project.type === 'image' ? (
-                  <motion.img loading='lazy' alt={project.alt} fetchPriority="low" src={project.thumbnail} className="object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
+                  
+                    <motion.img  src={project.thumbnail} loading='lazy' alt={project.alt} fetchPriority="low"  className="object-cover overflow-hidden max-w-full aspect-[1/2] peer-hover:scale-125 relative sm:w-[60vw] sm:h-[30vw] transition-all duration-1000 ease-in-out z-2" />
+             
                 ) : (
                   <motion.video alt={project.alt} loading="lazy" muted autoPlay loop fetchPriority="low" className={`transition-all duration-[600ms] ${isHovered ? 'opacity-100 scale-[120%]' : 'scale-[100%]'}`}>
                     <source src={project.thumbnail} type="video/mp4" />
@@ -73,10 +84,12 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
         <div  className=" z-3 group sm:mt-12 flex justify-center items-center w-full absolute">
+        <Parallax className=' ' translateY={[30, -10]} speed={50}>
           <motion.p animate={titleAnimation} className={` ${isMobile === true ? (project.textColorMobile) : (project.textColor)} font-satoshi-semibold w-full text-6xl text-pretty lg:text-[14rem] sm:text-[10rem] capitalize text-center `} >{
             isMobile === true ? (project.mainHeaderMobile) : (project.title)}</motion.p>
+          </Parallax>
         </div>
-        <Parallax className=' flex items-end justify-end absolute bottom-10 mb-24 inset-y-12 inset-x-16' translateY={[10, -10]} speed={10}>
+        <Parallax className=' flex items-end justify-end absolute bottom-10 mb-24 inset-y-12 inset-x-16' translateY={[10, -20]} speed={20}>
         <motion.h4 animate={mainHeaderAnimation} className={`mainHeader font-satoshi-light text-pretty  border- border-  text-4xl sm:text-6xl z-1 ${isMobile === true ? (project.textColorMobile) : (project.textColor)} `}>
           {project.mainHeader}
         </motion.h4>
