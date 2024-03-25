@@ -10,8 +10,8 @@ function Cursor() {
 
   const cursorSize = 30;
   const mouse={
-    x:useMotionValue(0),
-    y:useMotionValue(0)
+    x:useMotionValue(-100),
+    y:useMotionValue(-100)
 
   }
   const smoothOptions={

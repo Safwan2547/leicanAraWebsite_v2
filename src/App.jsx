@@ -30,18 +30,18 @@ function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [animating, setAnimating] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Loading state
-  const loadingTime=3000
+  const loadingTime=3
 
 
   useEffect(() => {
     // Simulate loading or place your loading logic here
-    setTimeout(() => setIsLoading(false), loadingTime); // Simulate loading for 3 seconds
+    setTimeout(() => setIsLoading(false), loadingTime*1000); // Simulate loading for 3 seconds
   }, []);
 
   if (isLoading) {
     // Loading screen UI
     return <div className="flex justify-center items-center h-screen">
-      <LoadingScreen time={loadingTime} />
+      <LoadingScreen loadingTime={loadingTime} />
     </div>;
   }
 
